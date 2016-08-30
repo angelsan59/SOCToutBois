@@ -196,7 +196,7 @@ public class AddRep extends javax.swing.JDialog {
         jPanel1.add(jPanel2);
         jPanel2.setBounds(210, 70, 260, 130);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\sociepka\\Netbeansprojects\\A_Projet_ToutBois\\presentation_ecrite\\meubles2.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/san/form/meubles3.jpg"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 690, 380);
 

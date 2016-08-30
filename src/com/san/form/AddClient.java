@@ -51,8 +51,8 @@ public class AddClient extends javax.swing.JDialog {
         Titre = new javax.swing.JLabel();
         Liste = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
-        lbNomsociete = new javax.swing.JLabel();
-        chpNomsociete = new javax.swing.JTextField();
+        lbNomenseigne = new javax.swing.JLabel();
+        chpNomenseigne = new javax.swing.JTextField();
         lbAddresse1 = new javax.swing.JLabel();
         lbCodepostal = new javax.swing.JLabel();
         chpAdresse1 = new javax.swing.JTextField();
@@ -71,7 +71,7 @@ public class AddClient extends javax.swing.JDialog {
         chpDatevisite = new javax.swing.JTextField();
         titreContact = new javax.swing.JLabel();
         fondcouleur1 = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        comboPays = new javax.swing.JComboBox<>();
         fondcouleur2 = new javax.swing.JPanel();
         chpPrenom = new javax.swing.JTextField();
         lbNom = new javax.swing.JLabel();
@@ -109,17 +109,17 @@ public class AddClient extends javax.swing.JDialog {
         jPanel1.add(Liste);
         Liste.setBounds(10, 270, 580, 138);
 
-        lbNomsociete.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbNomsociete.setText("Nom de la Société");
-        lbNomsociete.setFocusable(false);
-        jPanel1.add(lbNomsociete);
-        lbNomsociete.setBounds(340, 20, 109, 20);
+        lbNomenseigne.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbNomenseigne.setText("Nom de l'enseigne");
+        lbNomenseigne.setFocusable(false);
+        jPanel1.add(lbNomenseigne);
+        lbNomenseigne.setBounds(340, 20, 110, 20);
 
-        chpNomsociete.setColumns(10);
-        chpNomsociete.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        chpNomsociete.setNextFocusableComponent(chpSiret);
-        jPanel1.add(chpNomsociete);
-        chpNomsociete.setBounds(460, 20, 126, 23);
+        chpNomenseigne.setColumns(10);
+        chpNomenseigne.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        chpNomenseigne.setNextFocusableComponent(chpSiret);
+        jPanel1.add(chpNomenseigne);
+        chpNomenseigne.setBounds(460, 20, 126, 23);
 
         lbAddresse1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbAddresse1.setText("Adresse 1");
@@ -207,13 +207,13 @@ public class AddClient extends javax.swing.JDialog {
         chpDatevisite.setBounds(480, 60, 106, 21);
 
         titreContact.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        titreContact.setText("Contact de la société");
+        titreContact.setText("Contact de l'enseigne");
         jPanel1.add(titreContact);
-        titreContact.setBounds(20, 160, 187, 22);
+        titreContact.setBounds(20, 160, 210, 22);
 
         fondcouleur1.setBackground(new java.awt.Color(191, 191, 179));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "France", "Belgique", "Suisse", "Pays bas", "-----------", "Afghanistan ", "Afrique du Sud ", "Albanie ", "Algérie ", "Allemagne ", "Angola ", "Antigua-et-Barbuda ", "Arabie saoudite ", "Argentine ", "Arménie ", "Australie ", "Autriche ", "Azerbaïdjan ", "Bahamas ", "Bahreïn ", "Bangladesh ", "Barbade ", "Belau ", "Belgique ", "Belize ", "Bénin ", "Bhoutan ", "Biélorussie ", "Birmanie ", "Bolivie ", "Bosnie-Herzégovine ", "Botswana ", "Brésil ", "Brunei ", "Bulgarie ", "Burkina ", "Burundi ", "Cambodge ", "Cameroun ", "Canada ", "Cap-Vert ", "Chili ", "Chine ", "Chypre ", "Colombie ", "Comores ", "Congo ", "Cook ", "Corée du Nord ", "Corée du Sud ", "Costa Rica ", "Côte d'Ivoire ", "Croatie ", "Cuba ", "Danemark ", "Djibouti ", "Dominique ", "Écosse ", "Égypte ", "Émirats arabes unis ", "Équateur ", "Érythrée ", "Espagne ", "Estonie ", "États-Unis ", "Éthiopie ", "Fidji ", "Finlande ", "France ", "Gabon ", "Gambie ", "Géorgie ", "Ghana ", "Grèce ", "Grenade ", "Guatemala ", "Guinée ", "Guinée-Bissao ", "Guinée équatoriale ", "Guyana ", "Haïti ", "Honduras ", "Hongrie ", "Inde ", "Indonésie ", "Iran ", "Irak ", "Irlande ", "Islande ", "Israël ", "Italie ", "Jamaïque ", "Japon ", "Jordanie ", "Kazakhstan ", "Kenya ", "Kirghizistan ", "Kiribati ", "Koweït ", "Laos ", "Lesotho ", "Lettonie ", "Liban ", "Liberia ", "Libye ", "Liechtenstein ", "Lituanie ", "Luxembourg ", "Macédoine ", "Madagascar ", "Malaisie ", "Malawi ", "Maldives ", "Mali ", "Malte ", "Maroc ", "Marshall ", "Maurice ", "Mauritanie ", "Mexique ", "Micronésie ", "Moldavie ", "Monaco ", "Mongolie ", "Mozambique ", "Namibie ", "Nauru ", "Népal ", "Nicaragua ", "Niger ", "Nigeria ", "Niue ", "Norvège ", "Nouvelle-Zélande ", "Oman ", "Ouganda ", "Ouzbékistan ", "Pakistan ", "Palestine ", "Panama ", "Papouasie - Nouvelle Guinée ", "Paraguay ", "Pays-Bas ", "Pérou ", "Philippines ", "Pologne ", "Portugal ", "Qatar ", "République centrafricaine ", "République démocratique du Con ", "République dominicaine ", "République tchèque ", "Roumanie ", "Royaume-Uni ", "Russie ", "Rwanda ", "Saint-Christophe-et-Niévès ", "Sainte-Lucie ", "Saint-Marin ", "Saint-Siège ", "Saint-Vincent-et-les-Grenadine ", "Salomon ", "Salvador ", "Samoa occidentales ", "Sao Tomé-et-Principe ", "Sénégal ", "Seychelles ", "Sierra Leone ", "Singapour ", "Slovaquie ", "Slovénie ", "Somalie ", "Soudan ", "Sri Lanka ", "Suède ", "Suisse ", "Suriname ", "Swaziland ", "Syrie ", "Tadjikistan ", "Tanzanie ", "Tchad ", "Thaïlande ", "Togo ", "Tonga ", "Trinité-et-Tobago ", "Tunisie ", "Turkménistan ", "Turquie ", "Tuvalu ", "Ukraine ", "Uruguay ", "Vanuatu ", "Venezuela ", "Viêt Nam ", "Yémen ", "Yougoslavie ", "Zambie ", "Zimbabwe " }));
+        comboPays.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "France", "Belgique", "Suisse", "Pays bas", "-----------", "Afghanistan ", "Afrique du Sud ", "Albanie ", "Algérie ", "Allemagne ", "Angola ", "Antigua-et-Barbuda ", "Arabie saoudite ", "Argentine ", "Arménie ", "Australie ", "Autriche ", "Azerbaïdjan ", "Bahamas ", "Bahreïn ", "Bangladesh ", "Barbade ", "Belau ", "Belgique ", "Belize ", "Bénin ", "Bhoutan ", "Biélorussie ", "Birmanie ", "Bolivie ", "Bosnie-Herzégovine ", "Botswana ", "Brésil ", "Brunei ", "Bulgarie ", "Burkina ", "Burundi ", "Cambodge ", "Cameroun ", "Canada ", "Cap-Vert ", "Chili ", "Chine ", "Chypre ", "Colombie ", "Comores ", "Congo ", "Cook ", "Corée du Nord ", "Corée du Sud ", "Costa Rica ", "Côte d'Ivoire ", "Croatie ", "Cuba ", "Danemark ", "Djibouti ", "Dominique ", "Écosse ", "Égypte ", "Émirats arabes unis ", "Équateur ", "Érythrée ", "Espagne ", "Estonie ", "États-Unis ", "Éthiopie ", "Fidji ", "Finlande ", "France ", "Gabon ", "Gambie ", "Géorgie ", "Ghana ", "Grèce ", "Grenade ", "Guatemala ", "Guinée ", "Guinée-Bissao ", "Guinée équatoriale ", "Guyana ", "Haïti ", "Honduras ", "Hongrie ", "Inde ", "Indonésie ", "Iran ", "Irak ", "Irlande ", "Islande ", "Israël ", "Italie ", "Jamaïque ", "Japon ", "Jordanie ", "Kazakhstan ", "Kenya ", "Kirghizistan ", "Kiribati ", "Koweït ", "Laos ", "Lesotho ", "Lettonie ", "Liban ", "Liberia ", "Libye ", "Liechtenstein ", "Lituanie ", "Luxembourg ", "Macédoine ", "Madagascar ", "Malaisie ", "Malawi ", "Maldives ", "Mali ", "Malte ", "Maroc ", "Marshall ", "Maurice ", "Mauritanie ", "Mexique ", "Micronésie ", "Moldavie ", "Monaco ", "Mongolie ", "Mozambique ", "Namibie ", "Nauru ", "Népal ", "Nicaragua ", "Niger ", "Nigeria ", "Niue ", "Norvège ", "Nouvelle-Zélande ", "Oman ", "Ouganda ", "Ouzbékistan ", "Pakistan ", "Palestine ", "Panama ", "Papouasie - Nouvelle Guinée ", "Paraguay ", "Pays-Bas ", "Pérou ", "Philippines ", "Pologne ", "Portugal ", "Qatar ", "République centrafricaine ", "République démocratique du Con ", "République dominicaine ", "République tchèque ", "Roumanie ", "Royaume-Uni ", "Russie ", "Rwanda ", "Saint-Christophe-et-Niévès ", "Sainte-Lucie ", "Saint-Marin ", "Saint-Siège ", "Saint-Vincent-et-les-Grenadine ", "Salomon ", "Salvador ", "Samoa occidentales ", "Sao Tomé-et-Principe ", "Sénégal ", "Seychelles ", "Sierra Leone ", "Singapour ", "Slovaquie ", "Slovénie ", "Somalie ", "Soudan ", "Sri Lanka ", "Suède ", "Suisse ", "Suriname ", "Swaziland ", "Syrie ", "Tadjikistan ", "Tanzanie ", "Tchad ", "Thaïlande ", "Togo ", "Tonga ", "Trinité-et-Tobago ", "Tunisie ", "Turkménistan ", "Turquie ", "Tuvalu ", "Ukraine ", "Uruguay ", "Vanuatu ", "Venezuela ", "Viêt Nam ", "Yémen ", "Yougoslavie ", "Zambie ", "Zimbabwe " }));
 
         javax.swing.GroupLayout fondcouleur1Layout = new javax.swing.GroupLayout(fondcouleur1);
         fondcouleur1.setLayout(fondcouleur1Layout);
@@ -221,14 +221,14 @@ public class AddClient extends javax.swing.JDialog {
             fondcouleur1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondcouleur1Layout.createSequentialGroup()
                 .addContainerGap(444, Short.MAX_VALUE)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(comboPays, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
         fondcouleur1Layout.setVerticalGroup(
             fondcouleur1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondcouleur1Layout.createSequentialGroup()
                 .addContainerGap(69, Short.MAX_VALUE)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(comboPays, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -415,16 +415,16 @@ public class AddClient extends javax.swing.JDialog {
     private javax.swing.JTextField chpDatevisite;
     private javax.swing.JTextField chpEmail;
     private javax.swing.JTextField chpNom;
-    private javax.swing.JTextField chpNomsociete;
+    private javax.swing.JTextField chpNomenseigne;
     private javax.swing.JTextField chpPrenom;
     private javax.swing.JTextField chpSiret;
     private javax.swing.JTextField chpTelfixe;
     private javax.swing.JTextField chpTelportable;
     private javax.swing.JTextField chpVille;
+    private javax.swing.JComboBox<String> comboPays;
     private javax.swing.JPanel fondcouleur1;
     private javax.swing.JPanel fondcouleur2;
     private javax.swing.JLabel imagefond;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JList<String> jList1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
@@ -433,7 +433,7 @@ public class AddClient extends javax.swing.JDialog {
     private javax.swing.JLabel lbDatevisite;
     private javax.swing.JLabel lbEmail;
     private javax.swing.JLabel lbNom;
-    private javax.swing.JLabel lbNomsociete;
+    private javax.swing.JLabel lbNomenseigne;
     private javax.swing.JLabel lbPays;
     private javax.swing.JLabel lbPrenom;
     private javax.swing.JLabel lbSiret;
