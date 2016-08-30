@@ -65,4 +65,4 @@ San 30-08-16
 
 Résolu le problème de chemin du logo des fenêtres. Utilisation de Bufferedimage à la place de Toolkit. Ce qui a nécessité des throws IO exceptions et try/catch plus loin dans le code des fenêtres, là où il y a un appel des classes du nom de la fenêtre.
 
-Remplacement du champ "pays" des formulaires par un menu déroulant 
+Remplacement du champ "pays" des formulaires par un menu déroulant avec les pays "préférés" en premier, et la liste complète des pays ensuite
