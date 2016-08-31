@@ -7,7 +7,7 @@
         <Menu class="javax.swing.JMenu" name="jMenu1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/com/san/form/iconearbre.jpg"/>
+              <Image iconType="3" name="/Formulaires/iconearbre.jpg"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Retour &#xe0; la fen&#xea;tre principale"/>
           </Properties>
@@ -18,7 +18,7 @@
         <Menu class="javax.swing.JMenu" name="jMenu3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/com/san/form/iconeplus.jpg"/>
+              <Image iconType="3" name="/Formulaires/iconeplus.jpg"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Ajouter un repr&#xe9;sentant"/>
           </Properties>
@@ -29,7 +29,7 @@
         <Menu class="javax.swing.JMenu" name="jMenu4">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/com/san/form/iconemodif.jpg"/>
+              <Image iconType="3" name="/Formulaires/iconemodif.jpg"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Modifier un repr&#xe9;sentant"/>
           </Properties>
@@ -42,7 +42,7 @@
         <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/com/san/form/iconeaide.jpg"/>
+              <Image iconType="3" name="/Formulaires/iconeaide.jpg"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Aide"/>
           </Properties>
@@ -303,7 +303,7 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/com/san/form/meubles3.jpg"/>
+              <Image iconType="3" name="/Formulaires/meubles3.jpg"/>
             </Property>
           </Properties>
           <Constraints>

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.san.form;
+package Formulaires;
 
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -288,11 +288,11 @@ public class AddProspect extends javax.swing.JDialog {
         fondcouleur2.setBounds(0, 190, 600, 70);
 
         imagefond.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        imagefond.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/san/form/meubles1.jpg"))); // NOI18N
+        imagefond.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/meubles1.jpg"))); // NOI18N
         jPanel1.add(imagefond);
         imagefond.setBounds(0, -30, 600, 480);
 
-        mRetour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/san/form/iconearbre.jpg"))); // NOI18N
+        mRetour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconearbre.jpg"))); // NOI18N
         mRetour.setText("Retour à la fenêtre principale");
         mRetour.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -301,15 +301,15 @@ public class AddProspect extends javax.swing.JDialog {
         });
         jMenuBar1.add(mRetour);
 
-        mAjouter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/san/form/iconeplus.jpg"))); // NOI18N
+        mAjouter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconeplus.jpg"))); // NOI18N
         mAjouter.setText("Ajouter un nouveau client");
         jMenuBar1.add(mAjouter);
 
-        mModifier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/san/form/iconemodif.jpg"))); // NOI18N
+        mModifier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconemodif.jpg"))); // NOI18N
         mModifier.setText("Modifier un client");
         jMenuBar1.add(mModifier);
 
-        mAide.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/san/form/iconeaide.jpg"))); // NOI18N
+        mAide.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconeaide.jpg"))); // NOI18N
         mAide.setText("Aide");
         jMenuBar1.add(mAide);
 

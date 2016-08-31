@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.san.form;
+package Formulaires;
 
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -94,7 +94,7 @@ public FenetrePrincipaleFrame() {
         jPanel1.add(lbPresentation);
         lbPresentation.setBounds(10, 60, 550, 50);
 
-        imageArbres.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/san/form/téléchargement.jpg"))); // NOI18N
+        imageArbres.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/téléchargement.jpg"))); // NOI18N
         imageArbres.setBorder(null);
         imageArbres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,7 +129,7 @@ public FenetrePrincipaleFrame() {
         jPanel1.add(lbBienvenue);
         lbBienvenue.setBounds(20, 20, 560, 37);
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/san/form/meubles1.jpg"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/meubles1.jpg"))); // NOI18N
         jPanel1.add(jLabel8);
         jLabel8.setBounds(0, 0, 600, 360);
 

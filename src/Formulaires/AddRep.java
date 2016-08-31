@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.san.form;
+package Formulaires;
 
 import Entites.Representant;
 import java.awt.Frame;
@@ -196,11 +196,11 @@ public class AddRep extends javax.swing.JDialog {
         jPanel1.add(jPanel2);
         jPanel2.setBounds(210, 70, 260, 130);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/san/form/meubles3.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/meubles3.jpg"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 690, 380);
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/san/form/iconearbre.jpg"))); // NOI18N
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconearbre.jpg"))); // NOI18N
         jMenu1.setText("Retour à la fenêtre principale");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -209,7 +209,7 @@ public class AddRep extends javax.swing.JDialog {
         });
         jMenuBar1.add(jMenu1);
 
-        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/san/form/iconeplus.jpg"))); // NOI18N
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconeplus.jpg"))); // NOI18N
         jMenu3.setText("Ajouter un représentant");
         jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -218,14 +218,14 @@ public class AddRep extends javax.swing.JDialog {
         });
         jMenuBar1.add(jMenu3);
 
-        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/san/form/iconemodif.jpg"))); // NOI18N
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconemodif.jpg"))); // NOI18N
         jMenu4.setText("Modifier un représentant");
         jMenuBar1.add(jMenu4);
 
         jMenu5.setText("Supprimer");
         jMenuBar1.add(jMenu5);
 
-        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/san/form/iconeaide.jpg"))); // NOI18N
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconeaide.jpg"))); // NOI18N
         jMenu2.setText("Aide");
         jMenuBar1.add(jMenu2);
 
