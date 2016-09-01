@@ -79,3 +79,14 @@ Remplacement du champ "pays" des formulaires par un menu déroulant avec les pay
 - creation du repository SOCToutBois
 - ajout des fichiers mmis à jour par commit puis remote push
 - modification des détails "enseigne"
+
+----------------------------------------------------------------------------
+
+Sec 01-09-16
+
+Attention lors de la recherche dans un tableau "Vector", pensez a la possibilité de plusieurs cas identiques...
+
+SAN
+
+Ajout d'un module de recherche ?
+

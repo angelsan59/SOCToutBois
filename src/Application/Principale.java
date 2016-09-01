@@ -7,12 +7,15 @@ package Application;
 
 
 import Formulaires.FenetrePrincipaleFrame;
+import GestionFichier.LectureFichierCSV;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame ;
 import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
+import java.util.Vector;
 import javax.imageio.ImageIO;
+
 
 
 /**
@@ -20,22 +23,40 @@ import javax.imageio.ImageIO;
  * @author scoulon
  */
 public class Principale {
-
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        // TODO code application logic here
+        
         //FenetrePrincipale fp = new FenetrePrincipale(new javax.swing.JFrame(), true);
         /**
          * Chargement de la fenetre principale
          */
-        FenetrePrincipaleFrame fp = new FenetrePrincipaleFrame (new javax.swing.JFrame(), true);
-        fp.setVisible(true);
-        // ImageIcon img = new ImageIcon("E:\\sociepka\\Netbeansprojects\\A_Projet_ToutBois\\src\\com\\san\\form\\logo.jpg");
-        //fp.setIconImage(img.getImage());
-       // fp.setIconImage(ImageIO.read(new File("/com/san/form/logo.png")));
-        //(new javax.swing.ImageIcon(getClass().getResource("/com/san/form/meubles1.jpg"))); // NOI18N
+        // FenetrePrincipaleFrame fp = new FenetrePrincipaleFrame (new javax.swing.JFrame(), true);
+        // fp.setVisible(true);
+                            // ImageIcon img = new ImageIcon("E:\\sociepka\\Netbeansprojects\\A_Projet_ToutBois\\src\\com\\san\\form\\logo.jpg");
+                            //fp.setIconImage(img.getImage());
+                            // fp.setIconImage(ImageIO.read(new File("/com/san/form/logo.png")));
+                            //(new javax.swing.ImageIcon(getClass().getResource("/com/san/form/meubles1.jpg"))); // NOI18N
+        LectureFichierCSV fichierrepresentant = new LectureFichierCSV ("E:\\Afpa\\Mes exercices\\A_Projet_ToutBois\\data\\test.txt") ;
+        // Lit tout le fichier       
+        System.out.println("Depuis principale :") ;
+        System.out.println(fichierrepresentant) ;
+        System.out.println("--------------------------------------") ;
+        System.out.println("lecture d'une donnée") ;
+        int colonne = 2 ;
+        int ligne = 2 ;        
+        System.out.println(fichierrepresentant.getUnedonnee(ligne,colonne));
+        System.out.println("--------------------------------------") ;
+        System.out.println("lecture du Vector") ;
+        System.out.println(fichierrepresentant.getContenudufichier() );
+        System.out.println("--------------------------------------") ;
+        System.out.println("lecture d'une ligne") ;
+        int lignealire = 2 ;
+        int nbcolonne = fichierrepresentant.getNbdecolonnes() - 1 ;
+        for (int i=0; i<nbcolonne; i++) {
+        System.out.println(fichierrepresentant.getUnedonnee(lignealire,i));    
+        }
+        System.out.println("--------------------------------------") ;
     }
-    
 }

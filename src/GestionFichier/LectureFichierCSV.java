@@ -5,6 +5,7 @@
  */
 package GestionFichier;
 
+import Application.Principale;
 import java.io.* ;
 // http://b.kostrzewa.free.fr/java/td-struct/glossaire.html
 import java.util.Vector ;
@@ -19,6 +20,7 @@ public class LectureFichierCSV {
     private int nbdelignes ; // nombres de lignes dans le fichier CSV car évolutif.
     private int nbdecolonnes ; // nombres de colonnes dans le fichier CSV car évolutif.
     private Vector contenudufichier ; // Vector est le resultat de la lecture du fichier.
+    private String unedonnee ;
     private final static char separateurdecolonnes = ';' ; // Séparateur par défaut ";".
     
 // Les getters et les setters    
@@ -36,6 +38,19 @@ public class LectureFichierCSV {
         return nbdecolonnes;
     }
 
+    public String getUnedonnee(int ligne,int colonne) {
+        if (ligne<0 || colonne<0 || ligne>(getNbdelignes() - 1) || colonne>(getNbdecolonnes() - 1)) {
+            return null ;
+        }
+        Vector laligne = (Vector)contenudufichier.get(ligne);
+        String resultat = (String)laligne.get(colonne) ;
+        return resultat ; 
+        }
+
+    public void setUnedonnee(String unedonnee) {
+        this.unedonnee = unedonnee;
+    }
+
     public void setNbdecolonnes(int nbdecolonnes) {
         this.nbdecolonnes = nbdecolonnes ;
         majdelatailleduvector() ;
@@ -50,7 +65,6 @@ public class LectureFichierCSV {
     }
     
 
-
     public LectureFichierCSV (String chemincomplet) throws FileNotFoundException {
         // Création d'un nouveau contenu de fichier CSV (Vector).
         contenudufichier = new Vector () ;
@@ -59,12 +73,19 @@ public class LectureFichierCSV {
         // Lance la fonction de lecture du contenu du fichier.
         LectureDuContenu (fichierlu) ;
         // Test d'affichage en console
+        System.out.println("Depuis LectureFichierCSV :") ;
         System.out.println(contenudufichier) ;
+        System.out.println("--------------------------------------") ;
     /**
     * 
     * A FINALISER    
     * 
     **/    
+    }
+
+    @Override
+    public String toString() {
+        return "LectureFichierCSV{" + "contenudufichier=" + contenudufichier + '}';
     }
 
     // Fonction privée de lecture du contenu du fichier (reader = fichierlu)
@@ -164,6 +185,6 @@ public class LectureFichierCSV {
          aRow.setSize(nbdecolonnes);
       }
    }
-    
-    
+   
+   
 }
