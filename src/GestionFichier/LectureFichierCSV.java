@@ -83,11 +83,6 @@ public class LectureFichierCSV {
     **/    
     }
 
-    @Override
-    public String toString() {
-        return "LectureFichierCSV{" + "contenudufichier=" + contenudufichier + '}';
-    }
-
     // Fonction privée de lecture du contenu du fichier (reader = fichierlu)
     // Attends le contenu du fichier "reader" en entrée.
     // Pas de retour.
