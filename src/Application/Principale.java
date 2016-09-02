@@ -38,7 +38,8 @@ public class Principale {
                             //fp.setIconImage(img.getImage());
                             // fp.setIconImage(ImageIO.read(new File("/com/san/form/logo.png")));
                             //(new javax.swing.ImageIcon(getClass().getResource("/com/san/form/meubles1.jpg"))); // NOI18N
-        LectureFichierCSV fichierrepresentant = new LectureFichierCSV ("E:\\Afpa\\Mes exercices\\A_Projet_ToutBois\\data\\test.txt") ;
+       // LectureFichierCSV fichierrepresentant = new LectureFichierCSV ("E:\\Afpa\\Mes exercices\\A_Projet_ToutBois\\data\\test.txt") ;
+       LectureFichierCSV fichierrepresentant = new LectureFichierCSV ("contenu.txt") ;
         // Lit tout le fichier       
         System.out.println("Depuis principale :") ;
         System.out.println(fichierrepresentant) ;

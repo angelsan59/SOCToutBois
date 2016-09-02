@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-
+import Tables.*;
 /**
  *
  * @author sociepka
@@ -51,9 +51,11 @@ public class AddRep extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        DataFileTableModel model;
+        String nomFichier="contenu.txt";
+        jTable1 = new javax.swing.JTable();
         Titre = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
         jPanel2 = new javax.swing.JPanel();
         chpPrenom = new javax.swing.JTextField();
         chpNom = new javax.swing.JTextField();
@@ -78,22 +80,18 @@ public class AddRep extends javax.swing.JDialog {
         jPanel1.setBackground(new java.awt.Color(187, 235, 219));
         jPanel1.setLayout(null);
 
+        model = new DataFileTableModel(nomFichier);
+        jTable1.setModel(model);
+        jTable1.createDefaultColumnsFromModel();
+        jScrollPane2.setViewportView(jTable1);
+
+        jPanel1.add(jScrollPane2);
+        jScrollPane2.setBounds(100, 240, 452, 120);
+
         Titre.setFont(new java.awt.Font("Stencil", 1, 24)); // NOI18N
         Titre.setText("Gestion des représentants");
         jPanel1.add(Titre);
         Titre.setBounds(30, 20, 500, 30);
-
-        jList1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item2", "Item3" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jList1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jScrollPane1.setViewportView(jList1);
-
-        jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(50, 230, 580, 138);
 
         jPanel2.setBackground(new java.awt.Color(191, 191, 179));
 
@@ -239,7 +237,7 @@ public class AddRep extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
         );
 
         pack();
@@ -350,7 +348,6 @@ public class AddRep extends javax.swing.JDialog {
     private javax.swing.JTextField chpSalaire;
     private javax.swing.JTextField chpTxCommission;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -359,7 +356,8 @@ public class AddRep extends javax.swing.JDialog {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lbNom;
     private javax.swing.JLabel lbPrenom;
     private javax.swing.JLabel lbSalaire;
