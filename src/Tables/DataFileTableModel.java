@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Classe lisant le fichier texte contenant les données et les transformant en vectors afin de formater les données en tableau pour le setModel de Jtable
+/* utilisé comme listes dans les formulaires des représentants, clients et prospects.
  */
 package Tables;
 import javax.swing.*;
@@ -15,27 +14,35 @@ import javax.swing.*;
  * @author sociepka
  */
 
-
+/**
+ * Utilisation de cette classe comme dérivé de la classe AbstractTableModel dans la bibliothèque java swing
+ */
  public class DataFileTableModel extends AbstractTableModel {
          protected Vector data;            //données
          protected Vector columnNames ;    //noms de colonnes
          protected String datafile;        //nom du fichier de données
 
+         /**
+          * Création du constructeur
+          */
     public DataFileTableModel(String f) {
           datafile=f;
           initVectors();
          }
  
+    /**
+     * Initialisation des vectors et lecture du fichier texte avec exception si le fichier est introuvable
+     */
          public void initVectors() {
           String ligne;
           data=new Vector();
           columnNames=new Vector();
           try {
            FileInputStream fin=new FileInputStream(datafile);
-           BufferedReader br=new BufferedReader(
-            new InputStreamReader(fin));
+           BufferedReader br=new BufferedReader(new InputStreamReader(fin));
            // lecture des noms de colonnes (1ère ligne)
            ligne=br.readLine();
+           // Analyse de la ligne de données lue précédemment avec séparateur de données, ";"
            StringTokenizer st1=new StringTokenizer(ligne, ";");
            while(st1.hasMoreTokens())
             columnNames.addElement(st1.nextToken());

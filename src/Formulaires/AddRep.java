@@ -51,10 +51,6 @@ public class AddRep extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        DataFileTableModel model;
-        String nomFichier="contenu.txt";
-        jTable1 = new javax.swing.JTable();
         Titre = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         chpPrenom = new javax.swing.JTextField();
@@ -65,6 +61,10 @@ public class AddRep extends javax.swing.JDialog {
         lbTxCommission = new javax.swing.JLabel();
         lbNom = new javax.swing.JLabel();
         lbSalaire = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        DataFileTableModel model;
+        String nomFichier="Data/contenu.txt";
+        jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -79,14 +79,6 @@ public class AddRep extends javax.swing.JDialog {
 
         jPanel1.setBackground(new java.awt.Color(187, 235, 219));
         jPanel1.setLayout(null);
-
-        model = new DataFileTableModel(nomFichier);
-        jTable1.setModel(model);
-        jTable1.createDefaultColumnsFromModel();
-        jScrollPane2.setViewportView(jTable1);
-
-        jPanel1.add(jScrollPane2);
-        jScrollPane2.setBounds(100, 240, 452, 120);
 
         Titre.setFont(new java.awt.Font("Stencil", 1, 24)); // NOI18N
         Titre.setText("Gestion des représentants");
@@ -192,7 +184,15 @@ public class AddRep extends javax.swing.JDialog {
         );
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(210, 70, 260, 130);
+        jPanel2.setBounds(210, 70, 260, 150);
+
+        model = new DataFileTableModel(nomFichier);
+        jTable1.setModel(model);
+        jTable1.createDefaultColumnsFromModel();
+        jScrollPane2.setViewportView(jTable1);
+
+        jPanel1.add(jScrollPane2);
+        jScrollPane2.setBounds(100, 240, 452, 120);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/meubles3.jpg"))); // NOI18N
         jPanel1.add(jLabel1);

@@ -52,8 +52,6 @@ public class AddProspect extends javax.swing.JDialog {
         lbNom = new javax.swing.JLabel();
         chpPrenom = new javax.swing.JTextField();
         chpNom = new javax.swing.JTextField();
-        Liste = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
         lbNomenseigne = new javax.swing.JLabel();
         chpNomenseigne = new javax.swing.JTextField();
         lbAddresse1 = new javax.swing.JLabel();
@@ -78,6 +76,8 @@ public class AddProspect extends javax.swing.JDialog {
         fondcouleur1 = new javax.swing.JPanel();
         comboPays = new javax.swing.JComboBox<>();
         fondcouleur2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         imagefond = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mRetour = new javax.swing.JMenu();
@@ -125,18 +125,6 @@ public class AddProspect extends javax.swing.JDialog {
         });
         jPanel1.add(chpNom);
         chpNom.setBounds(240, 200, 106, 21);
-
-        jList1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item2", "Item3" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jList1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        Liste.setViewportView(jList1);
-
-        jPanel1.add(Liste);
-        Liste.setBounds(10, 270, 580, 138);
 
         lbNomenseigne.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbNomenseigne.setText("Nom de l'enseigne");
@@ -287,10 +275,26 @@ public class AddProspect extends javax.swing.JDialog {
         jPanel1.add(fondcouleur2);
         fondcouleur2.setBounds(0, 190, 600, 70);
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(100, 220, 370, 180);
+
         imagefond.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         imagefond.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/meubles1.jpg"))); // NOI18N
         jPanel1.add(imagefond);
-        imagefond.setBounds(0, -30, 600, 480);
+        imagefond.setBounds(0, -30, 600, 610);
 
         mRetour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconearbre.jpg"))); // NOI18N
         mRetour.setText("Retour à la fenêtre principale");
@@ -323,7 +327,9 @@ public class AddProspect extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(204, Short.MAX_VALUE))
         );
 
         pack();
@@ -390,7 +396,6 @@ public class AddProspect extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane Liste;
     private javax.swing.JLabel Titre;
     private javax.swing.JTextField chpAdresse1;
     private javax.swing.JTextField chpAdresse2;
@@ -408,9 +413,10 @@ public class AddProspect extends javax.swing.JDialog {
     private javax.swing.JPanel fondcouleur1;
     private javax.swing.JPanel fondcouleur2;
     private javax.swing.JLabel imagefond;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lbAddresse1;
     private javax.swing.JLabel lbCodepostal;
     private javax.swing.JLabel lbDatevisite;
