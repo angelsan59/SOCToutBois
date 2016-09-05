@@ -32,14 +32,11 @@ public class Principale {
         /**
          * Chargement de la fenetre principale
          */
-        // FenetrePrincipaleFrame fp = new FenetrePrincipaleFrame (new javax.swing.JFrame(), true);
-        // fp.setVisible(true);
-                            // ImageIcon img = new ImageIcon("E:\\sociepka\\Netbeansprojects\\A_Projet_ToutBois\\src\\com\\san\\form\\logo.jpg");
-                            //fp.setIconImage(img.getImage());
-                            // fp.setIconImage(ImageIO.read(new File("/com/san/form/logo.png")));
-                            //(new javax.swing.ImageIcon(getClass().getResource("/com/san/form/meubles1.jpg"))); // NOI18N
+         FenetrePrincipaleFrame fp = new FenetrePrincipaleFrame (new javax.swing.JFrame(), true);
+        fp.setVisible(true);
+                          
        // LectureFichierCSV fichierrepresentant = new LectureFichierCSV ("E:\\Afpa\\Mes exercices\\A_Projet_ToutBois\\data\\test.txt") ;
-       LectureFichierCSV fichierrepresentant = new LectureFichierCSV ("contenu.txt") ;
+       LectureFichierCSV fichierrepresentant = new LectureFichierCSV ("Data/contenu.txt") ;
         // Lit tout le fichier       
         System.out.println("Depuis principale :") ;
         System.out.println(fichierrepresentant) ;

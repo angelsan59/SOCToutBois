@@ -63,7 +63,7 @@ public class AddRep extends javax.swing.JDialog {
         lbSalaire = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         DataFileTableModel model;
-        String nomFichier="Data/contenu.txt";
+        String nomFichier="Data/Representants.txt";
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
