@@ -29,7 +29,7 @@ public class AddProspect extends javax.swing.JDialog {
          /**
         * changer l'icone de la fenêtre
         */
-            BufferedImage img = ImageIO.read(AddProspect.class.getResource("/com/san/form/logo.png"));
+            BufferedImage img = ImageIO.read(AddProspect.class.getResource("/Formulaires/logo.png"));
             
             setIconImage(img);
          /**
@@ -80,7 +80,8 @@ public class AddProspect extends javax.swing.JDialog {
         jScrollPane2 = new javax.swing.JScrollPane();
         DataFileTableModel model;
         String nomFichier="Data/Prospects.txt";
-        jTable1 = new javax.swing.JTable();
+        TableProspects = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
         imagefond = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mRetour = new javax.swing.JMenu();
@@ -279,17 +280,41 @@ public class AddProspect extends javax.swing.JDialog {
         fondcouleur2.setBounds(0, 190, 600, 70);
 
         model = new DataFileTableModel(nomFichier);
-        jTable1.setModel(model);
-        jTable1.createDefaultColumnsFromModel();
-        jScrollPane2.setViewportView(jTable1);
+        TableProspects.setModel(model);
+        TableProspects.createDefaultColumnsFromModel();
+
+        // Retirer les colonnes qu'on ne veut pas afficher dans le tableau
+        // Le numéro des colonnes se décale à chaque retrait, d'où les nombreux retraits de la colonne 7
+        TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(2));
+        TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(4));
+        TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(7));
+        TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(7));
+        TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(7));
+        TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(7));
+        TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(7));
+        TableProspects.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TableProspectsMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(TableProspects);
 
         jPanel1.add(jScrollPane2);
         jScrollPane2.setBounds(10, 280, 580, 120);
 
+        jButton1.setText("Effacer");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(610, 230, 80, 23);
+
         imagefond.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        imagefond.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/meubles1.jpg"))); // NOI18N
+        imagefond.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/meubles3.jpg"))); // NOI18N
         jPanel1.add(imagefond);
-        imagefond.setBounds(0, -100, 600, 620);
+        imagefond.setBounds(0, -100, 780, 620);
 
         mRetour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconearbre.jpg"))); // NOI18N
         mRetour.setText("Retour à la fenêtre principale");
@@ -301,11 +326,11 @@ public class AddProspect extends javax.swing.JDialog {
         jMenuBar1.add(mRetour);
 
         mAjouter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconeplus.jpg"))); // NOI18N
-        mAjouter.setText("Ajouter un nouveau client");
+        mAjouter.setText("Ajouter le nouveau prospect");
         jMenuBar1.add(mAjouter);
 
         mModifier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconemodif.jpg"))); // NOI18N
-        mModifier.setText("Modifier un client");
+        mModifier.setText("Modifier le prospect");
         jMenuBar1.add(mModifier);
 
         mAide.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconeaide.jpg"))); // NOI18N
@@ -318,7 +343,7 @@ public class AddProspect extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 697, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -339,6 +364,54 @@ public class AddProspect extends javax.swing.JDialog {
     private void mRetourMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mRetourMouseClicked
         dispose();
     }//GEN-LAST:event_mRetourMouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // Action sur le bouton Effacer, purge des champs de saisies et suppression de la selection dans la table.
+        chpNomenseigne.setText ("") ;
+        chpSiret.setText ("") ;
+        chpDatevisite.setText ("") ;
+        chpAdresse1.setText ("") ;
+        chpAdresse2.setText ("") ;
+        chpCodepostal.setText ("") ;
+        chpVille.setText ("") ;
+
+        chpNom.setText ("") ;
+        chpPrenom.setText ("") ;
+        chpEmail.setText ("") ;
+        chpTelfixe.setText ("") ;
+        chpTelportable.setText ("") ;
+
+        TableProspects.getSelectionModel().clearSelection();
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void TableProspectsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableProspectsMouseClicked
+      // Je récupére le nom de l'enseigne, colonne 1.
+        chpNomenseigne.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),1));
+        // Je récupére le numéro de Siret, colonne 2.
+        chpSiret.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),2));
+       // Je récupére la date de la dernière visite, colonne 3.
+         chpDatevisite.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),3));
+         // Je récupére l'adresse, colonne 4.
+        chpAdresse1.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),4));
+        // Je récupére le complément d'adresse, colonne 5.
+        chpAdresse2.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),5));
+        // Je récupére le code postal, colonne 6.
+        chpCodepostal.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),6));
+        // Je récupére la ville, colonne 7.
+        chpVille.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),7));
+        // Je récupére le pays, colonne 8.
+       // comboPays.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),8));
+        // Je récupére le nom de contact, colonne 9.
+        chpNom.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),9));
+        // Je récupére le prénom, colonne 10.
+        chpPrenom.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),10));
+         // Je récupére le téléphone fixe, colonne 11.
+        chpTelfixe.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),11));
+        // Je récupére le téléphone portable, colonne 12.
+        chpTelportable.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),12));
+        // Je récupére l'email, colonne 13.
+        chpEmail.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),13));
+    }//GEN-LAST:event_TableProspectsMouseClicked
 
     /**
      * @param args the command line arguments
@@ -389,6 +462,7 @@ public class AddProspect extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable TableProspects;
     private javax.swing.JLabel Titre;
     private javax.swing.JTextField chpAdresse1;
     private javax.swing.JTextField chpAdresse2;
@@ -406,10 +480,10 @@ public class AddProspect extends javax.swing.JDialog {
     private javax.swing.JPanel fondcouleur1;
     private javax.swing.JPanel fondcouleur2;
     private javax.swing.JLabel imagefond;
+    private javax.swing.JButton jButton1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lbAddresse1;
     private javax.swing.JLabel lbCodepostal;
     private javax.swing.JLabel lbDatevisite;

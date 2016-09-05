@@ -31,7 +31,7 @@ public class FenetrePrincipaleFrame extends javax.swing.JFrame {
         * changer l'icone de la fenêtre
         */
        
-         BufferedImage img = ImageIO.read(FenetrePrincipaleFrame.class.getResource("/com/san/form/logo.png"));
+         BufferedImage img = ImageIO.read(FenetrePrincipaleFrame.class.getResource("/Formulaires/logo.png"));
           setIconImage(img);
             
        initComponents();
