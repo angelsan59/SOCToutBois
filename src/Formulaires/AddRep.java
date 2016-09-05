@@ -15,6 +15,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import Tables.*;
+import javax.swing.table.TableColumn;
+import GestionFichier.LectureFichierCSV ;
+import javax.swing.table.TableColumnModel;
 /**
  *
  * @author sociepka
@@ -24,6 +27,8 @@ public class AddRep extends javax.swing.JDialog {
     /**
      * Creates new form AddRep
      */
+    // LectureFichierCSV fichierrepresentant = new LectureFichierCSV ("Data/Representants.txt") ;
+    
     public AddRep(Frame parent, boolean modal) throws IOException {
         super(parent, modal);
         initComponents();
@@ -65,6 +70,7 @@ public class AddRep extends javax.swing.JDialog {
         DataFileTableModel model;
         String nomFichier="Data/Representants.txt";
         jTable1 = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -189,6 +195,8 @@ public class AddRep extends javax.swing.JDialog {
         model = new DataFileTableModel(nomFichier);
         jTable1.setModel(model);
         jTable1.createDefaultColumnsFromModel();
+        // Je masque les colonnes inutiles.
+        jTable1.removeColumn(jTable1.getColumnModel().getColumn(2));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseClicked(evt);
@@ -198,6 +206,15 @@ public class AddRep extends javax.swing.JDialog {
 
         jPanel1.add(jScrollPane2);
         jScrollPane2.setBounds(40, 240, 580, 120);
+
+        jButton1.setText("Effacer");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(490, 190, 67, 23);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/meubles3.jpg"))); // NOI18N
         jPanel1.add(jLabel1);
@@ -300,17 +317,26 @@ public class AddRep extends javax.swing.JDialog {
     }//GEN-LAST:event_jMenu1MouseClicked
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        // on récupére la valeur de la ligne séléctionnée qui est également a son identifiant representant.
-        int ligneSelectionne = jTable1.getSelectedRow();
-        //// Je récupére le nom, colonne 1.
-        chpNom.setText((String)(jTable1.getValueAt(ligneSelectionne, 1))); 
+        // Je récupére le nom, colonne 1.
+        chpNom.setText ((String) jTable1.getModel().getValueAt(jTable1.getSelectedRow(),1));
         // Je récupére le Prenom, colonne 2.
-        chpPrenom.setText((String)(jTable1.getValueAt(ligneSelectionne, 2)));
+        chpPrenom.setText ((String) jTable1.getModel().getValueAt(jTable1.getSelectedRow(),2));
         // Je récupére le salaire, colonne 3.
-        chpSalaire.setText((String)(jTable1.getValueAt(ligneSelectionne, 3)));     
+        chpSalaire.setText ((String) jTable1.getModel().getValueAt(jTable1.getSelectedRow(),3));
         // Je récupére le taux de commission, colonne 4.
-        chpTxCommission.setText((String)(jTable1.getValueAt(ligneSelectionne, 4)));
+        chpTxCommission.setText ((String) jTable1.getModel().getValueAt(jTable1.getSelectedRow(),4));
+        
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // Action sur le bouton Effacer, purge des champs de saisies et suppression de la selection dan sla table.
+        chpNom.setText ("") ;
+        chpPrenom.setText ("") ;
+        chpSalaire.setText ("") ;
+        chpTxCommission.setText ("") ;
+        jTable1.getSelectionModel().clearSelection();
+        
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -365,6 +391,7 @@ public class AddRep extends javax.swing.JDialog {
     private javax.swing.JTextField chpPrenom;
     private javax.swing.JTextField chpSalaire;
     private javax.swing.JTextField chpTxCommission;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
