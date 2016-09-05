@@ -1,4 +1,8 @@
 Numéro;Nom;Prénom;Salaire brut;Taux de commission;
 1;Dupont;Philippe;3000;12;
 2;Durant;Jacques;2000;5;
-3 ;Toto ;André ;1 ;0 ;
+3;Durant;Jacques;2000;5;
+4;Durant;Jacques;2000;5;
+5;Durant;Jacques;2000;5;
+6;Durant;Jacques;2000;5;
+7;Durant;Jacques;2000;5;

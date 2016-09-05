@@ -63,7 +63,7 @@ public class AddRep extends javax.swing.JDialog {
         lbSalaire = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         DataFileTableModel model;
-        String nomFichier="Data/contenu.txt";
+        String nomFichier="Data/Representants.txt";
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -189,6 +189,11 @@ public class AddRep extends javax.swing.JDialog {
         model = new DataFileTableModel(nomFichier);
         jTable1.setModel(model);
         jTable1.createDefaultColumnsFromModel();
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable1);
 
         jPanel1.add(jScrollPane2);
@@ -293,6 +298,19 @@ public class AddRep extends javax.swing.JDialog {
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
          dispose();
     }//GEN-LAST:event_jMenu1MouseClicked
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // on récupére la valeur de la ligne séléctionnée qui est également a son identifiant representant.
+        int ligneSelectionne = jTable1.getSelectedRow();
+        //// Je récupére le nom, colonne 1.
+        chpNom.setText((String)(jTable1.getValueAt(ligneSelectionne, 1))); 
+        // Je récupére le Prenom, colonne 2.
+        chpPrenom.setText((String)(jTable1.getValueAt(ligneSelectionne, 2)));
+        // Je récupére le salaire, colonne 3.
+        chpSalaire.setText((String)(jTable1.getValueAt(ligneSelectionne, 3)));     
+        // Je récupére le taux de commission, colonne 4.
+        chpTxCommission.setText((String)(jTable1.getValueAt(ligneSelectionne, 4)));
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments

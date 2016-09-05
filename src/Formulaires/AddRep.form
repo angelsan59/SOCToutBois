@@ -286,8 +286,11 @@
                   <Connection code="model" type="code"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTable1MouseClicked"/>
+              </Events>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="DataFileTableModel model;&#xa; String nomFichier=&quot;Data/contenu.txt&quot;;"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="DataFileTableModel model;&#xa; String nomFichier=&quot;Data/Representants.txt&quot;;"/>
                 <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jTable1.createDefaultColumnsFromModel();"/>
                 <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="model = new DataFileTableModel(nomFichier);"/>
               </AuxValues>
