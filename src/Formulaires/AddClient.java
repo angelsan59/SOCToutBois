@@ -5,6 +5,7 @@
  */
 package Formulaires;
 
+import Tables.DataFileTableModel;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
@@ -49,8 +50,6 @@ public class AddClient extends javax.swing.JDialog {
 
         jPanel1 = new javax.swing.JPanel();
         Titre = new javax.swing.JLabel();
-        Liste = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
         lbNomenseigne = new javax.swing.JLabel();
         chpNomenseigne = new javax.swing.JTextField();
         lbAddresse1 = new javax.swing.JLabel();
@@ -79,6 +78,10 @@ public class AddClient extends javax.swing.JDialog {
         lbPrenom = new javax.swing.JLabel();
         chpEmail = new javax.swing.JTextField();
         lbEmail = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        DataFileTableModel model;
+        String nomFichier="Data/Clients.txt";
+        jTable1 = new javax.swing.JTable();
         imagefond = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mRetour = new javax.swing.JMenu();
@@ -96,18 +99,6 @@ public class AddClient extends javax.swing.JDialog {
         Titre.setText("Gestion des clients");
         jPanel1.add(Titre);
         Titre.setBounds(20, 10, 270, 30);
-
-        jList1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item2", "Item3" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jList1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        Liste.setViewportView(jList1);
-
-        jPanel1.add(Liste);
-        Liste.setBounds(10, 270, 580, 138);
 
         lbNomenseigne.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbNomenseigne.setText("Nom de l'enseigne");
@@ -304,10 +295,18 @@ public class AddClient extends javax.swing.JDialog {
         jPanel1.add(fondcouleur2);
         fondcouleur2.setBounds(0, 190, 600, 70);
 
+        model = new DataFileTableModel(nomFichier);
+        jTable1.setModel(model);
+        jTable1.createDefaultColumnsFromModel();
+        jScrollPane2.setViewportView(jTable1);
+
+        jPanel1.add(jScrollPane2);
+        jScrollPane2.setBounds(10, 280, 910, 120);
+
         imagefond.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         imagefond.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/meubles1.jpg"))); // NOI18N
         jPanel1.add(imagefond);
-        imagefond.setBounds(0, -30, 600, 480);
+        imagefond.setBounds(0, -30, 790, 480);
 
         mRetour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconearbre.jpg"))); // NOI18N
         mRetour.setText("Retour à la fenêtre principale");
@@ -337,7 +336,7 @@ public class AddClient extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 931, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -407,7 +406,6 @@ public class AddClient extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane Liste;
     private javax.swing.JLabel Titre;
     private javax.swing.JTextField chpAdresse1;
     private javax.swing.JTextField chpAdresse2;
@@ -425,9 +423,10 @@ public class AddClient extends javax.swing.JDialog {
     private javax.swing.JPanel fondcouleur1;
     private javax.swing.JPanel fondcouleur2;
     private javax.swing.JLabel imagefond;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lbAddresse1;
     private javax.swing.JLabel lbCodepostal;
     private javax.swing.JLabel lbDatevisite;

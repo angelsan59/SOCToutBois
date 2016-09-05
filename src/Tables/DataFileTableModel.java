@@ -39,7 +39,7 @@ import javax.swing.*;
           columnNames=new Vector();
           try {
            FileInputStream fin=new FileInputStream(datafile);
-           BufferedReader br=new BufferedReader(new InputStreamReader(fin));
+           BufferedReader br=new BufferedReader(new InputStreamReader(fin, "UTF-8"));
            // lecture des noms de colonnes (1ère ligne)
            ligne=br.readLine();
            // Analyse de la ligne de données lue précédemment avec séparateur de données, ";"

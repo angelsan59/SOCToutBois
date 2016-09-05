@@ -192,7 +192,7 @@ public class AddRep extends javax.swing.JDialog {
         jScrollPane2.setViewportView(jTable1);
 
         jPanel1.add(jScrollPane2);
-        jScrollPane2.setBounds(100, 240, 452, 120);
+        jScrollPane2.setBounds(40, 240, 580, 120);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/meubles3.jpg"))); // NOI18N
         jPanel1.add(jLabel1);

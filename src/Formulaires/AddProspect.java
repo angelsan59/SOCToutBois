@@ -5,6 +5,7 @@
  */
 package Formulaires;
 
+import Tables.DataFileTableModel;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
@@ -76,7 +77,9 @@ public class AddProspect extends javax.swing.JDialog {
         fondcouleur1 = new javax.swing.JPanel();
         comboPays = new javax.swing.JComboBox<>();
         fondcouleur2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        DataFileTableModel model;
+        String nomFichier="Data/Prospects.txt";
         jTable1 = new javax.swing.JTable();
         imagefond = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -275,26 +278,18 @@ public class AddProspect extends javax.swing.JDialog {
         jPanel1.add(fondcouleur2);
         fondcouleur2.setBounds(0, 190, 600, 70);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        model = new DataFileTableModel(nomFichier);
+        jTable1.setModel(model);
+        jTable1.createDefaultColumnsFromModel();
+        jScrollPane2.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(100, 220, 370, 180);
+        jPanel1.add(jScrollPane2);
+        jScrollPane2.setBounds(10, 280, 580, 120);
 
         imagefond.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         imagefond.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/meubles1.jpg"))); // NOI18N
         jPanel1.add(imagefond);
-        imagefond.setBounds(0, -30, 600, 610);
+        imagefond.setBounds(0, -100, 600, 620);
 
         mRetour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconearbre.jpg"))); // NOI18N
         mRetour.setText("Retour à la fenêtre principale");
@@ -327,9 +322,7 @@ public class AddProspect extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(204, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -415,7 +408,7 @@ public class AddProspect extends javax.swing.JDialog {
     private javax.swing.JLabel imagefond;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lbAddresse1;
     private javax.swing.JLabel lbCodepostal;
