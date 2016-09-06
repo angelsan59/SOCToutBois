@@ -5,6 +5,7 @@
  */
 package GestionFichier;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -12,6 +13,7 @@ import java.io.IOException;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 
 /**
@@ -32,7 +34,6 @@ public class EcritureDansFichier {
                     ecrireFichier = new FileWriter(fichierTexte, true);
                     // Écriture d'une chaîne de caractères dans le fichier texte
                     ecrireFichier.write(chaine);
-                    
                     // "Fermeture" du FileWriter
                     ecrireFichier.close();
 		}
@@ -44,8 +45,47 @@ public class EcritureDansFichier {
                         {
 			e.printStackTrace();
                         }
-	}
-}
+    }
+    
+    public static void ModificationLigne (String nomfichier, String chaine, int ligneachanger) throws IOException {
+        System.out.println(nomfichier + "---" + chaine + "---" + ligneachanger);
+        int ligneactive = 0 ;
+        String lignearecopier ="" ;
+        File entree = new File(nomfichier);
+        File sortie = new File("E:\\Afpa\\Mes exercices\\A_Projet_ToutBois\\Data\\temp.txt");
+        BufferedReader br = new BufferedReader(new FileReader(entree));
+        BufferedWriter bw = new BufferedWriter(new FileWriter(sortie));
+        try {
+            while ((lignearecopier = br.readLine()) != null) {
+                if (ligneactive != ligneachanger) {
+                    bw.write (lignearecopier + "\n") ;
+                    // bw.flush () ;
+                    System.out.println(ligneactive + " <=> " + lignearecopier) ;
+                    ligneactive = ligneactive + 1 ;
+                    }
+                else
+                {                
+                bw.write (chaine) ;
+                // bw.flush () ;
+                System.out.println(ligneactive + " <=> " + ligneachanger) ;
+                ligneactive = ligneactive + 1 ; 
+                }            }
+            bw.close () ;
+            br.close () ;
+            entree.delete();
+            sortie.renameTo(new File(nomfichier));
+            }
+        catch (FileNotFoundException e) 
+            {
+            e.printStackTrace();
+            } 
+        catch (IOException e) 
+            {
+            e.printStackTrace();
+            }
+        }
+    }
+    
         
         
         
