@@ -293,6 +293,11 @@ public class AddClient extends javax.swing.JDialog {
 
         chpEmail.setColumns(10);
         chpEmail.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        chpEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                chpEmailFocusLost(evt);
+            }
+        });
 
         lbEmail.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbEmail.setText("Email *");
@@ -511,6 +516,14 @@ public class AddClient extends javax.swing.JDialog {
     private void bAjouterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bAjouterMouseClicked
        JOptionPane.showMessageDialog(null, "Le nouveau client a bien été ajouté", "Ajout de client", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_bAjouterMouseClicked
+
+    private void chpEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_chpEmailFocusLost
+      
+        // vérification que l'email contient un @
+        
+        String email = chpEmail.getText ();
+       if(email.indexOf('@') <0) JOptionPane.showMessageDialog(this, "Votre adresse e-mail n est pas correcte");
+    }//GEN-LAST:event_chpEmailFocusLost
 
     /**
      * @param args the command line arguments
