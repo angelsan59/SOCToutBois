@@ -35,7 +35,7 @@ public class AddRep extends javax.swing.JDialog {
          /**
         * changer l'icone de la fenêtre
         */
-            BufferedImage img = ImageIO.read(AddRep.class.getResource("/com/san/form/logo.png"));
+            BufferedImage img = ImageIO.read(AddRep.class.getResource("/Formulaires/logo.png"));
             
             setIconImage(img);
          /**
@@ -190,7 +190,7 @@ public class AddRep extends javax.swing.JDialog {
         );
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(210, 70, 260, 150);
+        jPanel2.setBounds(270, 70, 260, 150);
 
         model = new DataFileTableModel(nomFichier);
         jTable1.setModel(model);
@@ -205,7 +205,7 @@ public class AddRep extends javax.swing.JDialog {
         jScrollPane2.setViewportView(jTable1);
 
         jPanel1.add(jScrollPane2);
-        jScrollPane2.setBounds(40, 240, 580, 120);
+        jScrollPane2.setBounds(90, 240, 590, 120);
 
         jButton1.setText("Effacer");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -214,11 +214,11 @@ public class AddRep extends javax.swing.JDialog {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(490, 190, 67, 23);
+        jButton1.setBounds(580, 200, 100, 23);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/meubles3.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/meubles4.jpg"))); // NOI18N
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 690, 380);
+        jLabel1.setBounds(0, 0, 790, 380);
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconearbre.jpg"))); // NOI18N
         jMenu1.setText("Retour à la fenêtre principale");
@@ -230,7 +230,7 @@ public class AddRep extends javax.swing.JDialog {
         jMenuBar1.add(jMenu1);
 
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconeplus.jpg"))); // NOI18N
-        jMenu3.setText("Ajouter un représentant");
+        jMenu3.setText("Ajouter le représentant");
         jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu3MouseClicked(evt);
@@ -239,10 +239,11 @@ public class AddRep extends javax.swing.JDialog {
         jMenuBar1.add(jMenu3);
 
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconemodif.jpg"))); // NOI18N
-        jMenu4.setText("Modifier un représentant");
+        jMenu4.setText("Modifier le représentant");
         jMenuBar1.add(jMenu4);
 
-        jMenu5.setText("Supprimer");
+        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconemoins.jpg"))); // NOI18N
+        jMenu5.setText("Supprimer le représentant");
         jMenuBar1.add(jMenu5);
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconeaide.jpg"))); // NOI18N
@@ -255,7 +256,7 @@ public class AddRep extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 672, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 774, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

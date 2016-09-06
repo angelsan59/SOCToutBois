@@ -20,7 +20,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Formulaires/iconeplus.jpg"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ajouter un repr&#xe9;sentant"/>
+            <Property name="text" type="java.lang.String" value="Ajouter le repr&#xe9;sentant"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenu3MouseClicked"/>
@@ -31,12 +31,15 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Formulaires/iconemodif.jpg"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Modifier un repr&#xe9;sentant"/>
+            <Property name="text" type="java.lang.String" value="Modifier le repr&#xe9;sentant"/>
           </Properties>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu5">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Supprimer"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Formulaires/iconemoins.jpg"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Supprimer le repr&#xe9;sentant"/>
           </Properties>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu2">
@@ -75,7 +78,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" pref="672" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="0" pref="774" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -117,7 +120,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="210" y="70" width="260" height="150"/>
+              <AbsoluteConstraints x="270" y="70" width="260" height="150"/>
             </Constraint>
           </Constraints>
 
@@ -274,7 +277,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="40" y="240" width="580" height="120"/>
+              <AbsoluteConstraints x="90" y="240" width="590" height="120"/>
             </Constraint>
           </Constraints>
 
@@ -306,19 +309,19 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="490" y="190" width="-1" height="-1"/>
+              <AbsoluteConstraints x="580" y="200" width="100" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Formulaires/meubles3.jpg"/>
+              <Image iconType="3" name="/Formulaires/meubles4.jpg"/>
             </Property>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="0" width="690" height="380"/>
+              <AbsoluteConstraints x="0" y="0" width="790" height="380"/>
             </Constraint>
           </Constraints>
         </Component>
