@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -27,18 +28,26 @@ public class AddClient extends javax.swing.JDialog {
         super(parent, modal);
         
          /**
-        * changer l'icone de la fenêtre
+        * changer l'icone de la fenêtre (methode 1)
         */
-            BufferedImage img = ImageIO.read(AddClient.class.getResource("/Formulaires/logo.png"));
-            
-            setIconImage(img);
+       //  BufferedImage img = ImageIO.read(AddClient.class.getResource("logo.png"));
+      //  setIconImage(img);
+       
         initComponents();
+        
+        /** 
+         * changer l'icone des fenêtres, méthode 2
+         */
+        initialise () ;
+        
          /**
         * Commande pour centrer la fenêtre dans l'écran
         */
        setLocationRelativeTo(null);
     }
-
+        private void initialise(){
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Images/logo.png")));
+   }   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -92,8 +101,6 @@ public class AddClient extends javax.swing.JDialog {
         imagefond = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mRetour = new javax.swing.JMenu();
-        mAjouter = new javax.swing.JMenu();
-        mModifier = new javax.swing.JMenu();
         mAide = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -371,19 +378,19 @@ public class AddClient extends javax.swing.JDialog {
         jPanel1.add(lbCommandes);
         lbCommandes.setBounds(640, 0, 150, 20);
 
-        bSupprimer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconemoins.jpg"))); // NOI18N
+        bSupprimer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/iconemoins.jpg"))); // NOI18N
         bSupprimer.setText("Supprimer");
         bSupprimer.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jPanel1.add(bSupprimer);
         bSupprimer.setBounds(660, 220, 120, 27);
 
-        bModifier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconemodif.jpg"))); // NOI18N
+        bModifier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/iconemodif.jpg"))); // NOI18N
         bModifier.setText("Modifier");
         bModifier.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jPanel1.add(bModifier);
         bModifier.setBounds(660, 190, 120, 27);
 
-        bAjouter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconeplus.jpg"))); // NOI18N
+        bAjouter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/iconeplus.jpg"))); // NOI18N
         bAjouter.setText("Ajouter");
         bAjouter.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         bAjouter.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -402,11 +409,11 @@ public class AddClient extends javax.swing.JDialog {
         lbCommandes1.setBounds(720, 20, 50, 20);
 
         imagefond.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        imagefond.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/meubles4.jpg"))); // NOI18N
+        imagefond.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/meubles4.jpg"))); // NOI18N
         jPanel1.add(imagefond);
         imagefond.setBounds(0, -30, 790, 480);
 
-        mRetour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconearbre.jpg"))); // NOI18N
+        mRetour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/iconearbre.jpg"))); // NOI18N
         mRetour.setText("Retour à la fenêtre principale");
         mRetour.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -415,16 +422,7 @@ public class AddClient extends javax.swing.JDialog {
         });
         jMenuBar1.add(mRetour);
 
-        mAjouter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconeplus.jpg"))); // NOI18N
-        mAjouter.setText("Ajouter le nouveau client");
-        mAjouter.setToolTipText("");
-        jMenuBar1.add(mAjouter);
-
-        mModifier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconemodif.jpg"))); // NOI18N
-        mModifier.setText("Modifier le client");
-        jMenuBar1.add(mModifier);
-
-        mAide.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconeaide.jpg"))); // NOI18N
+        mAide.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/iconeaide.jpg"))); // NOI18N
         mAide.setText("Aide");
         jMenuBar1.add(mAide);
 
@@ -511,7 +509,7 @@ public class AddClient extends javax.swing.JDialog {
     }//GEN-LAST:event_TableClientsMouseClicked
 
     private void bAjouterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bAjouterMouseClicked
-        // open jDialog confirmation
+       JOptionPane.showMessageDialog(null, "Le nouveau client a bien été ajouté", "Ajout de client", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_bAjouterMouseClicked
 
     /**
@@ -603,8 +601,6 @@ public class AddClient extends javax.swing.JDialog {
     private javax.swing.JLabel lbTelportable;
     private javax.swing.JLabel lbVille;
     private javax.swing.JMenu mAide;
-    private javax.swing.JMenu mAjouter;
-    private javax.swing.JMenu mModifier;
     private javax.swing.JMenu mRetour;
     private javax.swing.JLabel titreContact;
     // End of variables declaration//GEN-END:variables

@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -25,19 +26,28 @@ public class AddProspect extends javax.swing.JDialog {
      */
     public AddProspect(java.awt.Frame parent, boolean modal) throws IOException {
         super(parent, modal);
-        initComponents();
+        
          /**
-        * changer l'icone de la fenêtre
+        * changer l'icone de la fenêtre (methode 1)
         */
-            BufferedImage img = ImageIO.read(AddProspect.class.getResource("/Formulaires/logo.png"));
-            
-            setIconImage(img);
+       //  BufferedImage img = ImageIO.read(AddClient.class.getResource("logo.png"));
+      //  setIconImage(img);
+       
+        initComponents();
+        
+        /** 
+         * changer l'icone des fenêtres, méthode 2
+         */
+        initialise () ;
+        
          /**
         * Commande pour centrer la fenêtre dans l'écran
         */
        setLocationRelativeTo(null);
     }
-
+        private void initialise(){
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Images/logo.png")));
+   }   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,48 +59,50 @@ public class AddProspect extends javax.swing.JDialog {
 
         jPanel1 = new javax.swing.JPanel();
         Titre = new javax.swing.JLabel();
-        lbPrenom = new javax.swing.JLabel();
-        lbNom = new javax.swing.JLabel();
-        chpPrenom = new javax.swing.JTextField();
-        chpNom = new javax.swing.JTextField();
+        titreContact = new javax.swing.JLabel();
         lbNomenseigne = new javax.swing.JLabel();
         chpNomenseigne = new javax.swing.JTextField();
+        bEffacer = new javax.swing.JButton();
+        fondcouleur1 = new javax.swing.JPanel();
         lbAddresse1 = new javax.swing.JLabel();
         lbCodepostal = new javax.swing.JLabel();
         chpAdresse1 = new javax.swing.JTextField();
         chpAdresse2 = new javax.swing.JTextField();
         chpCodepostal = new javax.swing.JTextField();
+        lbDatevisite = new javax.swing.JLabel();
         lbVille = new javax.swing.JLabel();
         chpVille = new javax.swing.JTextField();
         lbPays = new javax.swing.JLabel();
-        lbEmail = new javax.swing.JLabel();
-        chpEmail = new javax.swing.JTextField();
         lbSiret = new javax.swing.JLabel();
         chpSiret = new javax.swing.JTextField();
+        chpDatevisite = new javax.swing.JTextField();
+        comboPays = new javax.swing.JComboBox<>();
+        fondcouleur2 = new javax.swing.JPanel();
+        chpPrenom = new javax.swing.JTextField();
         lbTelfixe = new javax.swing.JLabel();
         chpTelfixe = new javax.swing.JTextField();
         lbTelportable = new javax.swing.JLabel();
         chpTelportable = new javax.swing.JTextField();
-        lbDatevisite = new javax.swing.JLabel();
-        chpDatevisite = new javax.swing.JTextField();
-        titreContact = new javax.swing.JLabel();
-        fondcouleur1 = new javax.swing.JPanel();
-        comboPays = new javax.swing.JComboBox<>();
-        fondcouleur2 = new javax.swing.JPanel();
+        lbNom = new javax.swing.JLabel();
+        chpNom = new javax.swing.JTextField();
+        lbPrenom = new javax.swing.JLabel();
+        chpEmail = new javax.swing.JTextField();
+        lbEmail = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         DataFileTableModel model;
         String nomFichier="Data/Prospects.txt";
         TableProspects = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        bSupprimer = new javax.swing.JButton();
+        bModifier = new javax.swing.JButton();
+        bAjouter = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         imagefond = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mRetour = new javax.swing.JMenu();
-        mAjouter = new javax.swing.JMenu();
-        mModifier = new javax.swing.JMenu();
         mAide = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("ToutBois - Gestion prospects");
+        setTitle("ToutBois - Gestion Prospects");
 
         jPanel1.setBackground(new java.awt.Color(187, 235, 219));
         jPanel1.setLayout(null);
@@ -98,17 +110,150 @@ public class AddProspect extends javax.swing.JDialog {
         Titre.setFont(new java.awt.Font("Stencil", 1, 24)); // NOI18N
         Titre.setText("Gestion des prospects");
         jPanel1.add(Titre);
-        Titre.setBounds(20, 10, 310, 30);
+        Titre.setBounds(20, 10, 320, 30);
 
-        lbPrenom.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbPrenom.setText("Prénom");
-        jPanel1.add(lbPrenom);
-        lbPrenom.setBounds(10, 200, 47, 15);
+        titreContact.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        titreContact.setText("Contact de l'enseigne");
+        jPanel1.add(titreContact);
+        titreContact.setBounds(20, 170, 210, 22);
 
-        lbNom.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbNom.setText("Nom");
-        jPanel1.add(lbNom);
-        lbNom.setBounds(210, 200, 27, 20);
+        lbNomenseigne.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbNomenseigne.setText("Nom de l'enseigne *");
+        lbNomenseigne.setFocusable(false);
+        jPanel1.add(lbNomenseigne);
+        lbNomenseigne.setBounds(340, 20, 122, 20);
+
+        chpNomenseigne.setColumns(10);
+        chpNomenseigne.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        chpNomenseigne.setNextFocusableComponent(chpSiret);
+        jPanel1.add(chpNomenseigne);
+        chpNomenseigne.setBounds(480, 20, 170, 23);
+
+        bEffacer.setText("Effacer");
+        bEffacer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bEffacerMouseClicked(evt);
+            }
+        });
+        jPanel1.add(bEffacer);
+        bEffacer.setBounds(660, 250, 120, 23);
+
+        fondcouleur1.setBackground(new java.awt.Color(191, 191, 179));
+
+        lbAddresse1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbAddresse1.setText("Adresse *");
+
+        lbCodepostal.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbCodepostal.setText("Code Postal *");
+
+        chpAdresse1.setColumns(20);
+        chpAdresse1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        chpAdresse1.setText("numero, nom de rue");
+        chpAdresse1.setToolTipText("");
+
+        chpAdresse2.setColumns(20);
+        chpAdresse2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        chpAdresse2.setText("complément d'adresse");
+
+        chpCodepostal.setColumns(5);
+        chpCodepostal.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        lbDatevisite.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbDatevisite.setText("Date de la dernière visite *");
+
+        lbVille.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbVille.setText("Ville *");
+
+        chpVille.setColumns(10);
+        chpVille.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        lbPays.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbPays.setText("Pays *");
+
+        lbSiret.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbSiret.setText("SIRET *");
+
+        chpSiret.setColumns(14);
+        chpSiret.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        chpSiret.setNextFocusableComponent(chpDatevisite);
+
+        chpDatevisite.setColumns(10);
+        chpDatevisite.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        chpDatevisite.setText("jj/mm/aaaa");
+
+        comboPays.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "France", "Belgique", "Suisse", "Pays bas", "-----------", "Afghanistan ", "Afrique du Sud ", "Albanie ", "Algérie ", "Allemagne ", "Angola ", "Antigua-et-Barbuda ", "Arabie saoudite ", "Argentine ", "Arménie ", "Australie ", "Autriche ", "Azerbaïdjan ", "Bahamas ", "Bahreïn ", "Bangladesh ", "Barbade ", "Belau ", "Belgique ", "Belize ", "Bénin ", "Bhoutan ", "Biélorussie ", "Birmanie ", "Bolivie ", "Bosnie-Herzégovine ", "Botswana ", "Brésil ", "Brunei ", "Bulgarie ", "Burkina ", "Burundi ", "Cambodge ", "Cameroun ", "Canada ", "Cap-Vert ", "Chili ", "Chine ", "Chypre ", "Colombie ", "Comores ", "Congo ", "Cook ", "Corée du Nord ", "Corée du Sud ", "Costa Rica ", "Côte d'Ivoire ", "Croatie ", "Cuba ", "Danemark ", "Djibouti ", "Dominique ", "Écosse ", "Égypte ", "Émirats arabes unis ", "Équateur ", "Érythrée ", "Espagne ", "Estonie ", "États-Unis ", "Éthiopie ", "Fidji ", "Finlande ", "France ", "Gabon ", "Gambie ", "Géorgie ", "Ghana ", "Grèce ", "Grenade ", "Guatemala ", "Guinée ", "Guinée-Bissao ", "Guinée équatoriale ", "Guyana ", "Haïti ", "Honduras ", "Hongrie ", "Inde ", "Indonésie ", "Iran ", "Irak ", "Irlande ", "Islande ", "Israël ", "Italie ", "Jamaïque ", "Japon ", "Jordanie ", "Kazakhstan ", "Kenya ", "Kirghizistan ", "Kiribati ", "Koweït ", "Laos ", "Lesotho ", "Lettonie ", "Liban ", "Liberia ", "Libye ", "Liechtenstein ", "Lituanie ", "Luxembourg ", "Macédoine ", "Madagascar ", "Malaisie ", "Malawi ", "Maldives ", "Mali ", "Malte ", "Maroc ", "Marshall ", "Maurice ", "Mauritanie ", "Mexique ", "Micronésie ", "Moldavie ", "Monaco ", "Mongolie ", "Mozambique ", "Namibie ", "Nauru ", "Népal ", "Nicaragua ", "Niger ", "Nigeria ", "Niue ", "Norvège ", "Nouvelle-Zélande ", "Oman ", "Ouganda ", "Ouzbékistan ", "Pakistan ", "Palestine ", "Panama ", "Papouasie - Nouvelle Guinée ", "Paraguay ", "Pays-Bas ", "Pérou ", "Philippines ", "Pologne ", "Portugal ", "Qatar ", "République centrafricaine ", "République démocratique du Con ", "République dominicaine ", "République tchèque ", "Roumanie ", "Royaume-Uni ", "Russie ", "Rwanda ", "Saint-Christophe-et-Niévès ", "Sainte-Lucie ", "Saint-Marin ", "Saint-Siège ", "Saint-Vincent-et-les-Grenadine ", "Salomon ", "Salvador ", "Samoa occidentales ", "Sao Tomé-et-Principe ", "Sénégal ", "Seychelles ", "Sierra Leone ", "Singapour ", "Slovaquie ", "Slovénie ", "Somalie ", "Soudan ", "Sri Lanka ", "Suède ", "Suisse ", "Suriname ", "Swaziland ", "Syrie ", "Tadjikistan ", "Tanzanie ", "Tchad ", "Thaïlande ", "Togo ", "Tonga ", "Trinité-et-Tobago ", "Tunisie ", "Turkménistan ", "Turquie ", "Tuvalu ", "Ukraine ", "Uruguay ", "Vanuatu ", "Venezuela ", "Viêt Nam ", "Yémen ", "Yougoslavie ", "Zambie ", "Zimbabwe " }));
+
+        javax.swing.GroupLayout fondcouleur1Layout = new javax.swing.GroupLayout(fondcouleur1);
+        fondcouleur1.setLayout(fondcouleur1Layout);
+        fondcouleur1Layout.setHorizontalGroup(
+            fondcouleur1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondcouleur1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(fondcouleur1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(fondcouleur1Layout.createSequentialGroup()
+                        .addGroup(fondcouleur1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbAddresse1)
+                            .addComponent(lbCodepostal))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(fondcouleur1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(fondcouleur1Layout.createSequentialGroup()
+                                .addComponent(chpCodepostal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lbVille)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(chpVille))
+                            .addComponent(chpAdresse1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(fondcouleur1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(fondcouleur1Layout.createSequentialGroup()
+                                .addComponent(chpAdresse2, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                                .addGap(5, 5, 5))
+                            .addGroup(fondcouleur1Layout.createSequentialGroup()
+                                .addComponent(lbPays)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(comboPays, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(40, 40, 40))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondcouleur1Layout.createSequentialGroup()
+                        .addGroup(fondcouleur1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(chpSiret, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(fondcouleur1Layout.createSequentialGroup()
+                                .addComponent(lbSiret)
+                                .addGap(195, 195, 195)))
+                        .addGap(61, 61, 61)
+                        .addComponent(lbDatevisite)
+                        .addGap(18, 18, 18)
+                        .addComponent(chpDatevisite, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45))))
+        );
+        fondcouleur1Layout.setVerticalGroup(
+            fondcouleur1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondcouleur1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(fondcouleur1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbSiret, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chpSiret, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbDatevisite, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chpDatevisite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fondcouleur1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbAddresse1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chpAdresse2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chpAdresse1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fondcouleur1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboPays, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbPays, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chpVille, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbVille, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbCodepostal)
+                    .addComponent(chpCodepostal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(fondcouleur1);
+        fondcouleur1.setBounds(50, 50, 600, 110);
+
+        fondcouleur2.setBackground(new java.awt.Color(191, 191, 179));
 
         chpPrenom.setColumns(10);
         chpPrenom.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -117,8 +262,21 @@ public class AddProspect extends javax.swing.JDialog {
                 chpPrenomActionPerformed(evt);
             }
         });
-        jPanel1.add(chpPrenom);
-        chpPrenom.setBounds(90, 200, 106, 21);
+
+        lbTelfixe.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbTelfixe.setText("Téléphone fixe *");
+
+        chpTelfixe.setColumns(10);
+        chpTelfixe.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        lbTelportable.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbTelportable.setText("Téléphone portable");
+
+        chpTelportable.setColumns(10);
+        chpTelportable.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        lbNom.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbNom.setText("Nom *");
 
         chpNom.setColumns(10);
         chpNom.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -127,157 +285,67 @@ public class AddProspect extends javax.swing.JDialog {
                 chpNomActionPerformed(evt);
             }
         });
-        jPanel1.add(chpNom);
-        chpNom.setBounds(240, 200, 106, 21);
 
-        lbNomenseigne.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbNomenseigne.setText("Nom de l'enseigne");
-        jPanel1.add(lbNomenseigne);
-        lbNomenseigne.setBounds(340, 20, 110, 20);
-
-        chpNomenseigne.setColumns(10);
-        chpNomenseigne.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jPanel1.add(chpNomenseigne);
-        chpNomenseigne.setBounds(460, 20, 126, 23);
-
-        lbAddresse1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbAddresse1.setText("Adresse 1");
-        jPanel1.add(lbAddresse1);
-        lbAddresse1.setBounds(10, 90, 60, 20);
-
-        lbCodepostal.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbCodepostal.setText("Code Postal");
-        jPanel1.add(lbCodepostal);
-        lbCodepostal.setBounds(10, 120, 73, 15);
-
-        chpAdresse1.setColumns(20);
-        chpAdresse1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        chpAdresse1.setText("numero, nom de rue");
-        chpAdresse1.setToolTipText("");
-        jPanel1.add(chpAdresse1);
-        chpAdresse1.setBounds(90, 90, 260, 21);
-
-        chpAdresse2.setColumns(20);
-        chpAdresse2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        chpAdresse2.setText("complément d'adresse");
-        jPanel1.add(chpAdresse2);
-        chpAdresse2.setBounds(356, 90, 230, 21);
-
-        chpCodepostal.setColumns(10);
-        chpCodepostal.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jPanel1.add(chpCodepostal);
-        chpCodepostal.setBounds(90, 120, 106, 21);
-
-        lbVille.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbVille.setText("Ville");
-        jPanel1.add(lbVille);
-        lbVille.setBounds(210, 120, 24, 20);
-
-        chpVille.setColumns(10);
-        chpVille.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jPanel1.add(chpVille);
-        chpVille.setBounds(240, 120, 110, 21);
-
-        lbPays.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbPays.setText("Pays");
-        jPanel1.add(lbPays);
-        lbPays.setBounds(360, 120, 28, 20);
-
-        lbEmail.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbEmail.setText("Email");
-        jPanel1.add(lbEmail);
-        lbEmail.setBounds(20, 230, 31, 20);
+        lbPrenom.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbPrenom.setText("Prénom *");
 
         chpEmail.setColumns(10);
         chpEmail.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jPanel1.add(chpEmail);
-        chpEmail.setBounds(90, 230, 106, 21);
 
-        lbSiret.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbSiret.setText("SIRET");
-        jPanel1.add(lbSiret);
-        lbSiret.setBounds(10, 60, 36, 20);
-
-        chpSiret.setColumns(14);
-        chpSiret.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jPanel1.add(chpSiret);
-        chpSiret.setBounds(90, 60, 146, 21);
-
-        lbTelfixe.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbTelfixe.setText("Téléphone fixe");
-        jPanel1.add(lbTelfixe);
-        lbTelfixe.setBounds(360, 200, 89, 20);
-
-        chpTelfixe.setColumns(10);
-        chpTelfixe.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jPanel1.add(chpTelfixe);
-        chpTelfixe.setBounds(480, 200, 106, 21);
-
-        lbTelportable.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbTelportable.setText("Téléphone portable");
-        jPanel1.add(lbTelportable);
-        lbTelportable.setBounds(360, 230, 119, 20);
-
-        chpTelportable.setColumns(10);
-        chpTelportable.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jPanel1.add(chpTelportable);
-        chpTelportable.setBounds(480, 230, 106, 21);
-
-        lbDatevisite.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbDatevisite.setText("Date de la dernière visite");
-        jPanel1.add(lbDatevisite);
-        lbDatevisite.setBounds(280, 60, 152, 20);
-
-        chpDatevisite.setColumns(10);
-        chpDatevisite.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        chpDatevisite.setText("jj/mm/aaaa");
-        jPanel1.add(chpDatevisite);
-        chpDatevisite.setBounds(480, 60, 106, 21);
-
-        titreContact.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        titreContact.setText("Contact de l'enseigne");
-        jPanel1.add(titreContact);
-        titreContact.setBounds(20, 160, 220, 22);
-
-        fondcouleur1.setBackground(new java.awt.Color(191, 191, 179));
-
-        comboPays.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "France", "Belgique", "Suisse", "Pays bas", "-----------", "Afghanistan ", "Afrique du Sud ", "Albanie ", "Algérie ", "Allemagne ", "Angola ", "Antigua-et-Barbuda ", "Arabie saoudite ", "Argentine ", "Arménie ", "Australie ", "Autriche ", "Azerbaïdjan ", "Bahamas ", "Bahreïn ", "Bangladesh ", "Barbade ", "Belau ", "Belgique ", "Belize ", "Bénin ", "Bhoutan ", "Biélorussie ", "Birmanie ", "Bolivie ", "Bosnie-Herzégovine ", "Botswana ", "Brésil ", "Brunei ", "Bulgarie ", "Burkina ", "Burundi ", "Cambodge ", "Cameroun ", "Canada ", "Cap-Vert ", "Chili ", "Chine ", "Chypre ", "Colombie ", "Comores ", "Congo ", "Cook ", "Corée du Nord ", "Corée du Sud ", "Costa Rica ", "Côte d'Ivoire ", "Croatie ", "Cuba ", "Danemark ", "Djibouti ", "Dominique ", "Écosse ", "Égypte ", "Émirats arabes unis ", "Équateur ", "Érythrée ", "Espagne ", "Estonie ", "États-Unis ", "Éthiopie ", "Fidji ", "Finlande ", "France ", "Gabon ", "Gambie ", "Géorgie ", "Ghana ", "Grèce ", "Grenade ", "Guatemala ", "Guinée ", "Guinée-Bissao ", "Guinée équatoriale ", "Guyana ", "Haïti ", "Honduras ", "Hongrie ", "Inde ", "Indonésie ", "Iran ", "Irak ", "Irlande ", "Islande ", "Israël ", "Italie ", "Jamaïque ", "Japon ", "Jordanie ", "Kazakhstan ", "Kenya ", "Kirghizistan ", "Kiribati ", "Koweït ", "Laos ", "Lesotho ", "Lettonie ", "Liban ", "Liberia ", "Libye ", "Liechtenstein ", "Lituanie ", "Luxembourg ", "Macédoine ", "Madagascar ", "Malaisie ", "Malawi ", "Maldives ", "Mali ", "Malte ", "Maroc ", "Marshall ", "Maurice ", "Mauritanie ", "Mexique ", "Micronésie ", "Moldavie ", "Monaco ", "Mongolie ", "Mozambique ", "Namibie ", "Nauru ", "Népal ", "Nicaragua ", "Niger ", "Nigeria ", "Niue ", "Norvège ", "Nouvelle-Zélande ", "Oman ", "Ouganda ", "Ouzbékistan ", "Pakistan ", "Palestine ", "Panama ", "Papouasie - Nouvelle Guinée ", "Paraguay ", "Pays-Bas ", "Pérou ", "Philippines ", "Pologne ", "Portugal ", "Qatar ", "République centrafricaine ", "République démocratique du Con ", "République dominicaine ", "République tchèque ", "Roumanie ", "Royaume-Uni ", "Russie ", "Rwanda ", "Saint-Christophe-et-Niévès ", "Sainte-Lucie ", "Saint-Marin ", "Saint-Siège ", "Saint-Vincent-et-les-Grenadine ", "Salomon ", "Salvador ", "Samoa occidentales ", "Sao Tomé-et-Principe ", "Sénégal ", "Seychelles ", "Sierra Leone ", "Singapour ", "Slovaquie ", "Slovénie ", "Somalie ", "Soudan ", "Sri Lanka ", "Suède ", "Suisse ", "Suriname ", "Swaziland ", "Syrie ", "Tadjikistan ", "Tanzanie ", "Tchad ", "Thaïlande ", "Togo ", "Tonga ", "Trinité-et-Tobago ", "Tunisie ", "Turkménistan ", "Turquie ", "Tuvalu ", "Ukraine ", "Uruguay ", "Vanuatu ", "Venezuela ", "Viêt Nam ", "Yémen ", "Yougoslavie ", "Zambie ", "Zimbabwe " }));
-
-        javax.swing.GroupLayout fondcouleur1Layout = new javax.swing.GroupLayout(fondcouleur1);
-        fondcouleur1.setLayout(fondcouleur1Layout);
-        fondcouleur1Layout.setHorizontalGroup(
-            fondcouleur1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondcouleur1Layout.createSequentialGroup()
-                .addContainerGap(444, Short.MAX_VALUE)
-                .addComponent(comboPays, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
-        );
-        fondcouleur1Layout.setVerticalGroup(
-            fondcouleur1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondcouleur1Layout.createSequentialGroup()
-                .addContainerGap(69, Short.MAX_VALUE)
-                .addComponent(comboPays, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        jPanel1.add(fondcouleur1);
-        fondcouleur1.setBounds(0, 50, 600, 100);
-
-        fondcouleur2.setBackground(new java.awt.Color(191, 191, 179));
+        lbEmail.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbEmail.setText("Email *");
 
         javax.swing.GroupLayout fondcouleur2Layout = new javax.swing.GroupLayout(fondcouleur2);
         fondcouleur2.setLayout(fondcouleur2Layout);
         fondcouleur2Layout.setHorizontalGroup(
             fondcouleur2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(fondcouleur2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(fondcouleur2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbNom)
+                    .addComponent(lbEmail))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fondcouleur2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fondcouleur2Layout.createSequentialGroup()
+                        .addComponent(chpNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lbPrenom)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 5, Short.MAX_VALUE)
+                        .addComponent(chpPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lbTelfixe))
+                    .addGroup(fondcouleur2Layout.createSequentialGroup()
+                        .addComponent(chpEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lbTelportable)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fondcouleur2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(chpTelportable, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chpTelfixe, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(49, 49, 49))
         );
         fondcouleur2Layout.setVerticalGroup(
             fondcouleur2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 70, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondcouleur2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(fondcouleur2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbNom, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chpNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbPrenom)
+                    .addComponent(chpPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbTelfixe, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chpTelportable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fondcouleur2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(chpEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbTelportable, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chpTelfixe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(fondcouleur2);
-        fondcouleur2.setBounds(0, 190, 600, 70);
+        fondcouleur2.setBounds(50, 200, 600, 70);
 
         model = new DataFileTableModel(nomFichier);
         TableProspects.setModel(model);
@@ -300,23 +368,42 @@ public class AddProspect extends javax.swing.JDialog {
         jScrollPane2.setViewportView(TableProspects);
 
         jPanel1.add(jScrollPane2);
-        jScrollPane2.setBounds(10, 280, 580, 120);
+        jScrollPane2.setBounds(10, 280, 770, 120);
 
-        jButton1.setText("Effacer");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        bSupprimer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/iconemoins.jpg"))); // NOI18N
+        bSupprimer.setText("Supprimer");
+        bSupprimer.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jPanel1.add(bSupprimer);
+        bSupprimer.setBounds(660, 220, 120, 27);
+
+        bModifier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/iconemodif.jpg"))); // NOI18N
+        bModifier.setText("Modifier");
+        bModifier.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jPanel1.add(bModifier);
+        bModifier.setBounds(660, 190, 120, 27);
+
+        bAjouter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/iconeplus.jpg"))); // NOI18N
+        bAjouter.setText("Ajouter");
+        bAjouter.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        bAjouter.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                bAjouterMouseClicked(evt);
             }
         });
-        jPanel1.add(jButton1);
-        jButton1.setBounds(610, 230, 80, 23);
+        jPanel1.add(bAjouter);
+        bAjouter.setBounds(660, 160, 120, 27);
+
+        jLabel1.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel1.setText("* champs obligatoires");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(250, 170, 250, 20);
 
         imagefond.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        imagefond.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/meubles3.jpg"))); // NOI18N
+        imagefond.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/meubles4.jpg"))); // NOI18N
         jPanel1.add(imagefond);
-        imagefond.setBounds(0, -100, 780, 620);
+        imagefond.setBounds(0, -30, 790, 480);
 
-        mRetour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconearbre.jpg"))); // NOI18N
+        mRetour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/iconearbre.jpg"))); // NOI18N
         mRetour.setText("Retour à la fenêtre principale");
         mRetour.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -325,15 +412,7 @@ public class AddProspect extends javax.swing.JDialog {
         });
         jMenuBar1.add(mRetour);
 
-        mAjouter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconeplus.jpg"))); // NOI18N
-        mAjouter.setText("Ajouter le nouveau prospect");
-        jMenuBar1.add(mAjouter);
-
-        mModifier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconemodif.jpg"))); // NOI18N
-        mModifier.setText("Modifier le prospect");
-        jMenuBar1.add(mModifier);
-
-        mAide.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconeaide.jpg"))); // NOI18N
+        mAide.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/iconeaide.jpg"))); // NOI18N
         mAide.setText("Aide");
         jMenuBar1.add(mAide);
 
@@ -343,7 +422,7 @@ public class AddProspect extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 697, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 792, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -365,7 +444,7 @@ public class AddProspect extends javax.swing.JDialog {
         dispose();
     }//GEN-LAST:event_mRetourMouseClicked
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void bEffacerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bEffacerMouseClicked
         // Action sur le bouton Effacer, purge des champs de saisies et suppression de la selection dans la table.
         chpNomenseigne.setText ("") ;
         chpSiret.setText ("") ;
@@ -374,18 +453,20 @@ public class AddProspect extends javax.swing.JDialog {
         chpAdresse2.setText ("") ;
         chpCodepostal.setText ("") ;
         chpVille.setText ("") ;
-
+        
         chpNom.setText ("") ;
         chpPrenom.setText ("") ;
         chpEmail.setText ("") ;
         chpTelfixe.setText ("") ;
         chpTelportable.setText ("") ;
-
+       
+  
         TableProspects.getSelectionModel().clearSelection();
-    }//GEN-LAST:event_jButton1MouseClicked
+
+    }//GEN-LAST:event_bEffacerMouseClicked
 
     private void TableProspectsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableProspectsMouseClicked
-      // Je récupére le nom de l'enseigne, colonne 1.
+     // Je récupére le nom de l'enseigne, colonne 1.
         chpNomenseigne.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),1));
         // Je récupére le numéro de Siret, colonne 2.
         chpSiret.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),2));
@@ -400,7 +481,7 @@ public class AddProspect extends javax.swing.JDialog {
         // Je récupére la ville, colonne 7.
         chpVille.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),7));
         // Je récupére le pays, colonne 8.
-       // comboPays.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),8));
+       // comboPays.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),8));
         // Je récupére le nom de contact, colonne 9.
         chpNom.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),9));
         // Je récupére le prénom, colonne 10.
@@ -411,7 +492,14 @@ public class AddProspect extends javax.swing.JDialog {
         chpTelportable.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),12));
         // Je récupére l'email, colonne 13.
         chpEmail.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),13));
+         // Je récupére le nombre des commandes, colonne 14.
+       
+       
     }//GEN-LAST:event_TableProspectsMouseClicked
+
+    private void bAjouterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bAjouterMouseClicked
+       JOptionPane.showMessageDialog(null, "Le nouveau client a bien été ajouté", "Ajout de client", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_bAjouterMouseClicked
 
     /**
      * @param args the command line arguments
@@ -464,6 +552,10 @@ public class AddProspect extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TableProspects;
     private javax.swing.JLabel Titre;
+    private javax.swing.JButton bAjouter;
+    private javax.swing.JButton bEffacer;
+    private javax.swing.JButton bModifier;
+    private javax.swing.JButton bSupprimer;
     private javax.swing.JTextField chpAdresse1;
     private javax.swing.JTextField chpAdresse2;
     private javax.swing.JTextField chpCodepostal;
@@ -480,7 +572,7 @@ public class AddProspect extends javax.swing.JDialog {
     private javax.swing.JPanel fondcouleur1;
     private javax.swing.JPanel fondcouleur2;
     private javax.swing.JLabel imagefond;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -497,8 +589,6 @@ public class AddProspect extends javax.swing.JDialog {
     private javax.swing.JLabel lbTelportable;
     private javax.swing.JLabel lbVille;
     private javax.swing.JMenu mAide;
-    private javax.swing.JMenu mAjouter;
-    private javax.swing.JMenu mModifier;
     private javax.swing.JMenu mRetour;
     private javax.swing.JLabel titreContact;
     // End of variables declaration//GEN-END:variables

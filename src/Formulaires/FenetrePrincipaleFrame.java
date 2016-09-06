@@ -45,7 +45,7 @@ public class FenetrePrincipaleFrame extends javax.swing.JFrame {
     }
     
     private void initialise(){
-        this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("logo.png")));
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Images/logo.png")));
     }
     /**
      * Constructeur d'origine sans arguments
@@ -75,7 +75,7 @@ public FenetrePrincipaleFrame() {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         lbBienvenue = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        imagefond = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mFichier = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -99,15 +99,16 @@ public FenetrePrincipaleFrame() {
         jPanel1.add(lbPresentation);
         lbPresentation.setBounds(10, 60, 550, 50);
 
-        imageArbres.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/téléchargement.jpg"))); // NOI18N
+        imageArbres.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/téléchargement.jpg"))); // NOI18N
         imageArbres.setBorder(null);
+        imageArbres.setMargin(new java.awt.Insets(0, 0, 0, 0));
         imageArbres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 imageArbresActionPerformed(evt);
             }
         });
         jPanel1.add(imageArbres);
-        imageArbres.setBounds(290, 140, 275, 183);
+        imageArbres.setBounds(320, 170, 270, 180);
 
         lbToutBoiscest.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbToutBoiscest.setText("ToutBois, c'est :");
@@ -134,9 +135,10 @@ public FenetrePrincipaleFrame() {
         jPanel1.add(lbBienvenue);
         lbBienvenue.setBounds(20, 20, 560, 37);
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/meubles1.jpg"))); // NOI18N
-        jPanel1.add(jLabel8);
-        jLabel8.setBounds(0, 0, 600, 360);
+        imagefond.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        imagefond.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/meubles1.jpg"))); // NOI18N
+        jPanel1.add(imagefond);
+        imagefond.setBounds(0, -100, 620, 510);
 
         mFichier.setText("Fichier");
 
@@ -268,10 +270,10 @@ public FenetrePrincipaleFrame() {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton imageArbres;
+    private javax.swing.JLabel imagefond;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
