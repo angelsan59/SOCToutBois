@@ -7,7 +7,7 @@
         <Menu class="javax.swing.JMenu" name="mRetour">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Formulaires/iconearbre.jpg"/>
+              <Image iconType="3" name="/Images/iconearbre.jpg"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Retour &#xe0; la fen&#xea;tre principale"/>
           </Properties>
@@ -15,27 +15,10 @@
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mRetourMouseClicked"/>
           </Events>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="mAjouter">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Formulaires/iconeplus.jpg"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Ajouter le nouveau client"/>
-            <Property name="toolTipText" type="java.lang.String" value=""/>
-          </Properties>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="mModifier">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Formulaires/iconemodif.jpg"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Modifier le client"/>
-          </Properties>
-        </Menu>
         <Menu class="javax.swing.JMenu" name="mAide">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Formulaires/iconeaide.jpg"/>
+              <Image iconType="3" name="/Images/iconeaide.jpg"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Aide"/>
           </Properties>
@@ -774,7 +757,7 @@
         <Component class="javax.swing.JButton" name="bSupprimer">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Formulaires/iconemoins.jpg"/>
+              <Image iconType="3" name="/Images/iconemoins.jpg"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Supprimer"/>
             <Property name="horizontalAlignment" type="int" value="2"/>
@@ -788,7 +771,7 @@
         <Component class="javax.swing.JButton" name="bModifier">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Formulaires/iconemodif.jpg"/>
+              <Image iconType="3" name="/Images/iconemodif.jpg"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Modifier"/>
             <Property name="horizontalAlignment" type="int" value="2"/>
@@ -802,11 +785,14 @@
         <Component class="javax.swing.JButton" name="bAjouter">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Formulaires/iconeplus.jpg"/>
+              <Image iconType="3" name="/Images/iconeplus.jpg"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Ajouter"/>
             <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bAjouterMouseClicked"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="660" y="160" width="120" height="-1"/>
@@ -839,7 +825,7 @@
               <Font name="Tahoma" size="12" style="0"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Formulaires/meubles4.jpg"/>
+              <Image iconType="3" name="/Images/meubles4.jpg"/>
             </Property>
           </Properties>
           <Constraints>
