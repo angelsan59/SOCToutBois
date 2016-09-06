@@ -38,10 +38,8 @@ public class AddRep extends javax.swing.JDialog {
          /**
         * changer l'icone de la fenêtre
         */
-
         // BufferedImage img = ImageIO.read(AddRep.class.getResource("/com/san/form/logo.png"));
         // setIconImage(img);
-
          /**
         * Commande pour centrer la fenêtre dans l'écran
         */
