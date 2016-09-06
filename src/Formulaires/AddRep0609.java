@@ -6,7 +6,6 @@
 package Formulaires;
 
 import Entites.Representant;
-import static GestionFichier.EcritureDansFichier.EcritureFichier;
 import java.awt.Frame;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -24,14 +23,14 @@ import javax.swing.table.TableColumnModel;
  *
  * @author sociepka
  */
-public class AddRep extends javax.swing.JDialog {
+public class AddRep0609 extends javax.swing.JDialog {
 
     /**
      * Creates new form AddRep
      */
     // LectureFichierCSV fichierrepresentant = new LectureFichierCSV ("Data/Representants.txt") ;
     
-    public AddRep(Frame parent, boolean modal) throws IOException {
+    public AddRep0609(Frame parent, boolean modal) throws IOException {
         super(parent, modal);
         initComponents();
         initialise () ;
@@ -40,7 +39,7 @@ public class AddRep extends javax.swing.JDialog {
         */
         // BufferedImage img = ImageIO.read(AddRep.class.getResource("/com/san/form/logo.png"));
         // setIconImage(img);
-        /**
+         /**
         * Commande pour centrer la fenêtre dans l'écran
         */
        setLocationRelativeTo(null);
@@ -194,7 +193,7 @@ private void initialise(){
         );
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(270, 70, 260, 150);
+        jPanel2.setBounds(210, 70, 260, 150);
 
         model = new DataFileTableModel(nomFichier);
         jTable1.setModel(model);
@@ -209,7 +208,7 @@ private void initialise(){
         jScrollPane2.setViewportView(jTable1);
 
         jPanel1.add(jScrollPane2);
-        jScrollPane2.setBounds(90, 240, 590, 120);
+        jScrollPane2.setBounds(40, 240, 580, 120);
 
         jButton1.setText("Effacer");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -218,11 +217,11 @@ private void initialise(){
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(580, 200, 100, 23);
+        jButton1.setBounds(490, 190, 67, 23);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/meubles4.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/meubles3.jpg"))); // NOI18N
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 790, 380);
+        jLabel1.setBounds(0, 0, 690, 380);
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconearbre.jpg"))); // NOI18N
         jMenu1.setText("Retour à la fenêtre principale");
@@ -234,7 +233,7 @@ private void initialise(){
         jMenuBar1.add(jMenu1);
 
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconeplus.jpg"))); // NOI18N
-        jMenu3.setText("Ajouter le représentant");
+        jMenu3.setText("Ajouter un représentant");
         jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu3MouseClicked(evt);
@@ -243,11 +242,10 @@ private void initialise(){
         jMenuBar1.add(jMenu3);
 
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconemodif.jpg"))); // NOI18N
-        jMenu4.setText("Modifier le représentant");
+        jMenu4.setText("Modifier un représentant");
         jMenuBar1.add(jMenu4);
 
-        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconemoins.jpg"))); // NOI18N
-        jMenu5.setText("Supprimer le représentant");
+        jMenu5.setText("Supprimer");
         jMenuBar1.add(jMenu5);
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconeaide.jpg"))); // NOI18N
@@ -260,7 +258,7 @@ private void initialise(){
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 774, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 672, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -288,28 +286,24 @@ private void initialise(){
     }//GEN-LAST:event_chpSalaireActionPerformed
 
     private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
-        // Je recupere le nombre de ligne (soit le nombre de représentant.
+              // Je recupere le nombre de ligne (soit le nombre de représentant.
         int nbdeligne = jTable1.getRowCount() ;
         //Je récupére les caractéristique du nouveau representant.
         String repnom = chpNom.getText() ;
         String repprenom = chpPrenom.getText() ;
         String repSalaire = chpSalaire.getText () ; 
         String repTxtCommission = chpTxCommission.getText() ;
-        String chaine = ((nbdeligne+1) + ";" + repnom + ";" + repprenom + ";" + repSalaire + ";" + repTxtCommission + "\n");
+        String chaine = ((nbdeligne+1) + ";" + repnom + ";" + repprenom + ";" + repSalaire + ";" + repTxtCommission );
         System.out.println(chaine);
-        try {
-            EcritureFichier ("Data/Representants.txt", chaine) ;
-            //jTable1.setValueAt(nbdeligne + 1, nbdeligne + 1, 0) ;
-            //jTable1.setValueAt(repnom, nbdeligne + 1, 1) ;
-            //jTable1.setValueAt(repprenom, nbdeligne + 1, 1) ;
-            //jTable1.setValueAt(repSalaire, nbdeligne + 1, 1) ;
-            //jTable1.setValueAt(repTxtCommission, nbdeligne + 1, 1) ;
-            // DataFileTableModel model = jTable1.getModel ();
-            //  jTable1.setModel(new DataFileTableModel("Data/Representants.txt"));
-            } catch (IOException ex) {
-            Logger.getLogger(AddRep.class.getName()).log(Level.SEVERE, null, ex);
-            }
-       
+                            //jTable1.setValueAt(nbdeligne + 1, nbdeligne + 1, 0) ;
+                            //jTable1.setValueAt(repnom, nbdeligne + 1, 1) ;
+                            //jTable1.setValueAt(repprenom, nbdeligne + 1, 1) ;
+                            //jTable1.setValueAt(repSalaire, nbdeligne + 1, 1) ;
+                            //jTable1.setValueAt(repTxtCommission, nbdeligne + 1, 1) ;
+                            // DataFileTableModel model = jTable1.getModel ();
+        //  jTable1.setModel(new DataFileTableModel("Data/Representants.txt"));
+     
+        
                
         
     }//GEN-LAST:event_jMenu3MouseClicked
@@ -357,24 +351,25 @@ private void initialise(){
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AddRep.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddRep0609.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AddRep.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddRep0609.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AddRep.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddRep0609.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AddRep.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddRep0609.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                AddRep dialog = null;
+                AddRep0609 dialog = null;
                 try {
-                    dialog = new AddRep(new javax.swing.JFrame(), true);
+                    dialog = new AddRep0609(new javax.swing.JFrame(), true);
                 } catch (IOException ex) {
-                    Logger.getLogger(AddRep.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(AddRep0609.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override

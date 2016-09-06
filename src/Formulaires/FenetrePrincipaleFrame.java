@@ -24,6 +24,7 @@ public class FenetrePrincipaleFrame extends javax.swing.JFrame {
     /**
      * Creates new form FenetrePrincipaleFrame
      * Constructeur avec des arguments ajoutés pour créer la fenêtre à partir de la classe "Principale"
+     * @throws java.io.IOException
      */
     public FenetrePrincipaleFrame(java.awt.Frame parent, boolean modal) throws IOException {
        //super(parent, modal);
@@ -31,10 +32,11 @@ public class FenetrePrincipaleFrame extends javax.swing.JFrame {
         * changer l'icone de la fenêtre
         */
        
-         BufferedImage img = ImageIO.read(FenetrePrincipaleFrame.class.getResource("/Formulaires/logo.png"));
-          setIconImage(img);
+       //BufferedImage img = ImageIO.read(FenetrePrincipaleFrame.class.getResource("Formulaires/logo.png"));
+       //setIconImage(img);
             
        initComponents();
+       initialise () ;
        
        /**
         * Commande pour centrer la fenêtre dans l'écran
@@ -42,6 +44,9 @@ public class FenetrePrincipaleFrame extends javax.swing.JFrame {
        setLocationRelativeTo(null);
     }
     
+    private void initialise(){
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("logo.png")));
+    }
     /**
      * Constructeur d'origine sans arguments
      */

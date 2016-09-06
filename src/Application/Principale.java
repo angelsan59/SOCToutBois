@@ -7,7 +7,8 @@ package Application;
 
 
 import Formulaires.FenetrePrincipaleFrame;
-import GestionFichier.LectureFichierCSV;
+import GestionFichier.* ;
+import static GestionFichier.EcritureDansFichier.EcritureFichier;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame ;
 import java.awt.Toolkit;
@@ -25,6 +26,7 @@ import javax.imageio.ImageIO;
 public class Principale {
     /**
      * @param args the command line arguments
+     * @throws java.io.IOException
      */
     public static void main(String[] args) throws IOException {
         
@@ -34,27 +36,27 @@ public class Principale {
          */
         FenetrePrincipaleFrame fp = new FenetrePrincipaleFrame (new javax.swing.JFrame(), true);
         fp.setVisible(true);
-                          
-       // LectureFichierCSV fichierrepresentant = new LectureFichierCSV ("E:\\Afpa\\Mes exercices\\A_Projet_ToutBois\\data\\test.txt") ;
-       LectureFichierCSV fichierrepresentant = new LectureFichierCSV ("Data/Representants.txt") ;
+                                            // EcritureFichier ("toto") ;                 
+        // LectureFichierCSV fichierrepresentant = new LectureFichierCSV ("E:\\Afpa\\Mes exercices\\A_Projet_ToutBois\\data\\test.txt") ;
+        //LectureFichierCSV fichierrepresentant = new LectureFichierCSV ("Data/Representants.txt") ;
         // Lit tout le fichier       
-        System.out.println("Depuis principale :") ;
-        System.out.println(fichierrepresentant) ;
-        System.out.println("--------------------------------------") ;
-        System.out.println("lecture d'une donnée") ;
-        int colonne = 2 ;
-        int ligne = 2 ;        
-        System.out.println(fichierrepresentant.getUnedonnee(ligne,colonne));
-        System.out.println("--------------------------------------") ;
-        System.out.println("lecture du Vector") ;
-        System.out.println(fichierrepresentant.getContenudufichier() );
-        System.out.println("--------------------------------------") ;
-        System.out.println("lecture d'une ligne") ;
-        int lignealire = 2 ;
-        int nbcolonne = fichierrepresentant.getNbdecolonnes() - 1 ;
-        for (int i=0; i<nbcolonne; i++) {
-        System.out.println(fichierrepresentant.getUnedonnee(lignealire,i));    
-        }
-        System.out.println("--------------------------------------") ;
+        //System.out.println("Depuis principale :") ;
+        //System.out.println(fichierrepresentant) ;
+        //System.out.println("--------------------------------------") ;
+        //System.out.println("lecture d'une donnée") ;
+        //int colonne = 2 ;
+        //int ligne = 2 ;        
+        //System.out.println(fichierrepresentant.getUnedonnee(ligne,colonne));
+        //System.out.println("--------------------------------------") ;
+        //System.out.println("lecture du Vector") ;
+        //System.out.println(fichierrepresentant.getContenudufichier() );
+        //System.out.println("--------------------------------------") ;
+        //System.out.println("lecture d'une ligne") ;
+        //int lignealire = 2 ;
+        //int nbcolonne = fichierrepresentant.getNbdecolonnes() - 1 ;
+        //for (int i=0; i<nbcolonne; i++) {
+        //System.out.println(fichierrepresentant.getUnedonnee(lignealire,i));    
+        //}
+        //System.out.println("--------------------------------------") ;
     }
 }

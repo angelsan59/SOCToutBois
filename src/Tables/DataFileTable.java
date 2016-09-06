@@ -39,7 +39,7 @@ public class DataFileTable extends JPanel {
           JFrame fen=new JFrame("Table");
           //le tableau
           DataFileTable tablo;
-          String nomFichier="contenu.txt";
+          String nomFichier="Data/Representants.txt";
           if (args.length>0) nomFichier=args[0];
           tablo=new DataFileTable(nomFichier);
           //configuration de la fenêtre
