@@ -119,7 +119,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Nom de l&apos;enseigne"/>
+            <Property name="text" type="java.lang.String" value="Nom de l&apos;enseigne *"/>
             <Property name="focusable" type="boolean" value="false"/>
           </Properties>
           <Constraints>
@@ -140,16 +140,16 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="460" y="20" width="126" height="23"/>
+              <AbsoluteConstraints x="460" y="20" width="160" height="23"/>
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="bEffacer">
           <Properties>
             <Property name="text" type="java.lang.String" value="Effacer"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton1MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bEffacerMouseClicked"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -174,45 +174,52 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="lbCodepostal" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="chpCodepostal" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lbAddresse1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbCodepostal" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="chpCodepostal" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="lbVille" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="chpVille" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="chpAdresse1" alignment="0" min="-2" pref="260" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="30" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="chpAdresse2" pref="0" max="32767" attributes="0"/>
+                                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="lbPays" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="comboPays" min="-2" pref="142" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lbSiret" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lbAddresse1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="chpSiret" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                      <Component id="lbDatevisite" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="chpDatevisite" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="chpAdresse1" min="-2" pref="260" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="chpAdresse2" min="-2" pref="230" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="lbVille" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="chpVille" min="-2" pref="110" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="lbPays" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="comboPays" min="-2" max="-2" attributes="0"/>
+                                  <Component id="chpSiret" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lbSiret" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="195" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
+                              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                              <Component id="lbDatevisite" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="chpDatevisite" min="-2" pref="74" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -229,8 +236,8 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lbAddresse1" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                          <Component id="chpAdresse1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="chpAdresse2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="chpAdresse1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -238,10 +245,10 @@
                           <Component id="lbPays" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                           <Component id="chpVille" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lbVille" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                          <Component id="chpCodepostal" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lbCodepostal" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="chpCodepostal" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="19" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -252,7 +259,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Adresse 1"/>
+                <Property name="text" type="java.lang.String" value="Adresse *"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lbCodepostal">
@@ -260,7 +267,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Code Postal"/>
+                <Property name="text" type="java.lang.String" value="Code Postal *"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="chpAdresse1">
@@ -295,7 +302,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Date de la derni&#xe8;re visite"/>
+                <Property name="text" type="java.lang.String" value="Date de la derni&#xe8;re visite *"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lbVille">
@@ -303,7 +310,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Ville"/>
+                <Property name="text" type="java.lang.String" value="Ville *"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="chpVille">
@@ -319,7 +326,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Pays"/>
+                <Property name="text" type="java.lang.String" value="Pays *"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lbSiret">
@@ -327,7 +334,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="SIRET"/>
+                <Property name="text" type="java.lang.String" value="SIRET *"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="chpSiret">
@@ -579,37 +586,33 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lbNom" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lbNom" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbEmail" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="lbEmail" min="-2" max="-2" attributes="0"/>
+                              <Component id="chpNom" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="chpEmail" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbPrenom" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="5" max="32767" attributes="0"/>
+                              <Component id="chpPrenom" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="lbTelfixe" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="chpNom" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="lbPrenom" min="-2" max="-2" attributes="0"/>
+                              <Component id="chpEmail" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="chpPrenom" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbTelportable" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="lbTelfixe" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="chpTelportable" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="lbTelportable" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="chpTelfixe" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="chpTelportable" min="-2" pref="93" max="-2" attributes="0"/>
+                          <Component id="chpTelfixe" min="-2" pref="93" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="24" pref="24" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -622,15 +625,15 @@
                           <Component id="chpNom" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lbPrenom" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="chpPrenom" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbTelportable" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                          <Component id="chpTelfixe" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbTelfixe" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="chpTelportable" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="chpTelportable" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbTelfixe" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                           <Component id="chpEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lbEmail" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="lbTelportable" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="chpTelfixe" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -654,7 +657,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="T&#xe9;l&#xe9;phone fixe"/>
+                <Property name="text" type="java.lang.String" value="T&#xe9;l&#xe9;phone fixe *"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="chpTelfixe">
@@ -686,7 +689,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Nom"/>
+                <Property name="text" type="java.lang.String" value="Nom *"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="chpNom">
@@ -705,7 +708,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Pr&#xe9;nom"/>
+                <Property name="text" type="java.lang.String" value="Pr&#xe9;nom *"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="chpEmail">
@@ -721,7 +724,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Email"/>
+                <Property name="text" type="java.lang.String" value="Email *"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -768,17 +771,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JTextField" name="chpCommandes">
-          <Properties>
-            <Property name="columns" type="int" value="10"/>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="720" y="20" width="59" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="bSupprimer">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Formulaires/iconemoins.jpg"/>
@@ -792,7 +785,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton3">
+        <Component class="javax.swing.JButton" name="bModifier">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Formulaires/iconemodif.jpg"/>
@@ -806,7 +799,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton4">
+        <Component class="javax.swing.JButton" name="bAjouter">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Formulaires/iconeplus.jpg"/>
@@ -817,6 +810,26 @@
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="660" y="160" width="120" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="* champs obligatoires"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="250" y="170" width="250" height="20"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbCommandes1">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="720" y="20" width="50" height="20"/>
             </Constraint>
           </Constraints>
         </Component>

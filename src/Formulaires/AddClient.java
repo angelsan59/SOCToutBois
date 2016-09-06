@@ -53,7 +53,7 @@ public class AddClient extends javax.swing.JDialog {
         titreContact = new javax.swing.JLabel();
         lbNomenseigne = new javax.swing.JLabel();
         chpNomenseigne = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        bEffacer = new javax.swing.JButton();
         fondcouleur1 = new javax.swing.JPanel();
         lbAddresse1 = new javax.swing.JLabel();
         lbCodepostal = new javax.swing.JLabel();
@@ -84,10 +84,11 @@ public class AddClient extends javax.swing.JDialog {
         String nomFichier="Data/Clients.txt";
         TableClients = new javax.swing.JTable();
         lbCommandes = new javax.swing.JLabel();
-        chpCommandes = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        bSupprimer = new javax.swing.JButton();
+        bModifier = new javax.swing.JButton();
+        bAjouter = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        lbCommandes1 = new javax.swing.JLabel();
         imagefond = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mRetour = new javax.swing.JMenu();
@@ -112,33 +113,33 @@ public class AddClient extends javax.swing.JDialog {
         titreContact.setBounds(20, 170, 210, 22);
 
         lbNomenseigne.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbNomenseigne.setText("Nom de l'enseigne");
+        lbNomenseigne.setText("Nom de l'enseigne *");
         lbNomenseigne.setFocusable(false);
         jPanel1.add(lbNomenseigne);
-        lbNomenseigne.setBounds(320, 20, 110, 20);
+        lbNomenseigne.setBounds(320, 20, 122, 20);
 
         chpNomenseigne.setColumns(10);
         chpNomenseigne.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         chpNomenseigne.setNextFocusableComponent(chpSiret);
         jPanel1.add(chpNomenseigne);
-        chpNomenseigne.setBounds(460, 20, 126, 23);
+        chpNomenseigne.setBounds(460, 20, 160, 23);
 
-        jButton1.setText("Effacer");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        bEffacer.setText("Effacer");
+        bEffacer.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                bEffacerMouseClicked(evt);
             }
         });
-        jPanel1.add(jButton1);
-        jButton1.setBounds(660, 250, 120, 23);
+        jPanel1.add(bEffacer);
+        bEffacer.setBounds(660, 250, 120, 23);
 
         fondcouleur1.setBackground(new java.awt.Color(191, 191, 179));
 
         lbAddresse1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbAddresse1.setText("Adresse 1");
+        lbAddresse1.setText("Adresse *");
 
         lbCodepostal.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbCodepostal.setText("Code Postal");
+        lbCodepostal.setText("Code Postal *");
 
         chpAdresse1.setColumns(20);
         chpAdresse1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -153,19 +154,19 @@ public class AddClient extends javax.swing.JDialog {
         chpCodepostal.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         lbDatevisite.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbDatevisite.setText("Date de la dernière visite");
+        lbDatevisite.setText("Date de la dernière visite *");
 
         lbVille.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbVille.setText("Ville");
+        lbVille.setText("Ville *");
 
         chpVille.setColumns(10);
         chpVille.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         lbPays.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbPays.setText("Pays");
+        lbPays.setText("Pays *");
 
         lbSiret.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbSiret.setText("SIRET");
+        lbSiret.setText("SIRET *");
 
         chpSiret.setColumns(14);
         chpSiret.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -183,37 +184,41 @@ public class AddClient extends javax.swing.JDialog {
             fondcouleur1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondcouleur1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(fondcouleur1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, fondcouleur1Layout.createSequentialGroup()
-                        .addComponent(lbCodepostal)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chpCodepostal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(fondcouleur1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(fondcouleur1Layout.createSequentialGroup()
                         .addGroup(fondcouleur1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbSiret)
-                            .addComponent(lbAddresse1))
-                        .addGap(25, 25, 25)
+                            .addComponent(lbAddresse1)
+                            .addComponent(lbCodepostal))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(fondcouleur1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(fondcouleur1Layout.createSequentialGroup()
-                                .addComponent(chpSiret, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(43, 43, 43)
-                                .addComponent(lbDatevisite)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(chpDatevisite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(fondcouleur1Layout.createSequentialGroup()
-                                .addComponent(chpAdresse1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(chpAdresse2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondcouleur1Layout.createSequentialGroup()
+                                .addComponent(chpCodepostal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lbVille)
-                                .addGap(18, 18, 18)
-                                .addComponent(chpVille, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(chpVille))
+                            .addComponent(chpAdresse1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(fondcouleur1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(fondcouleur1Layout.createSequentialGroup()
+                                .addComponent(chpAdresse2, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                                .addGap(5, 5, 5))
+                            .addGroup(fondcouleur1Layout.createSequentialGroup()
                                 .addComponent(lbPays)
-                                .addGap(18, 18, 18)
-                                .addComponent(comboPays, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(comboPays, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(40, 40, 40))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondcouleur1Layout.createSequentialGroup()
+                        .addGroup(fondcouleur1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(chpSiret, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(fondcouleur1Layout.createSequentialGroup()
+                                .addComponent(lbSiret)
+                                .addGap(195, 195, 195)))
+                        .addGap(61, 61, 61)
+                        .addComponent(lbDatevisite)
+                        .addGap(18, 18, 18)
+                        .addComponent(chpDatevisite, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45))))
         );
         fondcouleur1Layout.setVerticalGroup(
             fondcouleur1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,17 +232,17 @@ public class AddClient extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(fondcouleur1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbAddresse1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chpAdresse1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chpAdresse2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(chpAdresse2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chpAdresse1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(fondcouleur1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comboPays, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbPays, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(chpVille, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbVille, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chpCodepostal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbCodepostal))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lbCodepostal)
+                    .addComponent(chpCodepostal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         jPanel1.add(fondcouleur1);
@@ -254,7 +259,7 @@ public class AddClient extends javax.swing.JDialog {
         });
 
         lbTelfixe.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbTelfixe.setText("Téléphone fixe");
+        lbTelfixe.setText("Téléphone fixe *");
 
         chpTelfixe.setColumns(10);
         chpTelfixe.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -266,7 +271,7 @@ public class AddClient extends javax.swing.JDialog {
         chpTelportable.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         lbNom.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbNom.setText("Nom");
+        lbNom.setText("Nom *");
 
         chpNom.setColumns(10);
         chpNom.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -277,13 +282,13 @@ public class AddClient extends javax.swing.JDialog {
         });
 
         lbPrenom.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbPrenom.setText("Prénom");
+        lbPrenom.setText("Prénom *");
 
         chpEmail.setColumns(10);
         chpEmail.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         lbEmail.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbEmail.setText("Email");
+        lbEmail.setText("Email *");
 
         javax.swing.GroupLayout fondcouleur2Layout = new javax.swing.GroupLayout(fondcouleur2);
         fondcouleur2.setLayout(fondcouleur2Layout);
@@ -291,31 +296,28 @@ public class AddClient extends javax.swing.JDialog {
             fondcouleur2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondcouleur2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lbNom)
-                .addGap(30, 30, 30)
+                .addGroup(fondcouleur2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbNom)
+                    .addComponent(lbEmail))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(fondcouleur2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fondcouleur2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lbEmail)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chpEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(fondcouleur2Layout.createSequentialGroup()
                         .addComponent(chpNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lbPrenom)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 5, Short.MAX_VALUE)
+                        .addComponent(chpPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lbTelfixe))
+                    .addGroup(fondcouleur2Layout.createSequentialGroup()
+                        .addComponent(chpEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(chpPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lbTelportable)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(fondcouleur2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(fondcouleur2Layout.createSequentialGroup()
-                        .addComponent(lbTelfixe)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chpTelportable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(fondcouleur2Layout.createSequentialGroup()
-                        .addComponent(lbTelportable)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chpTelfixe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(24, 24, 24))
+                .addGroup(fondcouleur2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(chpTelportable, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chpTelfixe, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(49, 49, 49))
         );
         fondcouleur2Layout.setVerticalGroup(
             fondcouleur2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -326,14 +328,14 @@ public class AddClient extends javax.swing.JDialog {
                     .addComponent(chpNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbPrenom)
                     .addComponent(chpPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbTelportable, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chpTelfixe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbTelfixe, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chpTelportable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(fondcouleur2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(chpTelportable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbTelfixe, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(chpEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbTelportable, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chpTelfixe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -369,27 +371,30 @@ public class AddClient extends javax.swing.JDialog {
         jPanel1.add(lbCommandes);
         lbCommandes.setBounds(640, 0, 150, 20);
 
-        chpCommandes.setColumns(10);
-        jPanel1.add(chpCommandes);
-        chpCommandes.setBounds(720, 20, 59, 20);
+        bSupprimer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconemoins.jpg"))); // NOI18N
+        bSupprimer.setText("Supprimer");
+        bSupprimer.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jPanel1.add(bSupprimer);
+        bSupprimer.setBounds(660, 220, 120, 27);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconemoins.jpg"))); // NOI18N
-        jButton2.setText("Supprimer");
-        jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jPanel1.add(jButton2);
-        jButton2.setBounds(660, 220, 120, 27);
+        bModifier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconemodif.jpg"))); // NOI18N
+        bModifier.setText("Modifier");
+        bModifier.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jPanel1.add(bModifier);
+        bModifier.setBounds(660, 190, 120, 27);
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconemodif.jpg"))); // NOI18N
-        jButton3.setText("Modifier");
-        jButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jPanel1.add(jButton3);
-        jButton3.setBounds(660, 190, 120, 27);
+        bAjouter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconeplus.jpg"))); // NOI18N
+        bAjouter.setText("Ajouter");
+        bAjouter.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jPanel1.add(bAjouter);
+        bAjouter.setBounds(660, 160, 120, 27);
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconeplus.jpg"))); // NOI18N
-        jButton4.setText("Ajouter");
-        jButton4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jPanel1.add(jButton4);
-        jButton4.setBounds(660, 160, 120, 27);
+        jLabel1.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel1.setText("* champs obligatoires");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(250, 170, 250, 20);
+        jPanel1.add(lbCommandes1);
+        lbCommandes1.setBounds(720, 20, 50, 20);
 
         imagefond.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         imagefond.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/meubles4.jpg"))); // NOI18N
@@ -446,7 +451,7 @@ public class AddClient extends javax.swing.JDialog {
         dispose();
     }//GEN-LAST:event_mRetourMouseClicked
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void bEffacerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bEffacerMouseClicked
         // Action sur le bouton Effacer, purge des champs de saisies et suppression de la selection dans la table.
         chpNomenseigne.setText ("") ;
         chpSiret.setText ("") ;
@@ -461,11 +466,11 @@ public class AddClient extends javax.swing.JDialog {
         chpEmail.setText ("") ;
         chpTelfixe.setText ("") ;
         chpTelportable.setText ("") ;
-        chpCommandes.setText ("") ;
+       lbCommandes1.setText ("") ;
   
         TableClients.getSelectionModel().clearSelection();
 
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_bEffacerMouseClicked
 
     private void TableClientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableClientsMouseClicked
      // Je récupére le nom de l'enseigne, colonne 1.
@@ -495,8 +500,9 @@ public class AddClient extends javax.swing.JDialog {
         // Je récupére l'email, colonne 13.
         chpEmail.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),13));
          // Je récupére le nombre des commandes, colonne 14.
-        chpCommandes.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),14));
        
+       // Le nombre de commandes est consultatif et non modifiable, donc on l'affiche par jLabel plutôt qu'un champ 
+       lbCommandes1.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),14));
     }//GEN-LAST:event_TableClientsMouseClicked
 
     /**
@@ -549,10 +555,13 @@ public class AddClient extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TableClients;
     private javax.swing.JLabel Titre;
+    private javax.swing.JButton bAjouter;
+    private javax.swing.JButton bEffacer;
+    private javax.swing.JButton bModifier;
+    private javax.swing.JButton bSupprimer;
     private javax.swing.JTextField chpAdresse1;
     private javax.swing.JTextField chpAdresse2;
     private javax.swing.JTextField chpCodepostal;
-    private javax.swing.JTextField chpCommandes;
     private javax.swing.JTextField chpDatevisite;
     private javax.swing.JTextField chpEmail;
     private javax.swing.JTextField chpNom;
@@ -566,16 +575,14 @@ public class AddClient extends javax.swing.JDialog {
     private javax.swing.JPanel fondcouleur1;
     private javax.swing.JPanel fondcouleur2;
     private javax.swing.JLabel imagefond;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lbAddresse1;
     private javax.swing.JLabel lbCodepostal;
     private javax.swing.JLabel lbCommandes;
+    private javax.swing.JLabel lbCommandes1;
     private javax.swing.JLabel lbDatevisite;
     private javax.swing.JLabel lbEmail;
     private javax.swing.JLabel lbNom;
