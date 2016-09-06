@@ -29,7 +29,7 @@ public class AddClient extends javax.swing.JDialog {
          /**
         * changer l'icone de la fenêtre
         */
-            BufferedImage img = ImageIO.read(AddClient.class.getResource("/com/san/form/logo.png"));
+            BufferedImage img = ImageIO.read(AddClient.class.getResource("/Formulaires/logo.png"));
             
             setIconImage(img);
         initComponents();
@@ -50,29 +50,30 @@ public class AddClient extends javax.swing.JDialog {
 
         jPanel1 = new javax.swing.JPanel();
         Titre = new javax.swing.JLabel();
+        titreContact = new javax.swing.JLabel();
         lbNomenseigne = new javax.swing.JLabel();
         chpNomenseigne = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        fondcouleur1 = new javax.swing.JPanel();
         lbAddresse1 = new javax.swing.JLabel();
         lbCodepostal = new javax.swing.JLabel();
         chpAdresse1 = new javax.swing.JTextField();
         chpAdresse2 = new javax.swing.JTextField();
         chpCodepostal = new javax.swing.JTextField();
+        lbDatevisite = new javax.swing.JLabel();
         lbVille = new javax.swing.JLabel();
         chpVille = new javax.swing.JTextField();
         lbPays = new javax.swing.JLabel();
         lbSiret = new javax.swing.JLabel();
         chpSiret = new javax.swing.JTextField();
+        chpDatevisite = new javax.swing.JTextField();
+        comboPays = new javax.swing.JComboBox<>();
+        fondcouleur2 = new javax.swing.JPanel();
+        chpPrenom = new javax.swing.JTextField();
         lbTelfixe = new javax.swing.JLabel();
         chpTelfixe = new javax.swing.JTextField();
         lbTelportable = new javax.swing.JLabel();
         chpTelportable = new javax.swing.JTextField();
-        lbDatevisite = new javax.swing.JLabel();
-        chpDatevisite = new javax.swing.JTextField();
-        titreContact = new javax.swing.JLabel();
-        fondcouleur1 = new javax.swing.JPanel();
-        comboPays = new javax.swing.JComboBox<>();
-        fondcouleur2 = new javax.swing.JPanel();
-        chpPrenom = new javax.swing.JTextField();
         lbNom = new javax.swing.JLabel();
         chpNom = new javax.swing.JTextField();
         lbPrenom = new javax.swing.JLabel();
@@ -81,7 +82,9 @@ public class AddClient extends javax.swing.JDialog {
         jScrollPane2 = new javax.swing.JScrollPane();
         DataFileTableModel model;
         String nomFichier="Data/Clients.txt";
-        jTable1 = new javax.swing.JTable();
+        TableClients = new javax.swing.JTable();
+        lbCommandes = new javax.swing.JLabel();
+        chpCommandes = new javax.swing.JTextField();
         imagefond = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mRetour = new javax.swing.JMenu();
@@ -100,11 +103,16 @@ public class AddClient extends javax.swing.JDialog {
         jPanel1.add(Titre);
         Titre.setBounds(20, 10, 270, 30);
 
+        titreContact.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        titreContact.setText("Contact de l'enseigne");
+        jPanel1.add(titreContact);
+        titreContact.setBounds(20, 160, 210, 22);
+
         lbNomenseigne.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbNomenseigne.setText("Nom de l'enseigne");
         lbNomenseigne.setFocusable(false);
         jPanel1.add(lbNomenseigne);
-        lbNomenseigne.setBounds(340, 20, 110, 20);
+        lbNomenseigne.setBounds(320, 20, 110, 20);
 
         chpNomenseigne.setColumns(10);
         chpNomenseigne.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -112,97 +120,57 @@ public class AddClient extends javax.swing.JDialog {
         jPanel1.add(chpNomenseigne);
         chpNomenseigne.setBounds(460, 20, 126, 23);
 
+        jButton1.setText("Effacer");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(700, 250, 80, 23);
+
+        fondcouleur1.setBackground(new java.awt.Color(191, 191, 179));
+
         lbAddresse1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbAddresse1.setText("Adresse 1");
-        jPanel1.add(lbAddresse1);
-        lbAddresse1.setBounds(10, 90, 60, 20);
 
         lbCodepostal.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbCodepostal.setText("Code Postal");
-        jPanel1.add(lbCodepostal);
-        lbCodepostal.setBounds(10, 120, 73, 15);
 
         chpAdresse1.setColumns(20);
         chpAdresse1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         chpAdresse1.setText("numero, nom de rue");
         chpAdresse1.setToolTipText("");
-        jPanel1.add(chpAdresse1);
-        chpAdresse1.setBounds(90, 90, 260, 21);
 
         chpAdresse2.setColumns(20);
         chpAdresse2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         chpAdresse2.setText("complément d'adresse");
-        jPanel1.add(chpAdresse2);
-        chpAdresse2.setBounds(356, 90, 230, 21);
 
         chpCodepostal.setColumns(5);
         chpCodepostal.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jPanel1.add(chpCodepostal);
-        chpCodepostal.setBounds(90, 120, 56, 21);
+
+        lbDatevisite.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbDatevisite.setText("Date de la dernière visite");
 
         lbVille.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbVille.setText("Ville");
-        jPanel1.add(lbVille);
-        lbVille.setBounds(210, 120, 24, 20);
 
         chpVille.setColumns(10);
         chpVille.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jPanel1.add(chpVille);
-        chpVille.setBounds(240, 120, 110, 21);
 
         lbPays.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbPays.setText("Pays");
-        jPanel1.add(lbPays);
-        lbPays.setBounds(360, 120, 28, 20);
 
         lbSiret.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbSiret.setText("SIRET");
-        jPanel1.add(lbSiret);
-        lbSiret.setBounds(10, 60, 36, 20);
 
         chpSiret.setColumns(14);
         chpSiret.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         chpSiret.setNextFocusableComponent(chpDatevisite);
-        jPanel1.add(chpSiret);
-        chpSiret.setBounds(90, 60, 146, 21);
-
-        lbTelfixe.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbTelfixe.setText("Téléphone fixe");
-        jPanel1.add(lbTelfixe);
-        lbTelfixe.setBounds(360, 200, 89, 20);
-
-        chpTelfixe.setColumns(10);
-        chpTelfixe.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jPanel1.add(chpTelfixe);
-        chpTelfixe.setBounds(480, 200, 106, 21);
-
-        lbTelportable.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbTelportable.setText("Téléphone portable");
-        jPanel1.add(lbTelportable);
-        lbTelportable.setBounds(360, 230, 119, 20);
-
-        chpTelportable.setColumns(10);
-        chpTelportable.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jPanel1.add(chpTelportable);
-        chpTelportable.setBounds(480, 230, 106, 21);
-
-        lbDatevisite.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lbDatevisite.setText("Date de la dernière visite");
-        jPanel1.add(lbDatevisite);
-        lbDatevisite.setBounds(280, 60, 152, 20);
 
         chpDatevisite.setColumns(10);
         chpDatevisite.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         chpDatevisite.setText("jj/mm/aaaa");
-        jPanel1.add(chpDatevisite);
-        chpDatevisite.setBounds(480, 60, 106, 21);
-
-        titreContact.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        titreContact.setText("Contact de l'enseigne");
-        jPanel1.add(titreContact);
-        titreContact.setBounds(20, 160, 210, 22);
-
-        fondcouleur1.setBackground(new java.awt.Color(191, 191, 179));
 
         comboPays.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "France", "Belgique", "Suisse", "Pays bas", "-----------", "Afghanistan ", "Afrique du Sud ", "Albanie ", "Algérie ", "Allemagne ", "Angola ", "Antigua-et-Barbuda ", "Arabie saoudite ", "Argentine ", "Arménie ", "Australie ", "Autriche ", "Azerbaïdjan ", "Bahamas ", "Bahreïn ", "Bangladesh ", "Barbade ", "Belau ", "Belgique ", "Belize ", "Bénin ", "Bhoutan ", "Biélorussie ", "Birmanie ", "Bolivie ", "Bosnie-Herzégovine ", "Botswana ", "Brésil ", "Brunei ", "Bulgarie ", "Burkina ", "Burundi ", "Cambodge ", "Cameroun ", "Canada ", "Cap-Vert ", "Chili ", "Chine ", "Chypre ", "Colombie ", "Comores ", "Congo ", "Cook ", "Corée du Nord ", "Corée du Sud ", "Costa Rica ", "Côte d'Ivoire ", "Croatie ", "Cuba ", "Danemark ", "Djibouti ", "Dominique ", "Écosse ", "Égypte ", "Émirats arabes unis ", "Équateur ", "Érythrée ", "Espagne ", "Estonie ", "États-Unis ", "Éthiopie ", "Fidji ", "Finlande ", "France ", "Gabon ", "Gambie ", "Géorgie ", "Ghana ", "Grèce ", "Grenade ", "Guatemala ", "Guinée ", "Guinée-Bissao ", "Guinée équatoriale ", "Guyana ", "Haïti ", "Honduras ", "Hongrie ", "Inde ", "Indonésie ", "Iran ", "Irak ", "Irlande ", "Islande ", "Israël ", "Italie ", "Jamaïque ", "Japon ", "Jordanie ", "Kazakhstan ", "Kenya ", "Kirghizistan ", "Kiribati ", "Koweït ", "Laos ", "Lesotho ", "Lettonie ", "Liban ", "Liberia ", "Libye ", "Liechtenstein ", "Lituanie ", "Luxembourg ", "Macédoine ", "Madagascar ", "Malaisie ", "Malawi ", "Maldives ", "Mali ", "Malte ", "Maroc ", "Marshall ", "Maurice ", "Mauritanie ", "Mexique ", "Micronésie ", "Moldavie ", "Monaco ", "Mongolie ", "Mozambique ", "Namibie ", "Nauru ", "Népal ", "Nicaragua ", "Niger ", "Nigeria ", "Niue ", "Norvège ", "Nouvelle-Zélande ", "Oman ", "Ouganda ", "Ouzbékistan ", "Pakistan ", "Palestine ", "Panama ", "Papouasie - Nouvelle Guinée ", "Paraguay ", "Pays-Bas ", "Pérou ", "Philippines ", "Pologne ", "Portugal ", "Qatar ", "République centrafricaine ", "République démocratique du Con ", "République dominicaine ", "République tchèque ", "Roumanie ", "Royaume-Uni ", "Russie ", "Rwanda ", "Saint-Christophe-et-Niévès ", "Sainte-Lucie ", "Saint-Marin ", "Saint-Siège ", "Saint-Vincent-et-les-Grenadine ", "Salomon ", "Salvador ", "Samoa occidentales ", "Sao Tomé-et-Principe ", "Sénégal ", "Seychelles ", "Sierra Leone ", "Singapour ", "Slovaquie ", "Slovénie ", "Somalie ", "Soudan ", "Sri Lanka ", "Suède ", "Suisse ", "Suriname ", "Swaziland ", "Syrie ", "Tadjikistan ", "Tanzanie ", "Tchad ", "Thaïlande ", "Togo ", "Tonga ", "Trinité-et-Tobago ", "Tunisie ", "Turkménistan ", "Turquie ", "Tuvalu ", "Ukraine ", "Uruguay ", "Vanuatu ", "Venezuela ", "Viêt Nam ", "Yémen ", "Yougoslavie ", "Zambie ", "Zimbabwe " }));
 
@@ -210,21 +178,67 @@ public class AddClient extends javax.swing.JDialog {
         fondcouleur1.setLayout(fondcouleur1Layout);
         fondcouleur1Layout.setHorizontalGroup(
             fondcouleur1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondcouleur1Layout.createSequentialGroup()
-                .addContainerGap(444, Short.MAX_VALUE)
-                .addComponent(comboPays, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+            .addGroup(fondcouleur1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(fondcouleur1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, fondcouleur1Layout.createSequentialGroup()
+                        .addComponent(lbCodepostal)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(chpCodepostal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(fondcouleur1Layout.createSequentialGroup()
+                        .addGroup(fondcouleur1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbSiret)
+                            .addComponent(lbAddresse1))
+                        .addGap(25, 25, 25)
+                        .addGroup(fondcouleur1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(fondcouleur1Layout.createSequentialGroup()
+                                .addComponent(chpSiret, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(43, 43, 43)
+                                .addComponent(lbDatevisite)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(chpDatevisite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(fondcouleur1Layout.createSequentialGroup()
+                                .addComponent(chpAdresse1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(chpAdresse2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondcouleur1Layout.createSequentialGroup()
+                                .addComponent(lbVille)
+                                .addGap(18, 18, 18)
+                                .addComponent(chpVille, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lbPays)
+                                .addGap(18, 18, 18)
+                                .addComponent(comboPays, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         fondcouleur1Layout.setVerticalGroup(
             fondcouleur1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondcouleur1Layout.createSequentialGroup()
-                .addContainerGap(69, Short.MAX_VALUE)
-                .addComponent(comboPays, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap()
+                .addGroup(fondcouleur1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbSiret, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chpSiret, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbDatevisite, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chpDatevisite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fondcouleur1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbAddresse1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chpAdresse1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chpAdresse2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fondcouleur1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboPays, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbPays, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chpVille, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbVille, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chpCodepostal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbCodepostal))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(fondcouleur1);
-        fondcouleur1.setBounds(0, 50, 600, 100);
+        fondcouleur1.setBounds(90, 60, 600, 100);
 
         fondcouleur2.setBackground(new java.awt.Color(191, 191, 179));
 
@@ -235,6 +249,18 @@ public class AddClient extends javax.swing.JDialog {
                 chpPrenomActionPerformed(evt);
             }
         });
+
+        lbTelfixe.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbTelfixe.setText("Téléphone fixe");
+
+        chpTelfixe.setColumns(10);
+        chpTelfixe.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        lbTelportable.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lbTelportable.setText("Téléphone portable");
+
+        chpTelportable.setColumns(10);
+        chpTelportable.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         lbNom.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbNom.setText("Nom");
@@ -262,19 +288,31 @@ public class AddClient extends javax.swing.JDialog {
             fondcouleur2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondcouleur2Layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(lbNom)
+                .addGap(30, 30, 30)
                 .addGroup(fondcouleur2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbNom)
-                    .addComponent(lbEmail))
-                .addGap(26, 26, 26)
-                .addGroup(fondcouleur2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(chpEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(fondcouleur2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lbEmail)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(chpEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(fondcouleur2Layout.createSequentialGroup()
                         .addComponent(chpNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(lbPrenom)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(chpPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(252, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(fondcouleur2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(fondcouleur2Layout.createSequentialGroup()
+                        .addComponent(lbTelfixe)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(chpTelportable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(fondcouleur2Layout.createSequentialGroup()
+                        .addComponent(lbTelportable)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(chpTelfixe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(24, 24, 24))
         );
         fondcouleur2Layout.setVerticalGroup(
             fondcouleur2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,27 +322,56 @@ public class AddClient extends javax.swing.JDialog {
                     .addComponent(lbNom, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(chpNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbPrenom)
-                    .addComponent(chpPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(chpPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbTelportable, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chpTelfixe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(fondcouleur2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(chpTelportable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbTelfixe, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(chpEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(fondcouleur2);
-        fondcouleur2.setBounds(0, 190, 600, 70);
+        fondcouleur2.setBounds(90, 190, 600, 70);
 
         model = new DataFileTableModel(nomFichier);
-        jTable1.setModel(model);
-        jTable1.createDefaultColumnsFromModel();
-        jScrollPane2.setViewportView(jTable1);
+        TableClients.setModel(model);
+        TableClients.createDefaultColumnsFromModel();
+
+        // Retirer les colonnes qu'on ne veut pas afficher dans le tableau
+        // Le numéro des colonnes se décale à chaque retrait, d'où les nombreux retraits de la colonne 7
+        TableClients.removeColumn(TableClients.getColumnModel().getColumn(2));
+        TableClients.removeColumn(TableClients.getColumnModel().getColumn(4));
+        TableClients.removeColumn(TableClients.getColumnModel().getColumn(7));
+        TableClients.removeColumn(TableClients.getColumnModel().getColumn(7));
+        TableClients.removeColumn(TableClients.getColumnModel().getColumn(7));
+        TableClients.removeColumn(TableClients.getColumnModel().getColumn(7));
+        TableClients.removeColumn(TableClients.getColumnModel().getColumn(7));
+        TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
+        TableClients.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TableClientsMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(TableClients);
 
         jPanel1.add(jScrollPane2);
-        jScrollPane2.setBounds(10, 280, 910, 120);
+        jScrollPane2.setBounds(10, 280, 770, 120);
+
+        lbCommandes.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbCommandes.setText("Nombre de commandes");
+        jPanel1.add(lbCommandes);
+        lbCommandes.setBounds(640, 0, 150, 20);
+
+        chpCommandes.setColumns(10);
+        jPanel1.add(chpCommandes);
+        chpCommandes.setBounds(720, 20, 59, 20);
 
         imagefond.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        imagefond.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/meubles1.jpg"))); // NOI18N
+        imagefond.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/meubles4.jpg"))); // NOI18N
         jPanel1.add(imagefond);
         imagefond.setBounds(0, -30, 790, 480);
 
@@ -336,7 +403,7 @@ public class AddClient extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 931, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 792, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -357,6 +424,59 @@ public class AddClient extends javax.swing.JDialog {
     private void mRetourMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mRetourMouseClicked
         dispose();
     }//GEN-LAST:event_mRetourMouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // Action sur le bouton Effacer, purge des champs de saisies et suppression de la selection dans la table.
+        chpNomenseigne.setText ("") ;
+        chpSiret.setText ("") ;
+        chpDatevisite.setText ("") ;
+        chpAdresse1.setText ("") ;
+        chpAdresse2.setText ("") ;
+        chpCodepostal.setText ("") ;
+        chpVille.setText ("") ;
+        
+        chpNom.setText ("") ;
+        chpPrenom.setText ("") ;
+        chpEmail.setText ("") ;
+        chpTelfixe.setText ("") ;
+        chpTelportable.setText ("") ;
+        chpCommandes.setText ("") ;
+  
+        TableClients.getSelectionModel().clearSelection();
+
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void TableClientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableClientsMouseClicked
+     // Je récupére le nom de l'enseigne, colonne 1.
+        chpNomenseigne.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),1));
+        // Je récupére le numéro de Siret, colonne 2.
+        chpSiret.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),2));
+       // Je récupére la date de la dernière visite, colonne 3.
+         chpDatevisite.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),3));
+         // Je récupére l'adresse, colonne 4.
+        chpAdresse1.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),4));
+        // Je récupére le complément d'adresse, colonne 5.
+        chpAdresse2.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),5));
+        // Je récupére le code postal, colonne 6.
+        chpCodepostal.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),6));
+        // Je récupére la ville, colonne 7.
+        chpVille.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),7));
+        // Je récupére le pays, colonne 8.
+       // comboPays.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),8));
+        // Je récupére le nom de contact, colonne 9.
+        chpNom.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),9));
+        // Je récupére le prénom, colonne 10.
+        chpPrenom.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),10));
+         // Je récupére le téléphone fixe, colonne 11.
+        chpTelfixe.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),11));
+        // Je récupére le téléphone portable, colonne 12.
+        chpTelportable.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),12));
+        // Je récupére l'email, colonne 13.
+        chpEmail.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),13));
+         // Je récupére le nombre des commandes, colonne 14.
+        chpCommandes.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),14));
+       
+    }//GEN-LAST:event_TableClientsMouseClicked
 
     /**
      * @param args the command line arguments
@@ -406,10 +526,12 @@ public class AddClient extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable TableClients;
     private javax.swing.JLabel Titre;
     private javax.swing.JTextField chpAdresse1;
     private javax.swing.JTextField chpAdresse2;
     private javax.swing.JTextField chpCodepostal;
+    private javax.swing.JTextField chpCommandes;
     private javax.swing.JTextField chpDatevisite;
     private javax.swing.JTextField chpEmail;
     private javax.swing.JTextField chpNom;
@@ -423,12 +545,13 @@ public class AddClient extends javax.swing.JDialog {
     private javax.swing.JPanel fondcouleur1;
     private javax.swing.JPanel fondcouleur2;
     private javax.swing.JLabel imagefond;
+    private javax.swing.JButton jButton1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lbAddresse1;
     private javax.swing.JLabel lbCodepostal;
+    private javax.swing.JLabel lbCommandes;
     private javax.swing.JLabel lbDatevisite;
     private javax.swing.JLabel lbEmail;
     private javax.swing.JLabel lbNom;
