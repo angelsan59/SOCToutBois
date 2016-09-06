@@ -85,6 +85,9 @@ public class AddClient extends javax.swing.JDialog {
         TableClients = new javax.swing.JTable();
         lbCommandes = new javax.swing.JLabel();
         chpCommandes = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         imagefond = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mRetour = new javax.swing.JMenu();
@@ -106,7 +109,7 @@ public class AddClient extends javax.swing.JDialog {
         titreContact.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         titreContact.setText("Contact de l'enseigne");
         jPanel1.add(titreContact);
-        titreContact.setBounds(20, 160, 210, 22);
+        titreContact.setBounds(20, 170, 210, 22);
 
         lbNomenseigne.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbNomenseigne.setText("Nom de l'enseigne");
@@ -127,7 +130,7 @@ public class AddClient extends javax.swing.JDialog {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(700, 250, 80, 23);
+        jButton1.setBounds(660, 250, 120, 23);
 
         fondcouleur1.setBackground(new java.awt.Color(191, 191, 179));
 
@@ -238,7 +241,7 @@ public class AddClient extends javax.swing.JDialog {
         );
 
         jPanel1.add(fondcouleur1);
-        fondcouleur1.setBounds(90, 60, 600, 100);
+        fondcouleur1.setBounds(50, 50, 600, 110);
 
         fondcouleur2.setBackground(new java.awt.Color(191, 191, 179));
 
@@ -335,7 +338,7 @@ public class AddClient extends javax.swing.JDialog {
         );
 
         jPanel1.add(fondcouleur2);
-        fondcouleur2.setBounds(90, 190, 600, 70);
+        fondcouleur2.setBounds(50, 200, 600, 70);
 
         model = new DataFileTableModel(nomFichier);
         TableClients.setModel(model);
@@ -369,6 +372,24 @@ public class AddClient extends javax.swing.JDialog {
         chpCommandes.setColumns(10);
         jPanel1.add(chpCommandes);
         chpCommandes.setBounds(720, 20, 59, 20);
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconemoins.jpg"))); // NOI18N
+        jButton2.setText("Supprimer");
+        jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jPanel1.add(jButton2);
+        jButton2.setBounds(660, 220, 120, 27);
+
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconemodif.jpg"))); // NOI18N
+        jButton3.setText("Modifier");
+        jButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jPanel1.add(jButton3);
+        jButton3.setBounds(660, 190, 120, 27);
+
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconeplus.jpg"))); // NOI18N
+        jButton4.setText("Ajouter");
+        jButton4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jPanel1.add(jButton4);
+        jButton4.setBounds(660, 160, 120, 27);
 
         imagefond.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         imagefond.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/meubles4.jpg"))); // NOI18N
@@ -546,6 +567,9 @@ public class AddClient extends javax.swing.JDialog {
     private javax.swing.JPanel fondcouleur2;
     private javax.swing.JLabel imagefond;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
