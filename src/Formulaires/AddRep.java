@@ -61,10 +61,10 @@ private void initialise(){
 
         jPanel1 = new javax.swing.JPanel();
         Titre = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        bAjouter = new javax.swing.JButton();
+        bSupprimer = new javax.swing.JButton();
+        bEffacer = new javax.swing.JButton();
+        bModifier = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         chpPrenom = new javax.swing.JTextField();
         chpNom = new javax.swing.JTextField();
@@ -77,7 +77,7 @@ private void initialise(){
         jScrollPane2 = new javax.swing.JScrollPane();
         DataFileTableModel model;
         String nomFichier="Data/Representants.txt";
-        jTable1 = new javax.swing.JTable();
+        TableRepresentants = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -98,42 +98,42 @@ private void initialise(){
         jPanel1.add(Titre);
         Titre.setBounds(30, 20, 500, 30);
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/iconeplus.jpg"))); // NOI18N
-        jButton4.setText("Ajouter");
-        jButton4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jPanel1.add(jButton4);
-        jButton4.setBounds(570, 100, 120, 27);
+        bAjouter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/iconeplus.jpg"))); // NOI18N
+        bAjouter.setText("Ajouter");
+        bAjouter.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jPanel1.add(bAjouter);
+        bAjouter.setBounds(570, 100, 120, 27);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/iconemoins.jpg"))); // NOI18N
-        jButton2.setText("Supprimer");
-        jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        bSupprimer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/iconemoins.jpg"))); // NOI18N
+        bSupprimer.setText("Supprimer");
+        bSupprimer.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        bSupprimer.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                bSupprimerMouseClicked(evt);
             }
         });
-        jPanel1.add(jButton2);
-        jButton2.setBounds(570, 160, 120, 27);
+        jPanel1.add(bSupprimer);
+        bSupprimer.setBounds(570, 160, 120, 27);
 
-        jButton5.setText("Effacer");
-        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+        bEffacer.setText("Effacer");
+        bEffacer.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton5MouseClicked(evt);
+                bEffacerMouseClicked(evt);
             }
         });
-        jPanel1.add(jButton5);
-        jButton5.setBounds(570, 190, 120, 23);
+        jPanel1.add(bEffacer);
+        bEffacer.setBounds(570, 190, 120, 23);
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/iconemodif.jpg"))); // NOI18N
-        jButton3.setText("Modifier");
-        jButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        bModifier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/iconemodif.jpg"))); // NOI18N
+        bModifier.setText("Modifier");
+        bModifier.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        bModifier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                bModifierActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3);
-        jButton3.setBounds(570, 130, 120, 27);
+        jPanel1.add(bModifier);
+        bModifier.setBounds(570, 130, 120, 27);
 
         jPanel2.setBackground(new java.awt.Color(191, 191, 179));
 
@@ -233,16 +233,16 @@ private void initialise(){
         jPanel2.setBounds(240, 70, 290, 150);
 
         model = new DataFileTableModel(nomFichier);
-        jTable1.setModel(model);
-        jTable1.createDefaultColumnsFromModel();
+        TableRepresentants.setModel(model);
+        TableRepresentants.createDefaultColumnsFromModel();
         // Je masque les colonnes inutiles.
-        // jTable1.removeColumn(jTable1.getColumnModel().getColumn(0));
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        // TableRepresentants.removeColumn(TableRepresentants.getColumnModel().getColumn(0));
+        TableRepresentants.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
+                TableRepresentantsMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(TableRepresentants);
 
         jPanel1.add(jScrollPane2);
         jScrollPane2.setBounds(90, 240, 590, 120);
@@ -316,7 +316,7 @@ private void initialise(){
 
     private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
         // Je recupere le nombre de ligne (soit le nombre de représentant.
-        int nbdeligne = jTable1.getRowCount() ;
+        int nbdeligne = TableRepresentants.getRowCount() ;
         //Je récupére les caractéristique du nouveau representant.
         String repnom = chpNom.getText() ;
         String repprenom = chpPrenom.getText() ;
@@ -346,35 +346,35 @@ private void initialise(){
          dispose();
     }//GEN-LAST:event_jMenu1MouseClicked
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+    private void TableRepresentantsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableRepresentantsMouseClicked
         // Je récupére le nom, colonne 1.
-        chpNom.setText ((String) jTable1.getModel().getValueAt(jTable1.getSelectedRow(),1));
+        chpNom.setText ((String) TableRepresentants.getModel().getValueAt(TableRepresentants.getSelectedRow(),1));
         // Je récupére le Prenom, colonne 2.
-        chpPrenom.setText ((String) jTable1.getModel().getValueAt(jTable1.getSelectedRow(),2));
+        chpPrenom.setText ((String) TableRepresentants.getModel().getValueAt(TableRepresentants.getSelectedRow(),2));
         // Je récupére le salaire, colonne 3.
-        chpSalaire.setText ((String) jTable1.getModel().getValueAt(jTable1.getSelectedRow(),3));
+        chpSalaire.setText ((String) TableRepresentants.getModel().getValueAt(TableRepresentants.getSelectedRow(),3));
         // Je récupére le taux de commission, colonne 4.
-        chpTxCommission.setText ((String) jTable1.getModel().getValueAt(jTable1.getSelectedRow(),4));
+        chpTxCommission.setText ((String) TableRepresentants.getModel().getValueAt(TableRepresentants.getSelectedRow(),4));
         
-    }//GEN-LAST:event_jTable1MouseClicked
+    }//GEN-LAST:event_TableRepresentantsMouseClicked
 
-    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+    private void bEffacerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bEffacerMouseClicked
         // Action sur le bouton Effacer, purge des champs de saisies et suppression de la selection dans la table.
         chpNom.setText ("") ;
         chpPrenom.setText ("") ;
         chpSalaire.setText ("") ;
         chpTxCommission.setText ("") ;
-        jTable1.getSelectionModel().clearSelection();
+        TableRepresentants.getSelectionModel().clearSelection();
         
-    }//GEN-LAST:event_jButton5MouseClicked
+    }//GEN-LAST:event_bEffacerMouseClicked
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void bModifierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bModifierActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_bModifierActionPerformed
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+    private void bSupprimerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bSupprimerMouseClicked
         // Je recupere la ligne à modifier
-        int ligneactuelle = jTable1.getSelectedRow() + 1 ;
+        int ligneactuelle = TableRepresentants.getSelectedRow() + 1 ;
         String repnom = chpNom.getText() ;
         String repprenom = chpPrenom.getText() ;
         String repSalaire = chpSalaire.getText () ; 
@@ -395,7 +395,7 @@ private void initialise(){
             } catch (IOException ex) {
             Logger.getLogger(AddRep.class.getName()).log(Level.SEVERE, null, ex);
             }
-    }//GEN-LAST:event_jButton2MouseClicked
+    }//GEN-LAST:event_bSupprimerMouseClicked
 
     /**
      * @param args the command line arguments
@@ -445,15 +445,16 @@ private void initialise(){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable TableRepresentants;
     private javax.swing.JLabel Titre;
+    private javax.swing.JButton bAjouter;
+    private javax.swing.JButton bEffacer;
+    private javax.swing.JButton bModifier;
+    private javax.swing.JButton bSupprimer;
     private javax.swing.JTextField chpNom;
     private javax.swing.JTextField chpPrenom;
     private javax.swing.JTextField chpSalaire;
     private javax.swing.JTextField chpTxCommission;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -464,7 +465,6 @@ private void initialise(){
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lbNom;
     private javax.swing.JLabel lbPrenom;
     private javax.swing.JLabel lbSalaire;
