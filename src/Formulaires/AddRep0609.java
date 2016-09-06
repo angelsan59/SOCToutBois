@@ -6,7 +6,6 @@
 package Formulaires;
 
 import Entites.Representant;
-import static GestionFichier.EcritureDansFichier.EcritureFichier;
 import java.awt.Frame;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -24,14 +23,14 @@ import javax.swing.table.TableColumnModel;
  *
  * @author sociepka
  */
-public class AddRep extends javax.swing.JDialog {
+public class AddRep0609 extends javax.swing.JDialog {
 
     /**
      * Creates new form AddRep
      */
     // LectureFichierCSV fichierrepresentant = new LectureFichierCSV ("Data/Representants.txt") ;
     
-    public AddRep(Frame parent, boolean modal) throws IOException {
+    public AddRep0609(Frame parent, boolean modal) throws IOException {
         super(parent, modal);
         initComponents();
         initialise () ;
@@ -294,21 +293,17 @@ private void initialise(){
         String repprenom = chpPrenom.getText() ;
         String repSalaire = chpSalaire.getText () ; 
         String repTxtCommission = chpTxCommission.getText() ;
-        String chaine = ((nbdeligne+1) + ";" + repnom + ";" + repprenom + ";" + repSalaire + ";" + repTxtCommission + "\n");
+        String chaine = ((nbdeligne+1) + ";" + repnom + ";" + repprenom + ";" + repSalaire + ";" + repTxtCommission );
         System.out.println(chaine);
-        try {
-            EcritureFichier ("Data/Representants.txt", chaine) ;
-            //jTable1.setValueAt(nbdeligne + 1, nbdeligne + 1, 0) ;
-            //jTable1.setValueAt(repnom, nbdeligne + 1, 1) ;
-            //jTable1.setValueAt(repprenom, nbdeligne + 1, 1) ;
-            //jTable1.setValueAt(repSalaire, nbdeligne + 1, 1) ;
-            //jTable1.setValueAt(repTxtCommission, nbdeligne + 1, 1) ;
-            // DataFileTableModel model = jTable1.getModel ();
-            //  jTable1.setModel(new DataFileTableModel("Data/Representants.txt"));
-            } catch (IOException ex) {
-            Logger.getLogger(AddRep.class.getName()).log(Level.SEVERE, null, ex);
-            }
-       
+                            //jTable1.setValueAt(nbdeligne + 1, nbdeligne + 1, 0) ;
+                            //jTable1.setValueAt(repnom, nbdeligne + 1, 1) ;
+                            //jTable1.setValueAt(repprenom, nbdeligne + 1, 1) ;
+                            //jTable1.setValueAt(repSalaire, nbdeligne + 1, 1) ;
+                            //jTable1.setValueAt(repTxtCommission, nbdeligne + 1, 1) ;
+                            // DataFileTableModel model = jTable1.getModel ();
+        //  jTable1.setModel(new DataFileTableModel("Data/Representants.txt"));
+     
+        
                
         
     }//GEN-LAST:event_jMenu3MouseClicked
@@ -356,24 +351,25 @@ private void initialise(){
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AddRep.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddRep0609.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AddRep.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddRep0609.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AddRep.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddRep0609.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AddRep.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddRep0609.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                AddRep dialog = null;
+                AddRep0609 dialog = null;
                 try {
-                    dialog = new AddRep(new javax.swing.JFrame(), true);
+                    dialog = new AddRep0609(new javax.swing.JFrame(), true);
                 } catch (IOException ex) {
-                    Logger.getLogger(AddRep.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(AddRep0609.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override

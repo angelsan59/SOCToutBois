@@ -31,15 +31,16 @@ import javax.swing.*;
          }
  
     /**
-     * Initialisation des vectors et lecture du fichier texte avec exception si le fichier est introuvable
-     */
-         public void initVectors() {
-          String ligne;
-          data=new Vector();
-          columnNames=new Vector();
-          try {
+     * Initialisation des vectors (un pour les entetes de colonnes et un pour les données).
+     * Et lecture du fichier texte avec gestion d'exception si le fichier est introuvable.
+    */
+    public void initVectors() {
+        String ligne;
+        data=new Vector();
+        columnNames=new Vector();
+        try {
            FileInputStream fin=new FileInputStream(datafile);
-           BufferedReader br=new BufferedReader(new InputStreamReader(fin, "UTF-8"));
+            BufferedReader br=new BufferedReader(new InputStreamReader(fin, "UTF-8"));
            // lecture des noms de colonnes (1ère ligne)
            ligne=br.readLine();
            // Analyse de la ligne de données lue précédemment avec séparateur de données, ";"
@@ -81,5 +82,8 @@ import javax.swing.*;
                    (rowIndex*getColumnCount())+columnIndex);
          }
    public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-         }
- }
+       data.addElement(aValue);
+       System.out.println(data);
+       System.out.println("-----");
+   }
+}
