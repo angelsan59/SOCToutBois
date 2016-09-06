@@ -295,7 +295,8 @@ private void initialise(){
         String repprenom = chpPrenom.getText() ;
         String repSalaire = chpSalaire.getText () ; 
         String repTxtCommission = chpTxCommission.getText() ;
-        String chaine = ((nbdeligne+1) + ";" + repnom + ";" + repprenom + ";" + repSalaire + ";" + repTxtCommission + "\n");
+        String repActif = "Oui" ;
+        String chaine = ((nbdeligne+1) + ";" + repnom + ";" + repprenom + ";" + repSalaire + ";" + repTxtCommission + ";" + repActif + "\n");
         System.out.println(chaine);
         try {
             EcritureFichier ("Data/Representants.txt", chaine) ;
