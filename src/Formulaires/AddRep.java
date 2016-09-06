@@ -240,7 +240,7 @@ private void initialise(){
         jTable1.setModel(model);
         jTable1.createDefaultColumnsFromModel();
         // Je masque les colonnes inutiles.
-        jTable1.removeColumn(jTable1.getColumnModel().getColumn(5));
+        // jTable1.removeColumn(jTable1.getColumnModel().getColumn(0));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseClicked(evt);
@@ -327,7 +327,7 @@ private void initialise(){
         String repSalaire = chpSalaire.getText () ; 
         String repTxtCommission = chpTxCommission.getText() ;
         String repActif = "Oui" ;
-        String chaine = ((nbdeligne+1) + ";" + repnom + ";" + repprenom + ";" + repSalaire + ";" + repTxtCommission + ";" + repActif + "\n");
+        String chaine = (repActif + ";" + (nbdeligne+1) + ";" + repnom + ";" + repprenom + ";" + repSalaire + ";" + repTxtCommission  +  "\n");
         System.out.println(chaine);
         try {
             EcritureFichier ("Data/Representants.txt", chaine) ;
@@ -384,7 +384,7 @@ private void initialise(){
         String repSalaire = chpSalaire.getText () ; 
         String repTxtCommission = chpTxCommission.getText() ;
         String repActif = "Non" ;
-        String chaine = ((ligneactuelle) + ";" + repnom + ";" + repprenom + ";" + repSalaire + ";" + repTxtCommission + ";" + repActif + "\n");
+        String chaine = (repActif + ";" +(ligneactuelle) + ";" + repnom + ";" + repprenom + ";" + repSalaire + ";" + repTxtCommission + "\n");
         // Ecraser la ligne du représentant avec la position inactif.
                 System.out.println(chaine);
         try {

@@ -3,10 +3,11 @@
 /* utilisé comme listes dans les formulaires des représentants, clients et prospects.
  */
 package Tables;
+
 import javax.swing.*;
-        import javax.swing.table.*;
-        import java.io.*;
-        import java.util.*;
+import javax.swing.table.*;
+import java.io.*;
+import java.util.*;
 
         
 /**
@@ -36,23 +37,42 @@ import javax.swing.*;
     */
     public void initVectors() {
         String ligne;
+        boolean voirtout = false ;
         data=new Vector();
         columnNames=new Vector();
         try {
-           FileInputStream fin=new FileInputStream(datafile);
+            FileInputStream fin=new FileInputStream(datafile);
             BufferedReader br=new BufferedReader(new InputStreamReader(fin, "UTF-8"));
-           // lecture des noms de colonnes (1ère ligne)
-           ligne=br.readLine();
-           // Analyse de la ligne de données lue précédemment avec séparateur de données, ";"
-           StringTokenizer st1=new StringTokenizer(ligne, ";");
-           while(st1.hasMoreTokens())
-            columnNames.addElement(st1.nextToken());
-           // lecture des données
-           while ((ligne = br.readLine()) != null) {
-            StringTokenizer st2=new StringTokenizer(ligne, ";");
-            while(st2.hasMoreTokens())
-             data.addElement(st2.nextToken());
+            // lecture des noms de colonnes (1ère ligne)
+            ligne=br.readLine();
+            // Analyse de la ligne de données lue précédemment avec séparateur de données, ";"
+            StringTokenizer st1=new StringTokenizer(ligne, ";");
+            while(st1.hasMoreTokens()) {
+                columnNames.addElement(st1.nextToken());
             }
+            
+            // lecture des données
+            while ((ligne = br.readLine()) != null) {
+            StringTokenizer st2=new StringTokenizer(ligne, ";");
+            String vartempo = st2.nextToken() ;
+            if (vartempo.equals("Oui")) {
+                System.out.println(vartempo);
+                data.addElement(vartempo) ;
+                while(st2.hasMoreTokens()) {
+                  data.addElement(st2.nextToken());
+                }
+                }
+                else
+                {
+                if (voirtout == true) {
+                    data.addElement(vartempo) ; 
+                    while(st2.hasMoreTokens()) {
+                    data.addElement(st2.nextToken());
+                    }
+                }    
+                }
+            }    
+            System.out.println(data) ;
            br.close();
           } catch (Exception e) {
            e.printStackTrace();

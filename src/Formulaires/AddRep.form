@@ -355,7 +355,7 @@
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="DataFileTableModel model;&#xa;String nomFichier=&quot;Data/Representants.txt&quot;;"/>
-                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jTable1.createDefaultColumnsFromModel();&#xa;// Je masque les colonnes inutiles.&#xa;jTable1.removeColumn(jTable1.getColumnModel().getColumn(5));"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jTable1.createDefaultColumnsFromModel();&#xa;// Je masque les colonnes inutiles.&#xa;// jTable1.removeColumn(jTable1.getColumnModel().getColumn(0));"/>
                 <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="model = new DataFileTableModel(nomFichier);"/>
               </AuxValues>
             </Component>
