@@ -360,13 +360,12 @@ public class AddClient extends javax.swing.JDialog {
 
         // Retirer les colonnes qu'on ne veut pas afficher dans le tableau
         // Le numéro des colonnes se décale à chaque retrait, d'où les nombreux retraits de la colonne 7
-        TableClients.removeColumn(TableClients.getColumnModel().getColumn(2));
-        TableClients.removeColumn(TableClients.getColumnModel().getColumn(4));
-        TableClients.removeColumn(TableClients.getColumnModel().getColumn(7));
-        TableClients.removeColumn(TableClients.getColumnModel().getColumn(7));
-        TableClients.removeColumn(TableClients.getColumnModel().getColumn(7));
-        TableClients.removeColumn(TableClients.getColumnModel().getColumn(7));
-        TableClients.removeColumn(TableClients.getColumnModel().getColumn(7));
+        TableClients.removeColumn(TableClients.getColumnModel().getColumn(3));
+        TableClients.removeColumn(TableClients.getColumnModel().getColumn(5));
+        TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
+        TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
+        TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
+        TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
         TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
         TableClients.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -481,36 +480,36 @@ public class AddClient extends javax.swing.JDialog {
     }//GEN-LAST:event_bEffacerMouseClicked
 
     private void TableClientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableClientsMouseClicked
-     // Je récupére le nom de l'enseigne, colonne 1.
-        chpNomenseigne.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),1));
-        // Je récupére le numéro de Siret, colonne 2.
-        chpSiret.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),2));
-       // Je récupére la date de la dernière visite, colonne 3.
-         chpDatevisite.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),3));
-         // Je récupére l'adresse, colonne 4.
-        chpAdresse1.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),4));
-        // Je récupére le complément d'adresse, colonne 5.
-        chpAdresse2.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),5));
-        // Je récupére le code postal, colonne 6.
-        chpCodepostal.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),6));
-        // Je récupére la ville, colonne 7.
-        chpVille.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),7));
-        // Je récupére le pays, colonne 8.
-       // comboPays.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),8));
-        // Je récupére le nom de contact, colonne 9.
-        chpNom.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),9));
-        // Je récupére le prénom, colonne 10.
-        chpPrenom.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),10));
-         // Je récupére le téléphone fixe, colonne 11.
-        chpTelfixe.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),11));
-        // Je récupére le téléphone portable, colonne 12.
-        chpTelportable.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),12));
-        // Je récupére l'email, colonne 13.
-        chpEmail.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),13));
-         // Je récupére le nombre des commandes, colonne 14.
+     // Je récupére le nom de l'enseigne, colonne 2.
+        chpNomenseigne.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),2));
+        // Je récupére le numéro de Siret, colonne 3.
+        chpSiret.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),3));
+       // Je récupére la date de la dernière visite, colonne 4.
+         chpDatevisite.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),4));
+         // Je récupére l'adresse, colonne 5.
+        chpAdresse1.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),5));
+        // Je récupére le complément d'adresse, colonne 6.
+        chpAdresse2.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),6));
+        // Je récupére le code postal, colonne 7.
+        chpCodepostal.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),7));
+        // Je récupére la ville, colonne 8.
+        chpVille.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),8));
+        // Je récupére le pays, colonne 9.
+       // comboPays.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),9));
+        // Je récupére le nom de contact, colonne 10.
+        chpNom.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),10));
+        // Je récupére le prénom, colonne 11.
+        chpPrenom.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),11));
+         // Je récupére le téléphone fixe, colonne 12.
+        chpTelfixe.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),12));
+        // Je récupére le téléphone portable, colonne 13.
+        chpTelportable.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),13));
+        // Je récupére l'email, colonne 14.
+        chpEmail.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),14));
+         // Je récupére le nombre des commandes, colonne 15.
        
        // Le nombre de commandes est consultatif et non modifiable, donc on l'affiche par jLabel plutôt qu'un champ 
-       lbCommandes1.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),14));
+       lbCommandes1.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),15));
     }//GEN-LAST:event_TableClientsMouseClicked
 
     private void bAjouterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bAjouterMouseClicked
