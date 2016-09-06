@@ -287,7 +287,7 @@ private void initialise(){
     }//GEN-LAST:event_chpSalaireActionPerformed
 
     private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
-              // Je recupere le nombre de ligne (soit le nombre de représentant.
+        // Je recupere le nombre de ligne (soit le nombre de représentant.
         int nbdeligne = jTable1.getRowCount() ;
         //Je récupére les caractéristique du nouveau representant.
         String repnom = chpNom.getText() ;
