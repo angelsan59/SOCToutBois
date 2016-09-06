@@ -61,6 +61,10 @@ private void initialise(){
 
         jPanel1 = new javax.swing.JPanel();
         Titre = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         chpPrenom = new javax.swing.JTextField();
         chpNom = new javax.swing.JTextField();
@@ -74,7 +78,6 @@ private void initialise(){
         DataFileTableModel model;
         String nomFichier="Data/Representants.txt";
         jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -94,6 +97,38 @@ private void initialise(){
         Titre.setText("Gestion des représentants");
         jPanel1.add(Titre);
         Titre.setBounds(30, 20, 500, 30);
+
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconeplus.jpg"))); // NOI18N
+        jButton4.setText("Ajouter");
+        jButton4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jPanel1.add(jButton4);
+        jButton4.setBounds(570, 100, 120, 27);
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconemoins.jpg"))); // NOI18N
+        jButton2.setText("Supprimer");
+        jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jPanel1.add(jButton2);
+        jButton2.setBounds(570, 160, 120, 27);
+
+        jButton5.setText("Effacer");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jButton5);
+        jButton5.setBounds(570, 190, 120, 23);
+
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconemodif.jpg"))); // NOI18N
+        jButton3.setText("Modifier");
+        jButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton3);
+        jButton3.setBounds(570, 130, 120, 27);
 
         jPanel2.setBackground(new java.awt.Color(191, 191, 179));
 
@@ -211,15 +246,6 @@ private void initialise(){
         jPanel1.add(jScrollPane2);
         jScrollPane2.setBounds(90, 240, 590, 120);
 
-        jButton1.setText("Effacer");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
-        jPanel1.add(jButton1);
-        jButton1.setBounds(580, 200, 100, 23);
-
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/meubles4.jpg"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 790, 380);
@@ -330,15 +356,29 @@ private void initialise(){
         
     }//GEN-LAST:event_jTable1MouseClicked
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        // Action sur le bouton Effacer, purge des champs de saisies et suppression de la selection dan sla table.
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        // Action sur le bouton Effacer, purge des champs de saisies et suppression de la selection dans la table.
+        chpNomenseigne.setText ("") ;
+        chpSiret.setText ("") ;
+        chpDatevisite.setText ("") ;
+        chpAdresse1.setText ("") ;
+        chpAdresse2.setText ("") ;
+        chpCodepostal.setText ("") ;
+        chpVille.setText ("") ;
+
         chpNom.setText ("") ;
         chpPrenom.setText ("") ;
-        chpSalaire.setText ("") ;
-        chpTxCommission.setText ("") ;
-        jTable1.getSelectionModel().clearSelection();
-        
-    }//GEN-LAST:event_jButton1MouseClicked
+        chpEmail.setText ("") ;
+        chpTelfixe.setText ("") ;
+        chpTelportable.setText ("") ;
+        chpCommandes.setText ("") ;
+
+        TableClients.getSelectionModel().clearSelection();
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -393,7 +433,10 @@ private void initialise(){
     private javax.swing.JTextField chpPrenom;
     private javax.swing.JTextField chpSalaire;
     private javax.swing.JTextField chpTxCommission;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
