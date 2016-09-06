@@ -386,6 +386,11 @@ public class AddClient extends javax.swing.JDialog {
         bAjouter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconeplus.jpg"))); // NOI18N
         bAjouter.setText("Ajouter");
         bAjouter.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        bAjouter.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bAjouterMouseClicked(evt);
+            }
+        });
         jPanel1.add(bAjouter);
         bAjouter.setBounds(660, 160, 120, 27);
 
@@ -504,6 +509,10 @@ public class AddClient extends javax.swing.JDialog {
        // Le nombre de commandes est consultatif et non modifiable, donc on l'affiche par jLabel plutôt qu'un champ 
        lbCommandes1.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),14));
     }//GEN-LAST:event_TableClientsMouseClicked
+
+    private void bAjouterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bAjouterMouseClicked
+        // open jDialog confirmation
+    }//GEN-LAST:event_bAjouterMouseClicked
 
     /**
      * @param args the command line arguments
