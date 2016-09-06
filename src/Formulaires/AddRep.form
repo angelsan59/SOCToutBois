@@ -134,6 +134,9 @@
             <Property name="text" type="java.lang.String" value="Supprimer"/>
             <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton2MouseClicked"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="570" y="160" width="120" height="-1"/>
@@ -352,7 +355,7 @@
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="DataFileTableModel model;&#xa;String nomFichier=&quot;Data/Representants.txt&quot;;"/>
-                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jTable1.createDefaultColumnsFromModel();&#xa;// Je masque les colonnes inutiles.&#xa;jTable1.removeColumn(jTable1.getColumnModel().getColumn(2));"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jTable1.createDefaultColumnsFromModel();&#xa;// Je masque les colonnes inutiles.&#xa;jTable1.removeColumn(jTable1.getColumnModel().getColumn(5));"/>
                 <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="model = new DataFileTableModel(nomFichier);"/>
               </AuxValues>
             </Component>

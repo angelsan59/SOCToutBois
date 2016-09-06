@@ -1,6 +1,7 @@
-Numéro;Nom;Prénom;Salaire brut;Taux de commission;
-1;Dupont;Philippe;3000;12
-2;Durant;Jacques;2000;5
-3;toto;tutut;2000;2
-4;ezez;rra;rarara;araraz
-5;aaa;bbbb;ddddd;ccccc
+Numéro;Nom;Prénom;Salaire brut;Taux de commission;Actif
+1;Dupont;Philippe;3000;12;Non
+2;Durant;Jacques;2000;5;Non
+3;toto;tutut;2000;2;Oui
+4;ezez;rra;rarara;araraz;Oui
+5;aaa;bbbb;ddddd;ccccc;Oui
+3;ezez;rra;rarara;araraz;Non

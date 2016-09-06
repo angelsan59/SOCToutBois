@@ -6,7 +6,7 @@
 package Formulaires;
 
 import Entites.Representant;
-import static GestionFichier.EcritureDansFichier.EcritureFichier;
+import static GestionFichier.EcritureDansFichier.* ;
 import java.awt.Frame;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -107,6 +107,11 @@ private void initialise(){
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formulaires/iconemoins.jpg"))); // NOI18N
         jButton2.setText("Supprimer");
         jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
         jPanel1.add(jButton2);
         jButton2.setBounds(570, 160, 120, 27);
 
@@ -235,7 +240,7 @@ private void initialise(){
         jTable1.setModel(model);
         jTable1.createDefaultColumnsFromModel();
         // Je masque les colonnes inutiles.
-        jTable1.removeColumn(jTable1.getColumnModel().getColumn(2));
+        jTable1.removeColumn(jTable1.getColumnModel().getColumn(5));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseClicked(evt);
@@ -359,27 +364,42 @@ private void initialise(){
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
         // Action sur le bouton Effacer, purge des champs de saisies et suppression de la selection dans la table.
-        chpNomenseigne.setText ("") ;
-        chpSiret.setText ("") ;
-        chpDatevisite.setText ("") ;
-        chpAdresse1.setText ("") ;
-        chpAdresse2.setText ("") ;
-        chpCodepostal.setText ("") ;
-        chpVille.setText ("") ;
-
         chpNom.setText ("") ;
         chpPrenom.setText ("") ;
-        chpEmail.setText ("") ;
-        chpTelfixe.setText ("") ;
-        chpTelportable.setText ("") ;
-        chpCommandes.setText ("") ;
-
-        TableClients.getSelectionModel().clearSelection();
+        chpSalaire.setText ("") ;
+        chpTxCommission.setText ("") ;
+        jTable1.getSelectionModel().clearSelection();
+        
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // Je recupere la ligne à modifier
+        int ligneactuelle = jTable1.getSelectedRow() + 1 ;
+        String repnom = chpNom.getText() ;
+        String repprenom = chpPrenom.getText() ;
+        String repSalaire = chpSalaire.getText () ; 
+        String repTxtCommission = chpTxCommission.getText() ;
+        String repActif = "Non" ;
+        String chaine = ((ligneactuelle) + ";" + repnom + ";" + repprenom + ";" + repSalaire + ";" + repTxtCommission + ";" + repActif + "\n");
+        // Ecraser la ligne du représentant avec la position inactif.
+                System.out.println(chaine);
+        try {
+            ModificationLigne ("Data/Representants.txt", chaine, ligneactuelle) ;
+            //jTable1.setValueAt(nbdeligne + 1, nbdeligne + 1, 0) ;
+            //jTable1.setValueAt(repnom, nbdeligne + 1, 1) ;
+            //jTable1.setValueAt(repprenom, nbdeligne + 1, 1) ;
+            //jTable1.setValueAt(repSalaire, nbdeligne + 1, 1) ;
+            //jTable1.setValueAt(repTxtCommission, nbdeligne + 1, 1) ;
+            // DataFileTableModel model = jTable1.getModel ();
+            //  jTable1.setModel(new DataFileTableModel("Data/Representants.txt"));
+            } catch (IOException ex) {
+            Logger.getLogger(AddRep.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }//GEN-LAST:event_jButton2MouseClicked
 
     /**
      * @param args the command line arguments
