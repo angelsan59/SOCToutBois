@@ -12,7 +12,7 @@ import java.util.*;
         
 /**
  *
- * @author sociepka
+ *@author sociepka
  */
 
 /**
@@ -25,6 +25,7 @@ import java.util.*;
 
          /**
           * Création du constructeur
+          * @param f données du fichier ouvert
           */
     public DataFileTableModel(String f) {
           datafile=f;

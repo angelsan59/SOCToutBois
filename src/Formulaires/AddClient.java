@@ -1,7 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Package contenant les fenêtres affichées dans le programme
  */
 package Formulaires;
 
@@ -16,13 +14,17 @@ import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author sociepka
+ * Ouvre la fenêtre de gestion des clients. Ajout, Modification, Suppression et consultation de la liste des clients existants.
+ * @author Sandrine Ociepka
+ * @author Stephane Coulon
+ * @version 1.0
  */
 public class AddClient extends javax.swing.JDialog {
 
     /**
-     * Creates new form AddClient
+     *@param parent : fenetrePrincipaleFrame
+     * @param modal true ou false
+     * @throws java.io.IOException erreur si le fichier parent n'existe pas
      */
     public AddClient(java.awt.Frame parent, boolean modal) throws IOException {
         super(parent, modal);

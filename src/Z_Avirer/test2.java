@@ -18,6 +18,8 @@ public class test2 extends javax.swing.JDialog {
 
     /**
      * Creates new form test2
+     * @param parent : FenetrePrincipaleFrame
+     * @param modal : true ou false
      */
     public test2(java.awt.Frame parent, boolean modal) {
         super(parent, modal);

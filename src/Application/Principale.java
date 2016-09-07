@@ -17,16 +17,16 @@ import java.io.IOException;
 import java.util.Vector;
 import javax.imageio.ImageIO;
 
-
-
 /**
- *
- * @author scoulon
+ * Appelle la classe FenetrePrincipaleFrame pour l'afficher, et charge les fichiers de données txt
+ * @author Sandrine Ociepka
+ * @author Stephane Coulon
+ * @version 1.0
  */
 public class Principale {
     /**
      * @param args the command line arguments
-     * @throws java.io.IOException
+     * @throws java.io.IOException  erreur si le fichier parent n'existe pas
      */
     public static void main(String[] args) throws IOException {
         

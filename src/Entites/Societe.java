@@ -9,7 +9,8 @@ import java.util.Date;
 
 /**
  *
- * @author sociepka & scoulon
+ * @author Sandrine Ociepka
+ * @author Stephane Coulon
  */
 public class Societe {
     /*

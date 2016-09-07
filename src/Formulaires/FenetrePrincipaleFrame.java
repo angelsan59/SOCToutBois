@@ -14,17 +14,20 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
-
 /**
- *
- * @author sociepka
+ * Ouvre la fenêtre principale du logiciel. Donne accès à la gestion des clients, des prospects et des représentants.
+ * @author Sandrine Ociepka
+ * @author Stephane Coulon
+ * @version 1.0
  */
 public class FenetrePrincipaleFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form FenetrePrincipaleFrame
      * Constructeur avec des arguments ajoutés pour créer la fenêtre à partir de la classe "Principale"
-     * @throws java.io.IOException
+     * @param parent : déclaration de la fenêtre parent à ouvrir
+     * @param modal true ou false
+     * @throws java.io.IOException erreur si le fichier parent n'existe pas
      */
     public FenetrePrincipaleFrame(java.awt.Frame parent, boolean modal) throws IOException {
        //super(parent, modal);

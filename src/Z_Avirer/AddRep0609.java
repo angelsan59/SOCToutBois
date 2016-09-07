@@ -22,14 +22,17 @@ import javax.swing.table.TableColumnModel;
 /**
  *
  * @author sociepka
+ * 
  */
 public class AddRep0609 extends javax.swing.JDialog {
 
     /**
      * Creates new form AddRep
+     *  LectureFichierCSV fichierrepresentant = new LectureFichierCSV ("Data/Representants.txt") ;
+     * @param parent : FenetrePrincipaleFrame
+     * @param modal : true ou false
+     * @throws java.io.IOException if image not found
      */
-    // LectureFichierCSV fichierrepresentant = new LectureFichierCSV ("Data/Representants.txt") ;
-    
     public AddRep0609(Frame parent, boolean modal) throws IOException {
         super(parent, modal);
         initComponents();

@@ -16,13 +16,17 @@ import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author sociepka
+ * Ouvre la fenêtre de gestion des prospects. Ajout, Modification, Suppression et consultation de la liste des prospects existants.
+ * @author Sandrine Ociepka
+ * @author Stephane Coulon
+ * @version 1.0
  */
 public class AddProspect extends javax.swing.JDialog {
 
-    /**
-     * Creates new form AddClient
+   /**
+     *@param parent : fenetrePrincipaleFrame
+     * @param modal true ou false
+     * @throws java.io.IOException erreur si le fichier parent n'existe pas
      */
     public AddProspect(java.awt.Frame parent, boolean modal) throws IOException {
         super(parent, modal);

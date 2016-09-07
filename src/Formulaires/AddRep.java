@@ -21,15 +21,18 @@ import GestionFichier.LectureFichierCSV ;
 import javax.swing.table.TableColumnModel;
 // import javax.swing.table.TableModel;
 /**
- *
- * @author sociepka
+ * Ouvre la fenêtre de gestion des représentants. Ajout, Modification, Suppression et consultation de la liste des représentants existants.
+ * @author Sandrine Ociepka
+ * @author Stephane Coulon
+ * @version 1.0
  */
 public class AddRep extends javax.swing.JDialog {
 
-    /**
-     * Creates new form AddRep
+   /**
+     *@param parent : fenetrePrincipaleFrame
+     * @param modal true ou false
+     * @throws java.io.IOException erreur si le fichier parent n'existe pas
      */
-    // LectureFichierCSV fichierrepresentant = new LectureFichierCSV ("Data/Representants.txt") ;
     
     public AddRep(Frame parent, boolean modal) throws IOException {
         super(parent, modal);

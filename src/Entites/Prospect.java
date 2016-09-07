@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Package pour les classes métier
  */
 package Entites;
 
@@ -9,7 +7,11 @@ import java.util.Date;
 
 /**
  *
- * @author sociepka & scoulon
+ * @author Sandrine Ociepka
+ * @author Stephane Coulon
+ * @version 1.0
+ */
+ /** Classe métier des prospects
  */
 public class Prospect extends Societe {
 
@@ -24,7 +26,7 @@ public class Prospect extends Societe {
     public void setNomsociete(String nomsociete) {
         this.nomsociete = nomsociete;
     }
-
+/** Getter de l'adresse */
     public String getAdresse1() {
         return adresse1;
     }
