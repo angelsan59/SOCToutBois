@@ -52,7 +52,7 @@ public class EcritureDansFichier {
         int ligneactive = 0 ;
         String lignearecopier ="" ;
         File entree = new File(nomfichier);
-        File sortie = new File("E:\\Afpa\\Mes exercices\\A_Projet_ToutBois\\Data\\temp.txt");
+        File sortie = new File("Data\\temp.txt");
         BufferedReader br = new BufferedReader(new FileReader(entree));
         BufferedWriter bw = new BufferedWriter(new FileWriter(sortie));
         try {

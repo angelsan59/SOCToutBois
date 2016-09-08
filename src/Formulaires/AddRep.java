@@ -18,6 +18,8 @@ import javax.imageio.ImageIO;
 import Tables.*;
 import javax.swing.table.TableColumn;
 import GestionFichier.LectureFichierCSV ;
+import javafx.scene.chart.PieChart.Data;
+import javax.swing.JOptionPane;
 import javax.swing.table.TableColumnModel;
 // import javax.swing.table.TableModel;
 /**
@@ -38,9 +40,8 @@ public class AddRep extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         initialise () ;
-         /**
-        * changer l'icone de la fenêtre
-        */
+        
+        // code de changement d'icone de fenêtre qui a marché mais ne semble plus marcher
         // BufferedImage img = ImageIO.read(AddRep.class.getResource("/com/san/form/logo.png"));
         // setIconImage(img);
         /**
@@ -48,7 +49,9 @@ public class AddRep extends javax.swing.JDialog {
         */
        setLocationRelativeTo(null);
     }
-    
+  /**
+        * changer l'icone de la fenêtre
+        */   
 private void initialise(){
         this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Images/logo.png")));
     }   
@@ -84,9 +87,6 @@ private void initialise(){
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -104,6 +104,11 @@ private void initialise(){
         bAjouter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/iconeplus.jpg"))); // NOI18N
         bAjouter.setText("Ajouter");
         bAjouter.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        bAjouter.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bAjouterMouseClicked(evt);
+            }
+        });
         jPanel1.add(bAjouter);
         bAjouter.setBounds(570, 100, 120, 27);
 
@@ -130,6 +135,11 @@ private void initialise(){
         bModifier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/iconemodif.jpg"))); // NOI18N
         bModifier.setText("Modifier");
         bModifier.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        bModifier.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bModifierMouseClicked(evt);
+            }
+        });
         bModifier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bModifierActionPerformed(evt);
@@ -248,7 +258,7 @@ private void initialise(){
         jScrollPane2.setViewportView(TableRepresentants);
 
         jPanel1.add(jScrollPane2);
-        jScrollPane2.setBounds(90, 240, 590, 120);
+        jScrollPane2.setBounds(70, 240, 640, 120);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/meubles4.jpg"))); // NOI18N
         jPanel1.add(jLabel1);
@@ -262,23 +272,6 @@ private void initialise(){
             }
         });
         jMenuBar1.add(jMenu1);
-
-        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/iconeplus.jpg"))); // NOI18N
-        jMenu3.setText("Ajouter le représentant");
-        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu3MouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(jMenu3);
-
-        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/iconemodif.jpg"))); // NOI18N
-        jMenu4.setText("Modifier le représentant");
-        jMenuBar1.add(jMenu4);
-
-        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/iconemoins.jpg"))); // NOI18N
-        jMenu5.setText("Supprimer le représentant");
-        jMenuBar1.add(jMenu5);
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/iconeaide.jpg"))); // NOI18N
         jMenu2.setText("Aide");
@@ -317,47 +310,19 @@ private void initialise(){
        
     }//GEN-LAST:event_chpSalaireActionPerformed
 
-    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
-        // Je recupere le nombre de ligne (soit le nombre de représentant.
-        int nbdeligne = TableRepresentants.getRowCount() ;
-        //Je récupére les caractéristique du nouveau representant.
-        String repnom = chpNom.getText() ;
-        String repprenom = chpPrenom.getText() ;
-        String repSalaire = chpSalaire.getText () ; 
-        String repTxtCommission = chpTxCommission.getText() ;
-        String repActif = "Oui" ;
-        String chaine = (repActif + ";" + (nbdeligne+1) + ";" + repnom + ";" + repprenom + ";" + repSalaire + ";" + repTxtCommission  +  "\n");
-        System.out.println(chaine);
-        try {
-            EcritureFichier ("Data/Representants.txt", chaine) ;
-            //jTable1.setValueAt(nbdeligne + 1, nbdeligne + 1, 0) ;
-            //jTable1.setValueAt(repnom, nbdeligne + 1, 1) ;
-            //jTable1.setValueAt(repprenom, nbdeligne + 1, 1) ;
-            //jTable1.setValueAt(repSalaire, nbdeligne + 1, 1) ;
-            //jTable1.setValueAt(repTxtCommission, nbdeligne + 1, 1) ;
-            // DataFileTableModel model = jTable1.getModel ();
-            //  jTable1.setModel(new DataFileTableModel("Data/Representants.txt"));
-            } catch (IOException ex) {
-            Logger.getLogger(AddRep.class.getName()).log(Level.SEVERE, null, ex);
-            }
-       
-               
-        
-    }//GEN-LAST:event_jMenu3MouseClicked
-
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
          dispose();
     }//GEN-LAST:event_jMenu1MouseClicked
 
     private void TableRepresentantsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableRepresentantsMouseClicked
-        // Je récupére le nom, colonne 1.
-        chpNom.setText ((String) TableRepresentants.getModel().getValueAt(TableRepresentants.getSelectedRow(),1));
-        // Je récupére le Prenom, colonne 2.
-        chpPrenom.setText ((String) TableRepresentants.getModel().getValueAt(TableRepresentants.getSelectedRow(),2));
-        // Je récupére le salaire, colonne 3.
-        chpSalaire.setText ((String) TableRepresentants.getModel().getValueAt(TableRepresentants.getSelectedRow(),3));
-        // Je récupére le taux de commission, colonne 4.
-        chpTxCommission.setText ((String) TableRepresentants.getModel().getValueAt(TableRepresentants.getSelectedRow(),4));
+        // Je récupére le nom, colonne 2.
+        chpNom.setText ((String) TableRepresentants.getModel().getValueAt(TableRepresentants.getSelectedRow(),2));
+        // Je récupére le Prenom, colonne 3.
+        chpPrenom.setText ((String) TableRepresentants.getModel().getValueAt(TableRepresentants.getSelectedRow(),3));
+        // Je récupére le salaire, colonne 4.
+        chpSalaire.setText ((String) TableRepresentants.getModel().getValueAt(TableRepresentants.getSelectedRow(),4));
+        // Je récupére le taux de commission, colonne 5.
+        chpTxCommission.setText ((String) TableRepresentants.getModel().getValueAt(TableRepresentants.getSelectedRow(),5));
         
     }//GEN-LAST:event_TableRepresentantsMouseClicked
 
@@ -376,7 +341,7 @@ private void initialise(){
     }//GEN-LAST:event_bModifierActionPerformed
 
     private void bSupprimerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bSupprimerMouseClicked
-        // Je recupere la ligne à modifier
+        // Je recupere la ligne à rendre inactive
         int ligneactuelle = TableRepresentants.getSelectedRow() + 1 ;
         String repnom = chpNom.getText() ;
         String repprenom = chpPrenom.getText() ;
@@ -388,17 +353,59 @@ private void initialise(){
                 System.out.println(chaine);
         try {
             ModificationLigne ("Data/Representants.txt", chaine, ligneactuelle) ;
-            //jTable1.setValueAt(nbdeligne + 1, nbdeligne + 1, 0) ;
-            //jTable1.setValueAt(repnom, nbdeligne + 1, 1) ;
-            //jTable1.setValueAt(repprenom, nbdeligne + 1, 1) ;
-            //jTable1.setValueAt(repSalaire, nbdeligne + 1, 1) ;
-            //jTable1.setValueAt(repTxtCommission, nbdeligne + 1, 1) ;
-            // DataFileTableModel model = jTable1.getModel ();
-            //  jTable1.setModel(new DataFileTableModel("Data/Representants.txt"));
+           
             } catch (IOException ex) {
             Logger.getLogger(AddRep.class.getName()).log(Level.SEVERE, null, ex);
             }
     }//GEN-LAST:event_bSupprimerMouseClicked
+
+    private void bModifierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bModifierMouseClicked
+      // Je recupere la ligne à modifier
+        int ligneactuelle = TableRepresentants.getSelectedRow() + 1 ;
+        String repnom = chpNom.getText() ;
+        String repprenom = chpPrenom.getText() ;
+        String repSalaire = chpSalaire.getText () ; 
+        String repTxtCommission = chpTxCommission.getText() ;
+        String repActif = "Oui" ;
+        String chaine = (repActif + ";" +(ligneactuelle) + ";" + repnom + ";" + repprenom + ";" + repSalaire + ";" + repTxtCommission + "\n");
+        // Ecraser la ligne du représentant avec la position inactif.
+                System.out.println(chaine);
+        try {
+            ModificationLigne ("Data/Representants.txt", chaine, ligneactuelle) ;
+           
+            } catch (IOException ex) {
+            Logger.getLogger(AddRep.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }//GEN-LAST:event_bModifierMouseClicked
+
+    private void bAjouterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bAjouterMouseClicked
+       // Je recupere le nombre de ligne (soit le nombre de représentant.
+        int nbdeligne = TableRepresentants.getRowCount() ;
+        //Je récupére les caractéristique du nouveau representant.
+        String repnom = chpNom.getText() ;
+        String repprenom = chpPrenom.getText() ;
+        String repSalaire = chpSalaire.getText () ; 
+        String repTxtCommission = chpTxCommission.getText() ;
+        String repActif = "Oui" ;
+        String chaine = (repActif + ";" + (nbdeligne+1) + ";" + repnom + ";" + repprenom + ";" + repSalaire + ";" + repTxtCommission  +  "\n");
+        System.out.println(chaine);
+        try {
+            EcritureFichier ("Data/Representants.txt", chaine) ;
+            
+            // pop up de confirmation d'ajout
+            JOptionPane.showMessageDialog(null, "Le nouveau représentant a bien été ajouté", "Ajout de représentant", JOptionPane.INFORMATION_MESSAGE);
+            
+            // Actualisation de la table après ajout du nouveau représentant
+            DataFileTableModel model1;
+String nomFichier1="Data/Representants.txt";
+model1 = new DataFileTableModel(nomFichier1);
+model1.fireTableDataChanged();
+TableRepresentants.setModel(model1);
+            } catch (IOException ex) {
+            Logger.getLogger(AddRep.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+    }//GEN-LAST:event_bAjouterMouseClicked
 
     /**
      * @param args the command line arguments
@@ -461,9 +468,6 @@ private void initialise(){
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

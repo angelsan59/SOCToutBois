@@ -1,8 +1,13 @@
 Actif;Numéro;Nom;Prénom;Salaire brut;Taux de commission
 Non;1;Dupont;Philippe;3000;12
-Non;2;Durant;Jacques;2000;5
+Oui;2;Durant;paul;2000;5
 Oui;3;toto;tutut;2000;2
 Oui;4;ezez;rra;666;6
 Oui;5;aaa;bbbb;1;4
 Non;6;ezez;rra;850;3
 Oui;4;ert;ert;ert;ytr
+Oui;8;Pearl;Laurence;7000;4
+Oui;9;Kwana;Gwen;2000;5
+Oui;10;New;Man;1000;10
+Oui;11;New;Boy;5000;7
+Oui;12;New;Boy;5000;7

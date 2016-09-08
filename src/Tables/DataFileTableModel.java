@@ -38,7 +38,7 @@ import java.util.*;
     */
     public void initVectors() {
         String ligne;
-        boolean voirtout = false ;
+        boolean voirtout = true ;
         data=new Vector();
         columnNames=new Vector();
         try {
@@ -107,4 +107,15 @@ import java.util.*;
        System.out.println(data);
        System.out.println("-----");
    }
+   
+   // methode d'actualisation des tables non utilisée pour le moment : problème de définition du type de variable de la jTable pour importer son nom et l'utiliser
+   // dans la méthode
+     // public static void actualiseTable(String fichiernom, javax.swing.JTable nomtable) {
+     //   name = new javax.swing.JTable (nomtable);  
+     //   String nomFichier1=fichiernom;
+     //  DataFileTableModel model1 = new DataFileTableModel(nomFichier1);
+     //
+     //   model1.fireTableDataChanged();
+     //  name.setModel(model1); 
+ //}
 }
