@@ -342,6 +342,7 @@ private void initialise(){
         chpPrenom.setText ("") ;
         chpSalaire.setText ("") ;
         chpTxCommission.setText ("") ;
+        lbid.setText ("") ;
         TableRepresentants.getSelectionModel().clearSelection();
         
     }//GEN-LAST:event_bEffacerMouseClicked
@@ -363,7 +364,7 @@ private void initialise(){
         String chaine = (repActif + ";" + repid + ";" + repnom + ";" + repprenom + ";" + repSalaire + ";" + repTxtCommission + "\n");
         // Ecraser la ligne du représentant avec la position inactif.
                 System.out.println("Chaine dans le bouton supprimer : " +chaine);
-                System.out.println("ligneactuelle dans le bouton supprimer : " +ligneactuelle);
+                System.out.println("ligneactuelle dans le bouton supprimer : " +repid);
         try {
             ModificationLigne ("Data/Representants.txt", chaine, repid1) ;
             JOptionPane.showMessageDialog(null, "Le représentant a bien été enlevé de la liste", "Suppression de représentant", JOptionPane.INFORMATION_MESSAGE);
@@ -375,7 +376,7 @@ private void initialise(){
             model1.fireTableDataChanged();
             TableRepresentants.setModel(model1);
 
-            // Effacer les données du tableau
+            // Effacer les données du formulaire
             chpNom.setText ("") ;
             chpPrenom.setText ("") ;
             chpSalaire.setText ("") ;

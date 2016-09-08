@@ -102,6 +102,8 @@ public class AddClient extends javax.swing.JDialog {
         bAjouter = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         lbCommandes1 = new javax.swing.JLabel();
+        lbidentifiant = new javax.swing.JLabel();
+        lbid = new javax.swing.JLabel();
         imagefond = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mRetour = new javax.swing.JMenu();
@@ -426,6 +428,12 @@ public class AddClient extends javax.swing.JDialog {
         jPanel1.add(lbCommandes1);
         lbCommandes1.setBounds(720, 20, 50, 20);
 
+        lbidentifiant.setText("Identifiant");
+        jPanel1.add(lbidentifiant);
+        lbidentifiant.setBounds(700, 60, 60, 14);
+        jPanel1.add(lbid);
+        lbid.setBounds(710, 80, 40, 20);
+
         imagefond.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         imagefond.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/meubles4.jpg"))); // NOI18N
         jPanel1.add(imagefond);
@@ -488,13 +496,16 @@ public class AddClient extends javax.swing.JDialog {
         chpTelfixe.setText ("") ;
         chpTelportable.setText ("") ;
        lbCommandes1.setText ("") ;
+       lbid.setText ("") ;
   
         TableClients.getSelectionModel().clearSelection();
 
     }//GEN-LAST:event_bEffacerMouseClicked
 
     private void TableClientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableClientsMouseClicked
-     // Je récupére le nom de l'enseigne, colonne 2.
+        // Je récupére l'identifiant, colonne 1.
+        lbid.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),1));     
+        // Je récupére le nom de l'enseigne, colonne 2.
         chpNomenseigne.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),2));
         // Je récupére le numéro de Siret, colonne 3.
         chpSiret.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),3));
@@ -564,6 +575,23 @@ public class AddClient extends javax.swing.JDialog {
             TableClients.setModel(model1);
             } catch (IOException ex) {
             Logger.getLogger(AddRep.class.getName()).log(Level.SEVERE, null, ex);
+            
+            // Effacer les données du formulaire
+        chpNomenseigne.setText ("") ;
+        chpSiret.setText ("") ;
+        chpDatevisite.setText ("") ;
+        chpAdresse1.setText ("") ;
+        chpAdresse2.setText ("") ;
+        chpCodepostal.setText ("") ;
+        chpVille.setText ("") ;
+        
+        chpNom.setText ("") ;
+        chpPrenom.setText ("") ;
+        chpEmail.setText ("") ;
+        chpTelfixe.setText ("") ;
+        chpTelportable.setText ("") ;
+       lbCommandes1.setText ("") ;
+       lbid.setText ("") ;
             }
     }//GEN-LAST:event_bAjouterMouseClicked
 
@@ -577,7 +605,10 @@ public class AddClient extends javax.swing.JDialog {
 
     private void bModifierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bModifierMouseClicked
          // Je recupere la ligne à modifier
-        int ligneactuelle = TableClients.getSelectedRow() + 1 ;
+       //int ligneactuelle = TableClients.getSelectedRow() + 1 ;
+        String clActif = "Oui" ;
+        String clid = lbid.getText() ;
+        int clid1 = Integer.parseInt(clid);
         String clnomenseigne = chpNomenseigne.getText() ;
         String clsiret = chpSiret.getText() ;
         String clvisite = chpDatevisite.getText() ;
@@ -592,15 +623,15 @@ public class AddClient extends javax.swing.JDialog {
         String cltelportable = chpTelportable.getText() ;
         String clemail = chpEmail.getText() ;
         String clcommandes = lbCommandes1.getText() ;
-        String clActif = "Oui" ;
-        String chaine = (clActif + ";" + (ligneactuelle) + ";" + clnomenseigne + ";" + clsiret + ";" + clvisite + ";" + cladresse1  + ";" + cladresse2
+        
+        String chaine = (clActif + ";" + clid + ";" + clnomenseigne + ";" + clsiret + ";" + clvisite + ";" + cladresse1  + ";" + cladresse2
                 + ";" + clcodepostal  + ";" + clville  + ";" + clpays  + ";" + clnom  + ";" + clprenom  + ";" + cltelfixe
                 + ";" + cltelportable  + ";" + clemail  +   ";" + clcommandes + "\n");
         
         // Ecraser la ligne du client avec la position active.
                 System.out.println(chaine);
         try {
-            ModificationLigne ("Data/Clients.txt", chaine, ligneactuelle) ;
+            ModificationLigne ("Data/Clients.txt", chaine, clid1) ;
             // pop up de confirmation de modification
             JOptionPane.showMessageDialog(null, "Le client a bien été modifié", "Modification de client", JOptionPane.INFORMATION_MESSAGE);
             
@@ -610,6 +641,23 @@ String nomFichier1="Data/Clients.txt";
 model1 = new DataFileTableModel(nomFichier1);
 model1.fireTableDataChanged();
 TableClients.setModel(model1);
+
+// Effacer les données du formulaire
+        chpNomenseigne.setText ("") ;
+        chpSiret.setText ("") ;
+        chpDatevisite.setText ("") ;
+        chpAdresse1.setText ("") ;
+        chpAdresse2.setText ("") ;
+        chpCodepostal.setText ("") ;
+        chpVille.setText ("") ;
+        
+        chpNom.setText ("") ;
+        chpPrenom.setText ("") ;
+        chpEmail.setText ("") ;
+        chpTelfixe.setText ("") ;
+        chpTelportable.setText ("") ;
+       lbCommandes1.setText ("") ;
+       lbid.setText ("") ;
            
             } catch (IOException ex) {
             Logger.getLogger(AddRep.class.getName()).log(Level.SEVERE, null, ex);
@@ -618,7 +666,10 @@ TableClients.setModel(model1);
 
     private void bSupprimerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bSupprimerMouseClicked
          // Je recupere la ligne à modifier
-        int ligneactuelle = TableClients.getSelectedRow() + 1 ;
+        //int ligneactuelle = TableClients.getSelectedRow() + 1 ;
+        String clActif = "Non" ;
+        String clid = lbid.getText() ;
+        int clid1 = Integer.parseInt(clid);
         String clnomenseigne = chpNomenseigne.getText() ;
         String clsiret = chpSiret.getText() ;
         String clvisite = chpDatevisite.getText() ;
@@ -633,15 +684,15 @@ TableClients.setModel(model1);
         String cltelportable = chpTelportable.getText() ;
         String clemail = chpEmail.getText() ;
         String clcommandes = lbCommandes1.getText() ;
-        String clActif = "Non" ;
-        String chaine = (clActif + ";" + (ligneactuelle) + ";" + clnomenseigne + ";" + clsiret + ";" + clvisite + ";" + cladresse1  + ";" + cladresse2
+        
+        String chaine = (clActif + ";" + clid + ";" + clnomenseigne + ";" + clsiret + ";" + clvisite + ";" + cladresse1  + ";" + cladresse2
                 + ";" + clcodepostal  + ";" + clville  + ";" + clpays  + ";" + clnom  + ";" + clprenom  + ";" + cltelfixe
                 + ";" + cltelportable  + ";" + clemail  +   ";" + clcommandes + "\n");
         
         // Ecraser la ligne du client avec la position inactive.
                 System.out.println(chaine);
         try {
-            ModificationLigne ("Data/Clients.txt", chaine, ligneactuelle) ;
+            ModificationLigne ("Data/Clients.txt", chaine, clid1) ;
             // pop up de confirmation de modification
             JOptionPane.showMessageDialog(null, "Le client a bien été supprimé de la liste", "Suppression de client", JOptionPane.INFORMATION_MESSAGE);
             
@@ -652,6 +703,23 @@ model1 = new DataFileTableModel(nomFichier1);
 model1.fireTableDataChanged();
 TableClients.setModel(model1);
            
+// Effacer les données du formulaire
+        chpNomenseigne.setText ("") ;
+        chpSiret.setText ("") ;
+        chpDatevisite.setText ("") ;
+        chpAdresse1.setText ("") ;
+        chpAdresse2.setText ("") ;
+        chpCodepostal.setText ("") ;
+        chpVille.setText ("") ;
+        
+        chpNom.setText ("") ;
+        chpPrenom.setText ("") ;
+        chpEmail.setText ("") ;
+        chpTelfixe.setText ("") ;
+        chpTelportable.setText ("") ;
+       lbCommandes1.setText ("") ;
+       lbid.setText ("") ;
+       
             } catch (IOException ex) {
             Logger.getLogger(AddRep.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -745,6 +813,8 @@ TableClients.setModel(model1);
     private javax.swing.JLabel lbTelfixe;
     private javax.swing.JLabel lbTelportable;
     private javax.swing.JLabel lbVille;
+    private javax.swing.JLabel lbid;
+    private javax.swing.JLabel lbidentifiant;
     private javax.swing.JMenu mAide;
     private javax.swing.JMenu mRetour;
     private javax.swing.JLabel titreContact;

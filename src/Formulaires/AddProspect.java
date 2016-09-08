@@ -102,6 +102,8 @@ public class AddProspect extends javax.swing.JDialog {
         bModifier = new javax.swing.JButton();
         bAjouter = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        lbidentifiant = new javax.swing.JLabel();
+        lbid = new javax.swing.JLabel();
         imagefond = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mRetour = new javax.swing.JMenu();
@@ -414,6 +416,12 @@ public class AddProspect extends javax.swing.JDialog {
         jPanel1.add(jLabel1);
         jLabel1.setBounds(250, 170, 250, 20);
 
+        lbidentifiant.setText("Identifiant");
+        jPanel1.add(lbidentifiant);
+        lbidentifiant.setBounds(710, 10, 60, 14);
+        jPanel1.add(lbid);
+        lbid.setBounds(720, 30, 40, 20);
+
         imagefond.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         imagefond.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/meubles4.jpg"))); // NOI18N
         jPanel1.add(imagefond);
@@ -475,14 +483,16 @@ public class AddProspect extends javax.swing.JDialog {
         chpEmail.setText ("") ;
         chpTelfixe.setText ("") ;
         chpTelportable.setText ("") ;
-       
+       lbid.setText ("") ;
   
         TableProspects.getSelectionModel().clearSelection();
 
     }//GEN-LAST:event_bEffacerMouseClicked
 
     private void TableProspectsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableProspectsMouseClicked
-     // Je récupére le nom de l'enseigne, colonne 2.
+        // Je récupére l'identifiant, colonne 1.
+        lbid.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),1));          
+        // Je récupére le nom de l'enseigne, colonne 2.
         chpNomenseigne.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),2));
         // Je récupére le numéro de Siret, colonne 3.
         chpSiret.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),3));
@@ -514,8 +524,10 @@ public class AddProspect extends javax.swing.JDialog {
     }//GEN-LAST:event_TableProspectsMouseClicked
 
     private void bAjouterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bAjouterMouseClicked
-       // Je recupere la ligne à modifier
-        int ligneactuelle = TableProspects.getSelectedRow() + 1 ;
+       // Je recupere le nombre de ligne (soit le nombre de clients.
+        int nbdeligne = TableProspects.getRowCount() ;
+        //Je récupére les caractéristique du nouveau client.
+        
         String clnomenseigne = chpNomenseigne.getText() ;
         String clsiret = chpSiret.getText() ;
         String clvisite = chpDatevisite.getText() ;
@@ -529,26 +541,40 @@ public class AddProspect extends javax.swing.JDialog {
         String cltelfixe = chpTelfixe.getText() ;
         String cltelportable = chpTelportable.getText() ;
         String clemail = chpEmail.getText() ;
-      
-        String clActif = "Oui" ;
-        String chaine = (clActif + ";" + (ligneactuelle) + ";" + clnomenseigne + ";" + clsiret + ";" + clvisite + ";" + cladresse1  + ";" + cladresse2
-                + ";" + clcodepostal  + ";" + clville  + ";" + clpays  + ";" + clnom  + ";" + clprenom  + ";" + cltelfixe
-                + ";" + cltelportable  + ";" + clemail + "\n");
         
-        // Ecraser la ligne du prospect avec la position active.
-                System.out.println(chaine);
+        String clActif = "Oui" ;
+        String chaine = (clActif + ";" + (nbdeligne+1) + ";" + clnomenseigne + ";" + clsiret + ";" + clvisite + ";" + cladresse1  + ";" + cladresse2
+                + ";" + clcodepostal  + ";" + clville  + ";" + clpays  + ";" + clnom  + ";" + clprenom  + ";" + cltelfixe
+                + ";" + cltelportable  + ";" + clemail  + "\n");
+        System.out.println(chaine);
         try {
-            ModificationLigne ("Data/Prospects.txt", chaine, ligneactuelle) ;
-            // pop up de confirmation de modification
-            JOptionPane.showMessageDialog(null, "Le prospect a bien été modifié", "Modification de prospect", JOptionPane.INFORMATION_MESSAGE);
+            EcritureFichier ("Data/Propspects.txt", chaine) ;
             
-            // Actualisation de la table
+            // pop up de confirmation d'ajout
+            JOptionPane.showMessageDialog(null, "Le prospect a bien été ajouté", "Ajout de prospect", JOptionPane.INFORMATION_MESSAGE);
+            
+            // Actualisation de la table après ajout du nouveau client
             DataFileTableModel model1;
-String nomFichier1="Data/Prospects.txt";
-model1 = new DataFileTableModel(nomFichier1);
-model1.fireTableDataChanged();
-TableProspects.setModel(model1);
-           
+            String nomFichier1="Data/Prospects.txt";
+            model1 = new DataFileTableModel(nomFichier1);
+            model1.fireTableDataChanged();
+            TableProspects.setModel(model1);
+            
+            // Effacer les données du formulaire
+        chpNomenseigne.setText ("") ;
+        chpSiret.setText ("") ;
+        chpDatevisite.setText ("") ;
+        chpAdresse1.setText ("") ;
+        chpAdresse2.setText ("") ;
+        chpCodepostal.setText ("") ;
+        chpVille.setText ("") ;
+        
+        chpNom.setText ("") ;
+        chpPrenom.setText ("") ;
+        chpEmail.setText ("") ;
+        chpTelfixe.setText ("") ;
+        chpTelportable.setText ("") ;
+       lbid.setText ("") ;
             } catch (IOException ex) {
             Logger.getLogger(AddRep.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -556,7 +582,10 @@ TableProspects.setModel(model1);
 
     private void bModifierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bModifierMouseClicked
         // Je recupere la ligne à modifier
-        int ligneactuelle = TableProspects.getSelectedRow() + 1 ;
+         //int ligneactuelle = TableClients.getSelectedRow() + 1 ;
+        String clActif = "Oui" ;
+        String clid = lbid.getText() ;
+        int clid1 = Integer.parseInt(clid);
         String clnomenseigne = chpNomenseigne.getText() ;
         String clsiret = chpSiret.getText() ;
         String clvisite = chpDatevisite.getText() ;
@@ -571,15 +600,14 @@ TableProspects.setModel(model1);
         String cltelportable = chpTelportable.getText() ;
         String clemail = chpEmail.getText() ;
         
-        String clActif = "Oui" ;
-        String chaine = (clActif + ";" + (ligneactuelle) + ";" + clnomenseigne + ";" + clsiret + ";" + clvisite + ";" + cladresse1  + ";" + cladresse2
+        String chaine = (clActif + ";" + clid + ";" + clnomenseigne + ";" + clsiret + ";" + clvisite + ";" + cladresse1  + ";" + cladresse2
                 + ";" + clcodepostal  + ";" + clville  + ";" + clpays  + ";" + clnom  + ";" + clprenom  + ";" + cltelfixe
                 + ";" + cltelportable  + ";" + clemail  + "\n");
         
         // Ecraser la ligne du prospect avec la position active.
                 System.out.println(chaine);
         try {
-            ModificationLigne ("Data/Prospects.txt", chaine, ligneactuelle) ;
+            ModificationLigne ("Data/Prospects.txt", chaine, clid1) ;
             // pop up de confirmation de modification
             JOptionPane.showMessageDialog(null, "Le prospect a été modifié", "Modification de prospect", JOptionPane.INFORMATION_MESSAGE);
             
@@ -589,6 +617,22 @@ String nomFichier1="Data/Propspects.txt";
 model1 = new DataFileTableModel(nomFichier1);
 model1.fireTableDataChanged();
 TableProspects.setModel(model1);
+
+// Effacer les données du formulaire
+        chpNomenseigne.setText ("") ;
+        chpSiret.setText ("") ;
+        chpDatevisite.setText ("") ;
+        chpAdresse1.setText ("") ;
+        chpAdresse2.setText ("") ;
+        chpCodepostal.setText ("") ;
+        chpVille.setText ("") ;
+        
+        chpNom.setText ("") ;
+        chpPrenom.setText ("") ;
+        chpEmail.setText ("") ;
+        chpTelfixe.setText ("") ;
+        chpTelportable.setText ("") ;
+       lbid.setText ("") ;
            
             } catch (IOException ex) {
             Logger.getLogger(AddRep.class.getName()).log(Level.SEVERE, null, ex);
@@ -597,7 +641,10 @@ TableProspects.setModel(model1);
 
     private void bSupprimerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bSupprimerMouseClicked
             // Je recupere la ligne à modifier
-        int ligneactuelle = TableProspects.getSelectedRow() + 1 ;
+       //int ligneactuelle = TableClients.getSelectedRow() + 1 ;
+        String clActif = "Non" ;
+        String clid = lbid.getText() ;
+        int clid1 = Integer.parseInt(clid);
         String clnomenseigne = chpNomenseigne.getText() ;
         String clsiret = chpSiret.getText() ;
         String clvisite = chpDatevisite.getText() ;
@@ -612,15 +659,14 @@ TableProspects.setModel(model1);
         String cltelportable = chpTelportable.getText() ;
         String clemail = chpEmail.getText() ;
         
-        String clActif = "Non" ;
-        String chaine = (clActif + ";" + (ligneactuelle) + ";" + clnomenseigne + ";" + clsiret + ";" + clvisite + ";" + cladresse1  + ";" + cladresse2
+        String chaine = (clActif + ";" + clid + ";" + clnomenseigne + ";" + clsiret + ";" + clvisite + ";" + cladresse1  + ";" + cladresse2
                 + ";" + clcodepostal  + ";" + clville  + ";" + clpays  + ";" + clnom  + ";" + clprenom  + ";" + cltelfixe
                 + ";" + cltelportable  + ";" + clemail  + "\n");
         
         // Ecraser la ligne du prospect avec la position inactive.
                 System.out.println(chaine);
         try {
-            ModificationLigne ("Data/Prospects.txt", chaine, ligneactuelle) ;
+            ModificationLigne ("Data/Prospects.txt", chaine, clid1) ;
             // pop up de confirmation de modification
             JOptionPane.showMessageDialog(null, "Le prospect a été spprimé de la liste", "Suppression de prospect", JOptionPane.INFORMATION_MESSAGE);
             
@@ -631,6 +677,21 @@ model1 = new DataFileTableModel(nomFichier1);
 model1.fireTableDataChanged();
 TableProspects.setModel(model1);
            
+// Effacer les données du formulaire
+        chpNomenseigne.setText ("") ;
+        chpSiret.setText ("") ;
+        chpDatevisite.setText ("") ;
+        chpAdresse1.setText ("") ;
+        chpAdresse2.setText ("") ;
+        chpCodepostal.setText ("") ;
+        chpVille.setText ("") ;
+        
+        chpNom.setText ("") ;
+        chpPrenom.setText ("") ;
+        chpEmail.setText ("") ;
+        chpTelfixe.setText ("") ;
+        chpTelportable.setText ("") ;
+       lbid.setText ("") ;
             } catch (IOException ex) {
             Logger.getLogger(AddRep.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -723,6 +784,8 @@ TableProspects.setModel(model1);
     private javax.swing.JLabel lbTelfixe;
     private javax.swing.JLabel lbTelportable;
     private javax.swing.JLabel lbVille;
+    private javax.swing.JLabel lbid;
+    private javax.swing.JLabel lbidentifiant;
     private javax.swing.JMenu mAide;
     private javax.swing.JMenu mRetour;
     private javax.swing.JLabel titreContact;
