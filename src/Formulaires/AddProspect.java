@@ -5,6 +5,8 @@
  */
 package Formulaires;
 
+import static GestionFichier.EcritureDansFichier.EcritureFichier;
+import static GestionFichier.EcritureDansFichier.ModificationLigne;
 import Tables.DataFileTableModel;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -377,12 +379,22 @@ public class AddProspect extends javax.swing.JDialog {
         bSupprimer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/iconemoins.jpg"))); // NOI18N
         bSupprimer.setText("Supprimer");
         bSupprimer.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        bSupprimer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bSupprimerMouseClicked(evt);
+            }
+        });
         jPanel1.add(bSupprimer);
         bSupprimer.setBounds(660, 220, 120, 27);
 
         bModifier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/iconemodif.jpg"))); // NOI18N
         bModifier.setText("Modifier");
         bModifier.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        bModifier.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bModifierMouseClicked(evt);
+            }
+        });
         jPanel1.add(bModifier);
         bModifier.setBounds(660, 190, 120, 27);
 
@@ -502,8 +514,127 @@ public class AddProspect extends javax.swing.JDialog {
     }//GEN-LAST:event_TableProspectsMouseClicked
 
     private void bAjouterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bAjouterMouseClicked
-       JOptionPane.showMessageDialog(null, "Le nouveau client a bien été ajouté", "Ajout de client", JOptionPane.INFORMATION_MESSAGE);
+       // Je recupere la ligne à modifier
+        int ligneactuelle = TableProspects.getSelectedRow() + 1 ;
+        String clnomenseigne = chpNomenseigne.getText() ;
+        String clsiret = chpSiret.getText() ;
+        String clvisite = chpDatevisite.getText() ;
+        String cladresse1 = chpAdresse1.getText() ;
+        String cladresse2 = chpAdresse2.getText() ;
+        String clcodepostal = chpCodepostal.getText() ;
+        String clville = chpVille.getText() ;
+        String clpays = comboPays.getName() ;
+        String clnom = chpNom.getText() ;
+        String clprenom = chpPrenom.getText() ;
+        String cltelfixe = chpTelfixe.getText() ;
+        String cltelportable = chpTelportable.getText() ;
+        String clemail = chpEmail.getText() ;
+      
+        String clActif = "Oui" ;
+        String chaine = (clActif + ";" + (ligneactuelle) + ";" + clnomenseigne + ";" + clsiret + ";" + clvisite + ";" + cladresse1  + ";" + cladresse2
+                + ";" + clcodepostal  + ";" + clville  + ";" + clpays  + ";" + clnom  + ";" + clprenom  + ";" + cltelfixe
+                + ";" + cltelportable  + ";" + clemail + "\n");
+        
+        // Ecraser la ligne du prospect avec la position active.
+                System.out.println(chaine);
+        try {
+            ModificationLigne ("Data/Prospects.txt", chaine, ligneactuelle) ;
+            // pop up de confirmation de modification
+            JOptionPane.showMessageDialog(null, "Le prospect a bien été modifié", "Modification de prospect", JOptionPane.INFORMATION_MESSAGE);
+            
+            // Actualisation de la table
+            DataFileTableModel model1;
+String nomFichier1="Data/Prospects.txt";
+model1 = new DataFileTableModel(nomFichier1);
+model1.fireTableDataChanged();
+TableProspects.setModel(model1);
+           
+            } catch (IOException ex) {
+            Logger.getLogger(AddRep.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }//GEN-LAST:event_bAjouterMouseClicked
+
+    private void bModifierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bModifierMouseClicked
+        // Je recupere la ligne à modifier
+        int ligneactuelle = TableProspects.getSelectedRow() + 1 ;
+        String clnomenseigne = chpNomenseigne.getText() ;
+        String clsiret = chpSiret.getText() ;
+        String clvisite = chpDatevisite.getText() ;
+        String cladresse1 = chpAdresse1.getText() ;
+        String cladresse2 = chpAdresse2.getText() ;
+        String clcodepostal = chpCodepostal.getText() ;
+        String clville = chpVille.getText() ;
+        String clpays = comboPays.getName() ;
+        String clnom = chpNom.getText() ;
+        String clprenom = chpPrenom.getText() ;
+        String cltelfixe = chpTelfixe.getText() ;
+        String cltelportable = chpTelportable.getText() ;
+        String clemail = chpEmail.getText() ;
+        
+        String clActif = "Oui" ;
+        String chaine = (clActif + ";" + (ligneactuelle) + ";" + clnomenseigne + ";" + clsiret + ";" + clvisite + ";" + cladresse1  + ";" + cladresse2
+                + ";" + clcodepostal  + ";" + clville  + ";" + clpays  + ";" + clnom  + ";" + clprenom  + ";" + cltelfixe
+                + ";" + cltelportable  + ";" + clemail  + "\n");
+        
+        // Ecraser la ligne du prospect avec la position active.
+                System.out.println(chaine);
+        try {
+            ModificationLigne ("Data/Prospects.txt", chaine, ligneactuelle) ;
+            // pop up de confirmation de modification
+            JOptionPane.showMessageDialog(null, "Le prospect a été modifié", "Modification de prospect", JOptionPane.INFORMATION_MESSAGE);
+            
+            // Actualisation de la table
+            DataFileTableModel model1;
+String nomFichier1="Data/Propspects.txt";
+model1 = new DataFileTableModel(nomFichier1);
+model1.fireTableDataChanged();
+TableProspects.setModel(model1);
+           
+            } catch (IOException ex) {
+            Logger.getLogger(AddRep.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }//GEN-LAST:event_bModifierMouseClicked
+
+    private void bSupprimerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bSupprimerMouseClicked
+            // Je recupere la ligne à modifier
+        int ligneactuelle = TableProspects.getSelectedRow() + 1 ;
+        String clnomenseigne = chpNomenseigne.getText() ;
+        String clsiret = chpSiret.getText() ;
+        String clvisite = chpDatevisite.getText() ;
+        String cladresse1 = chpAdresse1.getText() ;
+        String cladresse2 = chpAdresse2.getText() ;
+        String clcodepostal = chpCodepostal.getText() ;
+        String clville = chpVille.getText() ;
+        String clpays = comboPays.getName() ;
+        String clnom = chpNom.getText() ;
+        String clprenom = chpPrenom.getText() ;
+        String cltelfixe = chpTelfixe.getText() ;
+        String cltelportable = chpTelportable.getText() ;
+        String clemail = chpEmail.getText() ;
+        
+        String clActif = "Non" ;
+        String chaine = (clActif + ";" + (ligneactuelle) + ";" + clnomenseigne + ";" + clsiret + ";" + clvisite + ";" + cladresse1  + ";" + cladresse2
+                + ";" + clcodepostal  + ";" + clville  + ";" + clpays  + ";" + clnom  + ";" + clprenom  + ";" + cltelfixe
+                + ";" + cltelportable  + ";" + clemail  + "\n");
+        
+        // Ecraser la ligne du prospect avec la position inactive.
+                System.out.println(chaine);
+        try {
+            ModificationLigne ("Data/Prospects.txt", chaine, ligneactuelle) ;
+            // pop up de confirmation de modification
+            JOptionPane.showMessageDialog(null, "Le prospect a été spprimé de la liste", "Suppression de prospect", JOptionPane.INFORMATION_MESSAGE);
+            
+            // Actualisation de la table
+            DataFileTableModel model1;
+String nomFichier1="Data/Propspects.txt";
+model1 = new DataFileTableModel(nomFichier1);
+model1.fireTableDataChanged();
+TableProspects.setModel(model1);
+           
+            } catch (IOException ex) {
+            Logger.getLogger(AddRep.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }//GEN-LAST:event_bSupprimerMouseClicked
 
     /**
      * @param args the command line arguments

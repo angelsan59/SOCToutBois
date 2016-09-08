@@ -348,12 +348,12 @@ private void initialise(){
         String repSalaire = chpSalaire.getText () ; 
         String repTxtCommission = chpTxCommission.getText() ;
         String repActif = "Non" ;
-        String chaine = (repActif + ";" +(ligneactuelle) + ";" + repnom + ";" + repprenom + ";" + repSalaire + ";" + repTxtCommission + "\n");
+        String chaine = (repActif + ";" + (ligneactuelle+1) + ";" + repnom + ";" + repprenom + ";" + repSalaire + ";" + repTxtCommission + "\n");
         // Ecraser la ligne du représentant avec la position inactif.
                 System.out.println(chaine);
         try {
             ModificationLigne ("Data/Representants.txt", chaine, ligneactuelle) ;
-           
+           JOptionPane.showMessageDialog(null, "Le représentant a bien été enlevé de la liste", "Suppression de représentant", JOptionPane.INFORMATION_MESSAGE);
             } catch (IOException ex) {
             Logger.getLogger(AddRep.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -367,19 +367,27 @@ private void initialise(){
         String repSalaire = chpSalaire.getText () ; 
         String repTxtCommission = chpTxCommission.getText() ;
         String repActif = "Oui" ;
-        String chaine = (repActif + ";" +(ligneactuelle) + ";" + repnom + ";" + repprenom + ";" + repSalaire + ";" + repTxtCommission + "\n");
-        // Ecraser la ligne du représentant avec la position inactif.
+        String chaine = (repActif + ";" +(ligneactuelle+1) + ";" + repnom + ";" + repprenom + ";" + repSalaire + ";" + repTxtCommission + "\n");
+        // Ecraser la ligne du représentant avec la position actif.
                 System.out.println(chaine);
         try {
             ModificationLigne ("Data/Representants.txt", chaine, ligneactuelle) ;
-           
+           // pop up de confirmation de modification
+            JOptionPane.showMessageDialog(null, "Le représentant a bien été modifié", "Modification de représentant", JOptionPane.INFORMATION_MESSAGE);
+            
+            // Actualisation de la table
+            DataFileTableModel model1;
+String nomFichier1="Data/Representants.txt";
+model1 = new DataFileTableModel(nomFichier1);
+model1.fireTableDataChanged();
+TableRepresentants.setModel(model1);
             } catch (IOException ex) {
             Logger.getLogger(AddRep.class.getName()).log(Level.SEVERE, null, ex);
             }
     }//GEN-LAST:event_bModifierMouseClicked
 
     private void bAjouterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bAjouterMouseClicked
-       // Je recupere le nombre de ligne (soit le nombre de représentant.
+       // Je recupere le nombre de ligne (soit le nombre de représentants.
         int nbdeligne = TableRepresentants.getRowCount() ;
         //Je récupére les caractéristique du nouveau representant.
         String repnom = chpNom.getText() ;
@@ -395,7 +403,7 @@ private void initialise(){
             // pop up de confirmation d'ajout
             JOptionPane.showMessageDialog(null, "Le nouveau représentant a bien été ajouté", "Ajout de représentant", JOptionPane.INFORMATION_MESSAGE);
             
-            // Actualisation de la table après ajout du nouveau représentant
+            // Actualisation de la table
             DataFileTableModel model1;
 String nomFichier1="Data/Representants.txt";
 model1 = new DataFileTableModel(nomFichier1);
