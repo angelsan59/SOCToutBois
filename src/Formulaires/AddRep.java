@@ -352,10 +352,10 @@ private void initialise(){
 
     private void bSupprimerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bSupprimerMouseClicked
         // Je recupere la ligne à rendre inactive
-        int ligneactuelle = TableRepresentants.getSelectedRow() + 1 ;
+        //int ligneactuelle = TableRepresentants.getSelectedRow() + 1 ;
         String repActif = "Non" ;
         String repid = lbid.getText() ;
-        // int repid1 = Integer.parseInt(repid);
+        int repid1 = Integer.parseInt(repid);
         String repnom = chpNom.getText() ;
         String repprenom = chpPrenom.getText() ;
         String repSalaire = chpSalaire.getText () ; 
@@ -365,8 +365,8 @@ private void initialise(){
                 System.out.println("Chaine dans le bouton supprimer : " +chaine);
                 System.out.println("ligneactuelle dans le bouton supprimer : " +ligneactuelle);
         try {
-            ModificationLigne ("Data/Representants.txt", chaine, ligneactuelle) ;
-           JOptionPane.showMessageDialog(null, "Le représentant a bien été enlevé de la liste", "Suppression de représentant", JOptionPane.INFORMATION_MESSAGE);
+            ModificationLigne ("Data/Representants.txt", chaine, repid1) ;
+            JOptionPane.showMessageDialog(null, "Le représentant a bien été enlevé de la liste", "Suppression de représentant", JOptionPane.INFORMATION_MESSAGE);
            
             // Actualisation de la table
             DataFileTableModel model1;
@@ -390,7 +390,7 @@ private void initialise(){
 
     private void bModifierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bModifierMouseClicked
       // Je recupere la ligne à modifier
-        int ligneactuelle = TableRepresentants.getSelectedRow() + 1 ;
+        //int ligneactuelle = TableRepresentants.getSelectedRow() + 1 ;
         String repid = lbid.getText() ;
         int repid1 = Integer.parseInt(repid);
         String repnom = chpNom.getText() ;
