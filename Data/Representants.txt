@@ -1,7 +1,7 @@
 Actif;Numéro;Nom;Prénom;Salaire brut;Taux de commission
-Oui;2;toto3;tutut1;2000;2
+Non;2;toto3;tutut1;2000;2
 Oui;2;toto2;tutut1;2000;2
-Oui;3;toto1;tutut1;2000;2
+Non;2;toto1;tutut1;2000;2
 Non;4;aaa;bbbb;1;4
 Oui;5;te;te;1000;5
 Non;6;test;test1;2000;5

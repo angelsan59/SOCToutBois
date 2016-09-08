@@ -348,11 +348,11 @@ private void initialise(){
         String repSalaire = chpSalaire.getText () ; 
         String repTxtCommission = chpTxCommission.getText() ;
         String repActif = "Non" ;
-        String chaine = (repActif + ";" + (ligneactuelle+1) + ";" + repnom + ";" + repprenom + ";" + repSalaire + ";" + repTxtCommission + "\n");
+        String chaine = (repActif + ";" + (ligneactuelle) + ";" + repnom + ";" + repprenom + ";" + repSalaire + ";" + repTxtCommission + "\n");
         // Ecraser la ligne du représentant avec la position inactif.
                 System.out.println(chaine);
         try {
-            ModificationLigne ("Data/Representants.txt", chaine, ligneactuelle) ;
+           ModificationLigne ("Data/Representants.txt", chaine, ligneactuelle+1) ;
            JOptionPane.showMessageDialog(null, "Le représentant a bien été enlevé de la liste", "Suppression de représentant", JOptionPane.INFORMATION_MESSAGE);
             } catch (IOException ex) {
             Logger.getLogger(AddRep.class.getName()).log(Level.SEVERE, null, ex);
