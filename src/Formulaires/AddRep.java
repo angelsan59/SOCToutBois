@@ -84,6 +84,8 @@ private void initialise(){
         DataFileTableModel model;
         String nomFichier="Data/Representants.txt";
         TableRepresentants = new javax.swing.JTable();
+        lbIdentifiant = new javax.swing.JLabel();
+        lbid = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -260,6 +262,12 @@ private void initialise(){
         jPanel1.add(jScrollPane2);
         jScrollPane2.setBounds(70, 240, 640, 120);
 
+        lbIdentifiant.setText("Identifiant");
+        jPanel1.add(lbIdentifiant);
+        lbIdentifiant.setBounds(10, 90, 60, 20);
+        jPanel1.add(lbid);
+        lbid.setBounds(80, 90, 40, 20);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/meubles4.jpg"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 790, 380);
@@ -315,6 +323,8 @@ private void initialise(){
     }//GEN-LAST:event_jMenu1MouseClicked
 
     private void TableRepresentantsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableRepresentantsMouseClicked
+        // Je récupére l'identifiant, colonne 1.
+        lbid.setText ((String) TableRepresentants.getModel().getValueAt(TableRepresentants.getSelectedRow(),1));
         // Je récupére le nom, colonne 2.
         chpNom.setText ((String) TableRepresentants.getModel().getValueAt(TableRepresentants.getSelectedRow(),2));
         // Je récupére le Prenom, colonne 3.
@@ -343,17 +353,33 @@ private void initialise(){
     private void bSupprimerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bSupprimerMouseClicked
         // Je recupere la ligne à rendre inactive
         int ligneactuelle = TableRepresentants.getSelectedRow() + 1 ;
+        String repid = lbid.getText() ;
+        int repid1 = Integer.parseInt(repid);
         String repnom = chpNom.getText() ;
         String repprenom = chpPrenom.getText() ;
         String repSalaire = chpSalaire.getText () ; 
         String repTxtCommission = chpTxCommission.getText() ;
         String repActif = "Non" ;
-        String chaine = (repActif + ";" + (ligneactuelle) + ";" + repnom + ";" + repprenom + ";" + repSalaire + ";" + repTxtCommission + "\n");
+        String chaine = (repActif + ";" + repid + ";" + repnom + ";" + repprenom + ";" + repSalaire + ";" + repTxtCommission + "\n");
         // Ecraser la ligne du représentant avec la position inactif.
                 System.out.println(chaine);
         try {
-           ModificationLigne ("Data/Representants.txt", chaine, ligneactuelle+1) ;
+            ModificationLigne ("Data/Representants.txt", chaine, repid1) ;
            JOptionPane.showMessageDialog(null, "Le représentant a bien été enlevé de la liste", "Suppression de représentant", JOptionPane.INFORMATION_MESSAGE);
+           
+           // Actualisation de la table
+            DataFileTableModel model1;
+String nomFichier1="Data/Representants.txt";
+model1 = new DataFileTableModel(nomFichier1);
+model1.fireTableDataChanged();
+TableRepresentants.setModel(model1);
+
+            // Effacer les données du tableau
+            chpNom.setText ("") ;
+        chpPrenom.setText ("") ;
+        chpSalaire.setText ("") ;
+        chpTxCommission.setText ("") ;
+        lbid.setText ("") ;
             } catch (IOException ex) {
             Logger.getLogger(AddRep.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -362,16 +388,18 @@ private void initialise(){
     private void bModifierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bModifierMouseClicked
       // Je recupere la ligne à modifier
         int ligneactuelle = TableRepresentants.getSelectedRow() + 1 ;
+        String repid = lbid.getText() ;
+        int repid1 = Integer.parseInt(repid);
         String repnom = chpNom.getText() ;
         String repprenom = chpPrenom.getText() ;
         String repSalaire = chpSalaire.getText () ; 
         String repTxtCommission = chpTxCommission.getText() ;
         String repActif = "Oui" ;
-        String chaine = (repActif + ";" +(ligneactuelle+1) + ";" + repnom + ";" + repprenom + ";" + repSalaire + ";" + repTxtCommission + "\n");
+        String chaine = (repActif + ";" + repid + ";" + repnom + ";" + repprenom + ";" + repSalaire + ";" + repTxtCommission + "\n");
         // Ecraser la ligne du représentant avec la position actif.
                 System.out.println(chaine);
         try {
-            ModificationLigne ("Data/Representants.txt", chaine, ligneactuelle) ;
+            ModificationLigne ("Data/Representants.txt", chaine, repid1) ;
            // pop up de confirmation de modification
             JOptionPane.showMessageDialog(null, "Le représentant a bien été modifié", "Modification de représentant", JOptionPane.INFORMATION_MESSAGE);
             
@@ -390,6 +418,7 @@ TableRepresentants.setModel(model1);
        // Je recupere le nombre de ligne (soit le nombre de représentants.
         int nbdeligne = TableRepresentants.getRowCount() ;
         //Je récupére les caractéristique du nouveau representant.
+        
         String repnom = chpNom.getText() ;
         String repprenom = chpPrenom.getText() ;
         String repSalaire = chpSalaire.getText () ; 
@@ -480,9 +509,11 @@ TableRepresentants.setModel(model1);
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lbIdentifiant;
     private javax.swing.JLabel lbNom;
     private javax.swing.JLabel lbPrenom;
     private javax.swing.JLabel lbSalaire;
     private javax.swing.JLabel lbTxCommission;
+    private javax.swing.JLabel lbid;
     // End of variables declaration//GEN-END:variables
 }
