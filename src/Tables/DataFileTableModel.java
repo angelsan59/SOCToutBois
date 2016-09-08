@@ -38,7 +38,7 @@ import java.util.*;
     */
     public void initVectors() {
         String ligne;
-        boolean voirtout = false ;
+        boolean voirtout = true ;
         data=new Vector();
         columnNames=new Vector();
         try {

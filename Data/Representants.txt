@@ -1,16 +1,15 @@
-Actif;Identifiant;Nom;Prénom;Salaire;Tx Commisssion
-Oui;2;toto3;tutut1;2000;2
-Non;5;te;te;1000;5
-Non;3;toto5;tutut1;2000;2
+Actif;Numéro;Nom;Prénom;Salaire brut;Taux de commission
+Non;1;toto3;tutut1;2000;2
+Non;2;toto2;tutut1;2000;2
+Non;3;toto1;tutut1;2000;2
 Non;4;aaa;bbbb;1;4
-Non;5;te12;te;1000;5
-Non;10;New;Man;1000;10
-Non;7;testy1;testy1;2000;3
+Oui;5;te;te;1000;5
+Oui;6;test;test1;33333;5
+Oui;7;testy;testy1;2000;3
 Oui;8;Pearl;Laurence;7000;4
 Oui;9;Kwana;Gwen;2000;5
 Oui;10;New;Man;1000;10
 Non;11;New;Boy;5000;8
 Oui;12;New;Boy;5000;7
-Non;13;moi ;encore 2;4000;2
-Oui;7;moins;plus;2000;14
-Oui;7;joyeuse;deconnade;1500;8
+Oui;13;moi ;encore 2;4000;2
+Oui;14;Chipette;Jenna;7777777;7777777

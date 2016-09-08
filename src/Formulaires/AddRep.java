@@ -353,34 +353,37 @@ private void initialise(){
     private void bSupprimerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bSupprimerMouseClicked
         // Je recupere la ligne à rendre inactive
         int ligneactuelle = TableRepresentants.getSelectedRow() + 1 ;
+        String repActif = "Non" ;
         String repid = lbid.getText() ;
-        int repid1 = Integer.parseInt(repid);
+        // int repid1 = Integer.parseInt(repid);
         String repnom = chpNom.getText() ;
         String repprenom = chpPrenom.getText() ;
         String repSalaire = chpSalaire.getText () ; 
         String repTxtCommission = chpTxCommission.getText() ;
-        String repActif = "Non" ;
         String chaine = (repActif + ";" + repid + ";" + repnom + ";" + repprenom + ";" + repSalaire + ";" + repTxtCommission + "\n");
         // Ecraser la ligne du représentant avec la position inactif.
-                System.out.println(chaine);
+                System.out.println("Chaine dans le bouton supprimer : " +chaine);
+                System.out.println("ligneactuelle dans le bouton supprimer : " +ligneactuelle);
         try {
-            ModificationLigne ("Data/Representants.txt", chaine, repid1) ;
+            ModificationLigne ("Data/Representants.txt", chaine, ligneactuelle) ;
            JOptionPane.showMessageDialog(null, "Le représentant a bien été enlevé de la liste", "Suppression de représentant", JOptionPane.INFORMATION_MESSAGE);
            
-           // Actualisation de la table
+            // Actualisation de la table
             DataFileTableModel model1;
-String nomFichier1="Data/Representants.txt";
-model1 = new DataFileTableModel(nomFichier1);
-model1.fireTableDataChanged();
-TableRepresentants.setModel(model1);
+            String nomFichier1="Data/Representants.txt";
+            model1 = new DataFileTableModel(nomFichier1);
+            model1.fireTableDataChanged();
+            TableRepresentants.setModel(model1);
 
             // Effacer les données du tableau
             chpNom.setText ("") ;
-        chpPrenom.setText ("") ;
-        chpSalaire.setText ("") ;
-        chpTxCommission.setText ("") ;
-        lbid.setText ("") ;
-            } catch (IOException ex) {
+            chpPrenom.setText ("") ;
+            chpSalaire.setText ("") ;
+            chpTxCommission.setText ("") ;
+            lbid.setText ("") ;
+            } 
+        catch (IOException ex) 
+            {
             Logger.getLogger(AddRep.class.getName()).log(Level.SEVERE, null, ex);
             }
     }//GEN-LAST:event_bSupprimerMouseClicked
