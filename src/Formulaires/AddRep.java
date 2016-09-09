@@ -402,6 +402,13 @@ String nomFichier1="Data/Representants.txt";
 model1 = new DataFileTableModel(nomFichier1);
 model1.fireTableDataChanged();
 TableRepresentants.setModel(model1);
+
+            // Effacer les données du formulaire
+            chpNom.setText ("") ;
+            chpPrenom.setText ("") ;
+            chpSalaire.setText ("") ;
+            chpTxCommission.setText ("") ;
+            lbid.setText ("") ;
             } catch (IOException ex) {
             Logger.getLogger(AddRep.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -431,6 +438,13 @@ String nomFichier1="Data/Representants.txt";
 model1 = new DataFileTableModel(nomFichier1);
 model1.fireTableDataChanged();
 TableRepresentants.setModel(model1);
+
+            // Effacer les données du formulaire
+            chpNom.setText ("") ;
+            chpPrenom.setText ("") ;
+            chpSalaire.setText ("") ;
+            chpTxCommission.setText ("") ;
+            lbid.setText ("") ;
             } catch (IOException ex) {
             Logger.getLogger(AddRep.class.getName()).log(Level.SEVERE, null, ex);
             }

@@ -1,10 +1,15 @@
 
 package Formulaires;
+import java.awt.Desktop;
 import java.awt.Toolkit;
+import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JEditorPane;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
 
 /**
  * Ouvre la fenêtre principale du logiciel. Donne accès à la gestion des clients, des prospects et des représentants.
@@ -77,6 +82,8 @@ public FenetrePrincipaleFrame() {
         mClients = new javax.swing.JMenu();
         mProspects = new javax.swing.JMenu();
         mAide = new javax.swing.JMenu();
+        aproposde = new javax.swing.JMenuItem();
+        javadoc = new javax.swing.JMenuItem();
 
         jMenuItem2.setText("jMenuItem2");
 
@@ -171,6 +178,23 @@ public FenetrePrincipaleFrame() {
         jMenuBar1.add(mProspects);
 
         mAide.setText("Aide");
+
+        aproposde.setText("A propos de");
+        aproposde.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aproposdeActionPerformed(evt);
+            }
+        });
+        mAide.add(aproposde);
+
+        javadoc.setText("javadoc");
+        javadoc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                javadocMouseClicked(evt);
+            }
+        });
+        mAide.add(javadoc);
+
         jMenuBar1.add(mAide);
 
         setJMenuBar(jMenuBar1);
@@ -227,6 +251,28 @@ public FenetrePrincipaleFrame() {
         dlg.setVisible(true);
     }//GEN-LAST:event_mProspectsMouseClicked
 
+    private void aproposdeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aproposdeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_aproposdeActionPerformed
+
+    private void javadocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_javadocMouseClicked
+// afficher la javadoc à partir de l'application? ne marche pas pour l'instant
+        try {
+            JFrame f = new JFrame("HTMLDocument Structure");
+            JEditorPane ep = new JEditorPane("E:/sociepka/A_Projet_ToutBois/dist/javadoc/index.html");
+             ep.setEditable(false);
+      f.getContentPane().add(new JScrollPane(ep));
+      f.setSize(400, 300);
+      f.setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(FenetrePrincipaleFrame.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur fichier");
+        }
+            
+       
+     
+    }//GEN-LAST:event_javadocMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -263,6 +309,7 @@ public FenetrePrincipaleFrame() {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem aproposde;
     private javax.swing.JButton imageArbres;
     private javax.swing.JLabel imagefond;
     private javax.swing.JLabel jLabel3;
@@ -272,6 +319,7 @@ public FenetrePrincipaleFrame() {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenuItem javadoc;
     private javax.swing.JLabel lbBienvenue;
     private javax.swing.JLabel lbPresentation;
     private javax.swing.JLabel lbToutBoiscest;

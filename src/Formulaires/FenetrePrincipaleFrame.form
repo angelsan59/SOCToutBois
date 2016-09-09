@@ -50,6 +50,24 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Aide"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="aproposde">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="A propos de"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="aproposdeActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="javadoc">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="javadoc"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="javadocMouseClicked"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
         </Menu>
       </SubComponents>
     </Menu>

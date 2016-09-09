@@ -545,17 +545,18 @@ public class AddClient extends javax.swing.JDialog {
         String cladresse2 = chpAdresse2.getText() ;
         String clcodepostal = chpCodepostal.getText() ;
         String clville = chpVille.getText() ;
-        String clpays = comboPays.getName() ;
+        String clpays = (String) comboPays.getSelectedItem() ;
         String clnom = chpNom.getText() ;
         String clprenom = chpPrenom.getText() ;
         String cltelfixe = chpTelfixe.getText() ;
         String cltelportable = chpTelportable.getText() ;
         String clemail = chpEmail.getText() ;
+         String clcommandes = "0" ;
         
         String clActif = "Oui" ;
         String chaine = (clActif + ";" + (nbdeligne+1) + ";" + clnomenseigne + ";" + clsiret + ";" + clvisite + ";" + cladresse1  + ";" + cladresse2
                 + ";" + clcodepostal  + ";" + clville  + ";" + clpays  + ";" + clnom  + ";" + clprenom  + ";" + cltelfixe
-                + ";" + cltelportable  + ";" + clemail  +   ";" + "0\n");
+                + ";" + cltelportable  + ";" + clemail  +   ";" + clcommandes + "\n");
         System.out.println(chaine);
         try {
             EcritureFichier ("Data/Clients.txt", chaine) ;
@@ -569,10 +570,15 @@ public class AddClient extends javax.swing.JDialog {
             model1 = new DataFileTableModel(nomFichier1);
             model1.fireTableDataChanged();
             TableClients.setModel(model1);
-            } catch (IOException ex) {
-            Logger.getLogger(AddRep.class.getName()).log(Level.SEVERE, null, ex);
+            TableClients.removeColumn(TableClients.getColumnModel().getColumn(3));
+TableClients.removeColumn(TableClients.getColumnModel().getColumn(5));
+TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
+TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
+TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
+TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
+TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
             
-            // Effacer les données du formulaire
+             // Effacer les données du formulaire
         chpNomenseigne.setText ("") ;
         chpSiret.setText ("") ;
         chpDatevisite.setText ("") ;
@@ -588,6 +594,10 @@ public class AddClient extends javax.swing.JDialog {
         chpTelportable.setText ("") ;
        lbCommandes1.setText ("") ;
        lbid.setText ("") ;
+            } catch (IOException ex) {
+            Logger.getLogger(AddRep.class.getName()).log(Level.SEVERE, null, ex);
+            
+           
             }
     }//GEN-LAST:event_bAjouterMouseClicked
 
@@ -612,7 +622,7 @@ public class AddClient extends javax.swing.JDialog {
         String cladresse2 = chpAdresse2.getText() ;
         String clcodepostal = chpCodepostal.getText() ;
         String clville = chpVille.getText() ;
-        String clpays = comboPays.getName() ;
+        String clpays = (String) comboPays.getSelectedItem() ;
         String clnom = chpNom.getText() ;
         String clprenom = chpPrenom.getText() ;
         String cltelfixe = chpTelfixe.getText() ;
@@ -637,6 +647,13 @@ String nomFichier1="Data/Clients.txt";
 model1 = new DataFileTableModel(nomFichier1);
 model1.fireTableDataChanged();
 TableClients.setModel(model1);
+TableClients.removeColumn(TableClients.getColumnModel().getColumn(3));
+TableClients.removeColumn(TableClients.getColumnModel().getColumn(5));
+TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
+TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
+TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
+TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
+TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
 
 // Effacer les données du formulaire
         chpNomenseigne.setText ("") ;
@@ -673,7 +690,7 @@ TableClients.setModel(model1);
         String cladresse2 = chpAdresse2.getText() ;
         String clcodepostal = chpCodepostal.getText() ;
         String clville = chpVille.getText() ;
-        String clpays = comboPays.getName() ;
+        String clpays = (String) comboPays.getSelectedItem() ;
         String clnom = chpNom.getText() ;
         String clprenom = chpPrenom.getText() ;
         String cltelfixe = chpTelfixe.getText() ;
@@ -698,6 +715,13 @@ String nomFichier1="Data/Clients.txt";
 model1 = new DataFileTableModel(nomFichier1);
 model1.fireTableDataChanged();
 TableClients.setModel(model1);
+TableClients.removeColumn(TableClients.getColumnModel().getColumn(3));
+TableClients.removeColumn(TableClients.getColumnModel().getColumn(5));
+TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
+TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
+TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
+TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
+TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
            
 // Effacer les données du formulaire
         chpNomenseigne.setText ("") ;

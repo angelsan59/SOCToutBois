@@ -529,7 +529,7 @@ public class AddProspect extends javax.swing.JDialog {
         String cladresse2 = chpAdresse2.getText() ;
         String clcodepostal = chpCodepostal.getText() ;
         String clville = chpVille.getText() ;
-        String clpays = comboPays.getName() ;
+        String clpays = (String) comboPays.getSelectedItem() ;
         String clnom = chpNom.getText() ;
         String clprenom = chpPrenom.getText() ;
         String cltelfixe = chpTelfixe.getText() ;
@@ -553,6 +553,13 @@ public class AddProspect extends javax.swing.JDialog {
             model1 = new DataFileTableModel(nomFichier1);
             model1.fireTableDataChanged();
             TableProspects.setModel(model1);
+            TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(3));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(5));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
             
             // Effacer les données du formulaire
         chpNomenseigne.setText ("") ;
@@ -587,7 +594,7 @@ public class AddProspect extends javax.swing.JDialog {
         String cladresse2 = chpAdresse2.getText() ;
         String clcodepostal = chpCodepostal.getText() ;
         String clville = chpVille.getText() ;
-        String clpays = comboPays.getName() ;
+        String clpays = (String) comboPays.getSelectedItem() ;
         String clnom = chpNom.getText() ;
         String clprenom = chpPrenom.getText() ;
         String cltelfixe = chpTelfixe.getText() ;
@@ -611,6 +618,13 @@ String nomFichier1="Data/Propspects.txt";
 model1 = new DataFileTableModel(nomFichier1);
 model1.fireTableDataChanged();
 TableProspects.setModel(model1);
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(3));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(5));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
 
 // Effacer les données du formulaire
         chpNomenseigne.setText ("") ;
@@ -646,7 +660,7 @@ TableProspects.setModel(model1);
         String cladresse2 = chpAdresse2.getText() ;
         String clcodepostal = chpCodepostal.getText() ;
         String clville = chpVille.getText() ;
-        String clpays = comboPays.getName() ;
+        String clpays = (String) comboPays.getSelectedItem() ;
         String clnom = chpNom.getText() ;
         String clprenom = chpPrenom.getText() ;
         String cltelfixe = chpTelfixe.getText() ;
@@ -670,6 +684,13 @@ String nomFichier1="Data/Propspects.txt";
 model1 = new DataFileTableModel(nomFichier1);
 model1.fireTableDataChanged();
 TableProspects.setModel(model1);
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(3));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(5));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
            
 // Effacer les données du formulaire
         chpNomenseigne.setText ("") ;
