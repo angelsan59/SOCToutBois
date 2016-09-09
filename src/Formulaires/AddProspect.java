@@ -640,7 +640,7 @@ TableProspects.setModel(model1);
     }//GEN-LAST:event_bModifierMouseClicked
 
     private void bSupprimerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bSupprimerMouseClicked
-            // Je recupere la ligne à modifier
+            // Je recupere la ligne à supprimer
        //int ligneactuelle = TableClients.getSelectedRow() + 1 ;
         String clActif = "Non" ;
         String clid = lbid.getText() ;

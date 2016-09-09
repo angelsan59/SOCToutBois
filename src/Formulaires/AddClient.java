@@ -665,9 +665,9 @@ TableClients.setModel(model1);
     }//GEN-LAST:event_bModifierMouseClicked
 
     private void bSupprimerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bSupprimerMouseClicked
-         // Je recupere la ligne à modifier
-        //int ligneactuelle = TableClients.getSelectedRow() + 1 ;
-        String clActif = "Non" ;
+          // Je recupere la ligne à rendre inactive
+        //int ligneactuelle = TableRepresentants.getSelectedRow() + 1 ;
+         String clActif = "Non" ;
         String clid = lbid.getText() ;
         int clid1 = Integer.parseInt(clid);
         String clnomenseigne = chpNomenseigne.getText() ;
