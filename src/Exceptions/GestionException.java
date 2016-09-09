@@ -1,19 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Exceptions;
 
 /**
- *
- * @author scoulon
+ * Gestion des exceptions dans les fichiers de l'application
+ * @author Sandrine Ociepka
+ * @author Stephane Coulon
+ * @version 1.0
  */
-/*
-* === 13 ===
-*/
 public class GestionException extends Exception {
-    
+/**
+ * Message d'erreur en cas d'exception
+ * @param message texte du message
+ */    
 public GestionException( String message ) {
     super(message); 
 }    

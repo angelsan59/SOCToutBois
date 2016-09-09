@@ -1,27 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Formulaires;
 
-import Entites.Representant;
 import static GestionFichier.EcritureDansFichier.* ;
 import java.awt.Frame;
-import java.awt.Image;
 import java.awt.Toolkit;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 import Tables.*;
-import javax.swing.table.TableColumn;
-import GestionFichier.LectureFichierCSV ;
-import javafx.scene.chart.PieChart.Data;
 import javax.swing.JOptionPane;
-import javax.swing.table.TableColumnModel;
-// import javax.swing.table.TableModel;
+
 /**
  * Ouvre la fenêtre de gestion des représentants. Ajout, Modification, Suppression et consultation de la liste des représentants existants.
  * @author Sandrine Ociepka
@@ -31,6 +19,7 @@ import javax.swing.table.TableColumnModel;
 public class AddRep extends javax.swing.JDialog {
 
    /**
+    * Création de la fenêtre de gestion des représentants, chargement des données dans le tableau
      *@param parent : fenetrePrincipaleFrame
      * @param modal true ou false
      * @throws java.io.IOException erreur si le fichier parent n'existe pas
@@ -449,7 +438,8 @@ TableRepresentants.setModel(model1);
     }//GEN-LAST:event_bAjouterMouseClicked
 
     /**
-     * @param args the command line arguments
+     * Mise en page de la fenêtre de gestion de représentants
+     * @param args arguments utilisés pour créer la fenêtre
      */
     public static void FenetreRepresentant (String args[]) {
         /* Set the Nimbus look and feel */

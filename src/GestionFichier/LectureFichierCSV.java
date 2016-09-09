@@ -1,20 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package GestionFichier;
 
-import Application.Principale;
 import java.io.* ;
 // http://b.kostrzewa.free.fr/java/td-struct/glossaire.html
 import java.util.Vector ;
 
 
 /**
- *
- * @author Firefox59
- * Methode de lecture d'un fichier.
+ * Classe gérant l'ouverture et la lecture des fichiers txt
+ * @author Sandrine Ociepka
+ * @author Stephane Coulon
+ * @version 1.0
  */
 public class LectureFichierCSV {
     private int nbdelignes ; // nombres de lignes dans le fichier CSV car évolutif.
@@ -24,20 +20,34 @@ public class LectureFichierCSV {
     private final static char separateurdecolonnes = ';' ; // Séparateur par défaut ";".
     
 // Les getters et les setters    
-
+/**
+ * retourne le nombre de lignes du fichier
+ * @return nombre de lignes du fichier
+ */
     public int getNbdelignes() {
         return nbdelignes;
     }
-
+/**
+ * méthode pour implémenter le nombre de lignes
+ * @param nbdelignes nombre de lignes
+ */
     public void setNbdelignes(int nbdelignes) {
         this.nbdelignes = nbdelignes ;
         majdelatailleduvector() ;
     }
-
+/**
+ * retourne le nombre de colonnes du tableau de données
+ * @return nombre de colonnes
+ */
     public int getNbdecolonnes() {
         return nbdecolonnes;
     }
-
+/**
+ * méthode pour récupérer une donnée d'après sa position dans le tableau généré par Vector à partir du fichier txt
+ * @param ligne numéro de la ligne où se trouve la donnée à récupérer
+ * @param colonne numéro de la colonne où se trouve la donnée à récupérer
+ * @return retourne la donnée demandée
+ */
     public String getUnedonnee(int ligne,int colonne) {
         if (ligne<0 || colonne<0 || ligne>(getNbdelignes() - 1) || colonne>(getNbdecolonnes() - 1)) {
             return null ;
@@ -46,25 +56,41 @@ public class LectureFichierCSV {
         String resultat = (String)laligne.get(colonne) ;
         return resultat ; 
         }
-
+/**
+ * méthode pour donner une valeur à la donnée
+ * @param unedonnee donnée
+ */
     public void setUnedonnee(String unedonnee) {
         this.unedonnee = unedonnee;
     }
-
+/**
+ * méthode pour modifier le nombre de colonnes et donc mettre à jour la taille du vector
+ * @param nbdecolonnes nombre de colonnes
+ */
     public void setNbdecolonnes(int nbdecolonnes) {
         this.nbdecolonnes = nbdecolonnes ;
         majdelatailleduvector() ;
     }
-
+/**
+ * méthode pour récupérer le contenu du fichier et le mettre dans un vector
+ * @return le contenu du fichier
+ */
     public Vector getContenudufichier() {
         return contenudufichier;
     }
-
+/**
+ * méthode donnant la valeur contenudufichier au vector contenudufichier à partir du fichier txt
+ * @param contenudufichier données venant du fichier txt
+ */
     public void setContenudufichier(Vector contenudufichier) {
         this.contenudufichier = contenudufichier;
     }
     
-
+/**
+ * Constructeur pour transférer les données d'un fichier txt dans un vector pour remplir le jTable dans les fenêtres de gestion des clients, représentants et prospects
+ * @param chemincomplet chemin et nom du fichier à lire
+ * @throws FileNotFoundException message d'erreur quand le fichier txt n'est pas trouvé
+ */
     public LectureFichierCSV (String chemincomplet) throws FileNotFoundException {
         // Création d'un nouveau contenu de fichier CSV (Vector).
         contenudufichier = new Vector () ;
@@ -83,9 +109,12 @@ public class LectureFichierCSV {
     **/    
     }
 
-    // Fonction privée de lecture du contenu du fichier (reader = fichierlu)
-    // Attends le contenu du fichier "reader" en entrée.
-    // Pas de retour.
+    /**
+     * Fonction privée de lecture du contenu du fichier (reader = fichierlu)
+     * Attend le contenu du fichier "reader" en entrée.
+     * Pas de retour.
+     * @param reader chemin et nom du fichier lu
+     */
     private void LectureDuContenu(Reader reader) {
         BufferedReader buffReader = new BufferedReader(reader);
         // si le fichier n'est pas vide faire...
@@ -117,9 +146,12 @@ public class LectureFichierCSV {
     // Fermeture de la fonction privée de lecture du contenu du fichier (reader = fichierlu)
     }
 
-    // Fonction privée de lecture du contenu d'une ligne.
-    // Attends le contenu du fichier "reader" en entrée.
-    // Pas de retour.
+    /**
+     * Fonction privée de lecture du contenu d'une ligne.
+     * Attends le contenu du fichier "reader" en entrée.
+     * Pas de retour.
+     * @param lignelu contenu d'une ligne
+     */
     private void LectureDuContenuDeLaLigne (String lignelu) {
         // Si la ligne lue est vide, fermeture de la fonction.
         if (lignelu == null) {
@@ -164,9 +196,10 @@ public class LectureFichierCSV {
         }
    }
     
-    // Fonction privée de redimensionnement du Vector.
-    // Pas d'entrées.
-    // Pas de retour.
+    /**
+     * Fonction privée de redimensionnement du Vector.
+     * Pas d'entrées. Pas de retour.
+     */
     private void majdelatailleduvector() {
       contenudufichier.setSize(getNbdelignes());
       int nbdelignes = getNbdelignes();

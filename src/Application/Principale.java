@@ -25,6 +25,7 @@ import javax.imageio.ImageIO;
  */
 public class Principale {
     /**
+     * Ouverture de la fenêtre principale de l'application
      * @param args the command line arguments
      * @throws java.io.IOException  erreur si le fichier parent n'existe pas
      */

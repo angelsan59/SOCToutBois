@@ -1,20 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Formulaires;
 
 import static GestionFichier.EcritureDansFichier.EcritureFichier;
 import static GestionFichier.EcritureDansFichier.ModificationLigne;
 import Tables.DataFileTableModel;
-import java.awt.Image;
 import java.awt.Toolkit;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 
 /**
@@ -26,6 +19,7 @@ import javax.swing.JOptionPane;
 public class AddProspect extends javax.swing.JDialog {
 
    /**
+    * Création de la fenêtre de gestion des prospectss, chargement des données dans le tableau
      *@param parent : fenetrePrincipaleFrame
      * @param modal true ou false
      * @throws java.io.IOException erreur si le fichier parent n'existe pas
@@ -698,7 +692,8 @@ TableProspects.setModel(model1);
     }//GEN-LAST:event_bSupprimerMouseClicked
 
     /**
-     * @param args the command line arguments
+     * Mise en page de la fenêtre de gestion de prospects
+     * @param args arguments utilisés pour créer la fenêtre
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

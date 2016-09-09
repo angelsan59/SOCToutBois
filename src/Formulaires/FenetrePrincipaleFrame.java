@@ -1,17 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package Formulaires;
 
-import java.awt.Image;
+package Formulaires;
 import java.awt.Toolkit;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 /**
@@ -23,7 +15,6 @@ import javax.swing.ImageIcon;
 public class FenetrePrincipaleFrame extends javax.swing.JFrame {
 
     /**
-     * Creates new form FenetrePrincipaleFrame
      * Constructeur avec des arguments ajoutés pour créer la fenêtre à partir de la classe "Principale"
      * @param parent : déclaration de la fenêtre parent à ouvrir
      * @param modal true ou false

@@ -1,14 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package GestionFichier;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -17,11 +10,18 @@ import java.io.FileReader;
 import java.io.FileWriter;
 
 /**
- *
- * @author scoulon
+ * Classe gérant l'écriture des données clients, représentants et prospects dans des fichiers txt à partir des données collectées dans les formulaires de l'application
+ * @author Sandrine Ociepka
+ * @author Stephane Coulon
+ * @version 1.0
  */
 public class EcritureDansFichier {
-   
+   /**
+    * méthode d'écriture dans les fichiers txt après collection des données dans les formulaires de l'application
+    * @param nomfichier récupération du chemin et nom du fichier
+    * @param chaine données formatées (séparées par ;) pour former la ligne de texte à ajouter
+    * @throws IOException message d'erreur si le programme ne trouve pas le fichier txt
+    */
     public static void EcritureFichier (String nomfichier, String chaine) throws IOException {
         // Création du fichier texte pour le programme
 	//String nomfichier = "Data/Representants.txt" ;	
@@ -46,7 +46,13 @@ public class EcritureDansFichier {
 			e.printStackTrace();
                         }
     }
-    
+    /**
+     * méthode de modification de fichier txt à partir de données récoltées dans les formulaires de l'application
+     * @param nomfichier chemin et nom du fichier à modifier
+     * @param chaine ligne de texte formatée avec les ; qui remplacera lees données à modifier
+     * @param ligneachanger les données à modifier qui seront remplacées par "chaine"
+     * @throws IOException message d'erreur si le programme ne trouve pas le fichier txt
+     */
     public static void ModificationLigne (String nomfichier, String chaine, int ligneachanger) throws IOException {
         System.out.println(nomfichier + "---" + chaine + "---" + ligneachanger);
         int ligneactive = 0 ;
