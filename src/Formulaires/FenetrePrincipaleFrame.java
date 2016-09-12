@@ -101,6 +101,7 @@ public FenetrePrincipaleFrame()  {
         imagefond = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mFichier = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         mRepresentants = new javax.swing.JMenu();
         mClients = new javax.swing.JMenu();
@@ -171,6 +172,10 @@ public FenetrePrincipaleFrame()  {
         imagefond.setBounds(0, -100, 620, 510);
 
         mFichier.setText("Fichier");
+
+        jMenuItem3.setText("Importer");
+        jMenuItem3.setToolTipText("");
+        mFichier.add(jMenuItem3);
 
         jMenuItem1.setText("Exporter");
         mFichier.add(jMenuItem1);
@@ -371,6 +376,7 @@ public FenetrePrincipaleFrame()  {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuItem javadoc;
     private javax.swing.JLabel lbBienvenue;
