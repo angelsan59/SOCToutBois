@@ -1,6 +1,7 @@
 
 package Formulaires;
-import GestionFichier.LectureFichierCSV;
+import GestionFichier.LectureDesActifsDuFichier;
+import GestionFichier.LectureDuFichierComplet;
 import java.awt.Desktop;
 import java.awt.Toolkit;
 import java.io.File;
@@ -39,27 +40,6 @@ public class FenetrePrincipaleFrame extends javax.swing.JFrame {
        initComponents();
        initialise () ;
 
-       int nbderepresentants = 0 ;
-       int nbdeclients = 0 ;
-       int nbdeprospects = 0 ;
-       
-       /**
-        * Charge le nombre de représentants , clients et prospects. Et les affiches sur la fenêtre principale.
-        */
-       LectureFichierCSV fichierrepresentant = new LectureFichierCSV ("Data/Representants.txt") ;
-       nbderepresentants = fichierrepresentant.getNbdelignes() - 1 ;
-       LectureFichierCSV fichierclients = new LectureFichierCSV ("Data/Clients.txt") ;
-       nbdeclients = fichierclients.getNbdelignes() - 1 ;
-       LectureFichierCSV fichierprospects = new LectureFichierCSV ("Data/prospects.txt") ;
-       nbdeprospects = fichierprospects.getNbdelignes() - 1 ;
-       
-        jLabel3.setText (nbderepresentants + " Representants");
-        jLabel3.setVisible(true);
-        jLabel5.setText (nbdeclients + " Clients");
-        jLabel5.setVisible(true);
-        jLabel6.setText (nbdeprospects + " Prospects");
-        jLabel6.setVisible(true);
-       
         /**
         * Commande pour centrer la fenêtre dans l'écran
         */
@@ -302,19 +282,28 @@ public FenetrePrincipaleFrame()  {
      
     }//GEN-LAST:event_javadocMouseClicked
 
+    /**
+    * Rafraichissement des nombres de représentants, clients et prospects (Actifs). 
+    * Charge le nombre de représentants , clients et prospects. Et les affiches sur la fenêtre principale.
+    */
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        
         try {
             int nbderepresentants = 0 ;
+            int nbderepresentantstotal = 0 ;
             int nbdeclients = 0 ;
             int nbdeprospects = 0 ;
+       
+       LectureDesActifsDuFichier fichierrepresentant = new LectureDesActifsDuFichier ("Data/Representants.txt") ;
+       nbderepresentants = fichierrepresentant.getRowCount() ;
+       //LectureDuFichierComplet fichierrepresentanttotal = new LectureDuFichierComplet ("Data/Representants.txt") ;
+       //nbderepresentantstotal = fichierrepresentanttotal.getNbdelignes() - 1 ;
+       LectureDuFichierComplet fichierclients = new LectureDuFichierComplet ("Data/Clients.txt") ;
+       nbdeclients = fichierclients.getNbdelignes() - 1 ;
+       LectureDuFichierComplet fichierprospects = new LectureDuFichierComplet ("Data/prospects.txt") ;
+       nbdeprospects = fichierprospects.getNbdelignes() - 1 ;
             
-            LectureFichierCSV fichierrepresentant = new LectureFichierCSV ("Data/Representants.txt") ;
-            nbderepresentants = fichierrepresentant.getNbdelignes() - 1 ;
-            LectureFichierCSV fichierclients = new LectureFichierCSV ("Data/Clients.txt") ;
-            nbdeclients = fichierclients.getNbdelignes() - 1 ;
-            LectureFichierCSV fichierprospects = new LectureFichierCSV ("Data/prospects.txt") ;
-            nbdeprospects = fichierprospects.getNbdelignes() - 1 ;
-            
+        //jLabel3.setText (nbderepresentants + "/" + nbderepresentantstotal + " Representants");
             jLabel3.setText (nbderepresentants + " Representants");
             jLabel3.setVisible(true);
             jLabel5.setText (nbdeclients + " Clients");

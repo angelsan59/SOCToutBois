@@ -12,7 +12,7 @@ import java.util.Vector ;
  * @author Stephane Coulon
  * @version 1.0
  */
-public class LectureFichierCSV {
+public class LectureDuFichierComplet {
     private int nbdelignes ; // nombres de lignes dans le fichier CSV car évolutif.
     private int nbdecolonnes ; // nombres de colonnes dans le fichier CSV car évolutif.
     private Vector contenudufichier ; // Vector est le resultat de la lecture du fichier.
@@ -91,7 +91,7 @@ public class LectureFichierCSV {
  * @param chemincomplet chemin et nom du fichier à lire
  * @throws FileNotFoundException message d'erreur quand le fichier txt n'est pas trouvé
  */
-    public LectureFichierCSV (String chemincomplet) throws FileNotFoundException {
+    public LectureDuFichierComplet (String chemincomplet) throws FileNotFoundException {
         // Création d'un nouveau contenu de fichier CSV (Vector).
         contenudufichier = new Vector () ;
         // Charge le contenu dans fichierlu.
@@ -99,9 +99,9 @@ public class LectureFichierCSV {
         // Lance la fonction de lecture du contenu du fichier.
         LectureDuContenu (fichierlu) ;
         // Test d'affichage en console
-        System.out.println("Depuis LectureFichierCSV :") ;
-        System.out.println(contenudufichier) ;
-        System.out.println("--------------------------------------") ;
+        // System.out.println("Depuis LectureDuFichierComplet :") ;
+        // System.out.println(contenudufichier) ;
+        // System.out.println("--------------------------------------") ;
     /**
     * 
     * A FINALISER    
