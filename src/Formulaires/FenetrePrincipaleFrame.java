@@ -114,6 +114,11 @@ public FenetrePrincipaleFrame()  {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Logiciel de gestion ToutBois");
         setBackground(new java.awt.Color(187, 235, 219));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(null);
@@ -296,6 +301,30 @@ public FenetrePrincipaleFrame()  {
        
      
     }//GEN-LAST:event_javadocMouseClicked
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        try {
+            int nbderepresentants = 0 ;
+            int nbdeclients = 0 ;
+            int nbdeprospects = 0 ;
+            
+            LectureFichierCSV fichierrepresentant = new LectureFichierCSV ("Data/Representants.txt") ;
+            nbderepresentants = fichierrepresentant.getNbdelignes() - 1 ;
+            LectureFichierCSV fichierclients = new LectureFichierCSV ("Data/Clients.txt") ;
+            nbdeclients = fichierclients.getNbdelignes() - 1 ;
+            LectureFichierCSV fichierprospects = new LectureFichierCSV ("Data/prospects.txt") ;
+            nbdeprospects = fichierprospects.getNbdelignes() - 1 ;
+            
+            jLabel3.setText (nbderepresentants + " Representants");
+            jLabel3.setVisible(true);
+            jLabel5.setText (nbdeclients + " Clients");
+            jLabel5.setVisible(true);
+            jLabel6.setText (nbdeprospects + " Prospects");
+            jLabel6.setVisible(true);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(FenetrePrincipaleFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
