@@ -15,8 +15,17 @@ import java.util.*;
  * @version 1.0
  */
  public class DataFileTableModel extends AbstractTableModel {
-         protected Vector data;            //données
+        /**
+        * Données du fichier mis dans un vector
+        */
+         protected Vector data;            
+        /**
+        * Titre des colonnes du fichier mis dans un vector
+        */
          protected Vector columnNames ;    //noms de colonnes
+        /**
+        * Nom du fichier  Txt à ouvrir et son chemin.
+        */
          protected String datafile;        //nom du fichier de données
 
 /**

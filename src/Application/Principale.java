@@ -31,7 +31,6 @@ public class Principale {
      */
     public static void main(String[] args) throws IOException {
         
-        //FenetrePrincipale fp = new FenetrePrincipale(new javax.swing.JFrame(), true);
         /**
          * Chargement de la fenetre principale
          */
