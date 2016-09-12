@@ -31,14 +31,16 @@ public class Principale {
      */
     public static void main(String[] args) throws IOException {
         
+                      
         /**
          * Chargement de la fenetre principale
          */
+        
         FenetrePrincipaleFrame fp = new FenetrePrincipaleFrame (new javax.swing.JFrame(), true);
         fp.setVisible(true);
-                                            // EcritureFichier ("toto") ;                 
-        // LectureFichierCSV fichierrepresentant = new LectureFichierCSV ("E:\\Afpa\\Mes exercices\\A_Projet_ToutBois\\data\\test.txt") ;
-        //LectureFichierCSV fichierrepresentant = new LectureFichierCSV ("Data/Representants.txt") ;
+                                          // EcritureFichier ("toto") ;                 
+                                            // LectureFichierCSV fichierrepresentant = new LectureFichierCSV ("E:\\Afpa\\Mes exercices\\A_Projet_ToutBois\\data\\test.txt") ;
+
         // Lit tout le fichier       
         //System.out.println("Depuis principale :") ;
         //System.out.println(fichierrepresentant) ;
@@ -58,5 +60,5 @@ public class Principale {
         //System.out.println(fichierrepresentant.getUnedonnee(lignealire,i));    
         //}
         //System.out.println("--------------------------------------") ;
-    }
+     }
 }
