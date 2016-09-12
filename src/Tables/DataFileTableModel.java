@@ -18,7 +18,7 @@ import java.util.*;
          protected Vector data;            //données
          protected Vector columnNames ;    //noms de colonnes
          protected String datafile;        //nom du fichier de données
-
+        
 /**
  * Constructeur qui transfère les données d'un fichier txt dans des vectors
  * @param f données du fichier ouvert
@@ -37,6 +37,7 @@ import java.util.*;
         boolean voirtout = false ;
         data=new Vector();
         columnNames=new Vector();
+        
         try {
             FileInputStream fin=new FileInputStream(datafile);
             BufferedReader br=new BufferedReader(new InputStreamReader(fin, "UTF-8"));
@@ -127,6 +128,7 @@ import java.util.*;
           return (String)data.elementAt(
                    (rowIndex*getColumnCount())+columnIndex);
          }
+
    /**
     * méthode de modification de la cellule donnée, dans le cas où "isCellEditable" est mise sur true
     * @param aValue valeur de la cellule

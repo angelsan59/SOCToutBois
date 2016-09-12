@@ -2,12 +2,14 @@
 package Formulaires;
 
 import static GestionFichier.EcritureDansFichier.* ;
+import GestionFichier.LectureFichierCSV;
 import java.awt.Frame;
 import java.awt.Toolkit;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import Tables.*;
+import java.io.FileNotFoundException;
 import javax.swing.JOptionPane;
 
 /**
@@ -416,16 +418,24 @@ TableRepresentants.setModel(model1);
 
     private void bAjouterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bAjouterMouseClicked
        // Je recupere le nombre de ligne (soit le nombre de représentants.
-        int nbdeligne = TableRepresentants.getRowCount() ;
+       int nbdeligne = 0 ;
+       
+        try {
+            LectureFichierCSV fichierrepresentant = new LectureFichierCSV ("Data/Representants.txt");
+            nbdeligne = fichierrepresentant.getNbdelignes() ;
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(AddRep.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+ 
         //Je récupére les caractéristique du nouveau representant.
-        
         String repnom = chpNom.getText() ;
         String repprenom = chpPrenom.getText() ;
         String repSalaire = chpSalaire.getText () ; 
         String repTxtCommission = chpTxCommission.getText() ;
         String repActif = "Oui" ;
-        String chaine = (repActif + ";" + (nbdeligne+1) + ";" + repnom + ";" + repprenom + ";" + repSalaire + ";" + repTxtCommission  +  "\n");
-        System.out.println(chaine);
+        String chaine = (repActif + ";" + nbdeligne + ";" + repnom + ";" + repprenom + ";" + repSalaire + ";" + repTxtCommission  +  "\n");
+        // System.out.println(chaine);
         try {
             EcritureFichier ("Data/Representants.txt", chaine) ;
             
@@ -434,10 +444,10 @@ TableRepresentants.setModel(model1);
             
             // Actualisation de la table
             DataFileTableModel model1;
-String nomFichier1="Data/Representants.txt";
-model1 = new DataFileTableModel(nomFichier1);
-model1.fireTableDataChanged();
-TableRepresentants.setModel(model1);
+            String nomFichier1="Data/Representants.txt";
+            model1 = new DataFileTableModel(nomFichier1);
+            model1.fireTableDataChanged();
+            TableRepresentants.setModel(model1);
 
             // Effacer les données du formulaire
             chpNom.setText ("") ;

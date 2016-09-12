@@ -1,8 +1,10 @@
 
 package Formulaires;
+import GestionFichier.LectureFichierCSV;
 import java.awt.Desktop;
 import java.awt.Toolkit;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -36,8 +38,29 @@ public class FenetrePrincipaleFrame extends javax.swing.JFrame {
             
        initComponents();
        initialise () ;
+
+       int nbderepresentants = 0 ;
+       int nbdeclients = 0 ;
+       int nbdeprospects = 0 ;
        
        /**
+        * Charge le nombre de représentants , clients et prospects. Et les affiches sur la fenêtre principale.
+        */
+       LectureFichierCSV fichierrepresentant = new LectureFichierCSV ("Data/Representants.txt") ;
+       nbderepresentants = fichierrepresentant.getNbdelignes() - 1 ;
+       LectureFichierCSV fichierclients = new LectureFichierCSV ("Data/Clients.txt") ;
+       nbdeclients = fichierclients.getNbdelignes() - 1 ;
+       LectureFichierCSV fichierprospects = new LectureFichierCSV ("Data/prospects.txt") ;
+       nbdeprospects = fichierprospects.getNbdelignes() - 1 ;
+       
+        jLabel3.setText (nbderepresentants + " Representants");
+        jLabel3.setVisible(true);
+        jLabel5.setText (nbdeclients + " Clients");
+        jLabel5.setVisible(true);
+        jLabel6.setText (nbdeprospects + " Prospects");
+        jLabel6.setVisible(true);
+       
+        /**
         * Commande pour centrer la fenêtre dans l'écran
         */
        setLocationRelativeTo(null);
@@ -49,12 +72,13 @@ public class FenetrePrincipaleFrame extends javax.swing.JFrame {
     /**
      * Constructeur d'origine sans arguments
      */
-public FenetrePrincipaleFrame() {
+public FenetrePrincipaleFrame()  {
     
 
        
        initComponents();
-    }
+ 
+               }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -117,7 +141,7 @@ public FenetrePrincipaleFrame() {
         lbToutBoiscest.setBounds(30, 120, 210, 50);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setText("x représentants");
+        jLabel3.setText("x Reprentants");
         jPanel1.add(jLabel3);
         jLabel3.setBounds(50, 200, 160, 22);
 
