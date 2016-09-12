@@ -2,7 +2,7 @@
 package Formulaires;
 
 import static GestionFichier.EcritureDansFichier.* ;
-import GestionFichier.LectureFichierCSV;
+import GestionFichier.LectureDuFichierComplet;
 import java.awt.Frame;
 import java.awt.Toolkit;
 import java.io.IOException;
@@ -421,7 +421,7 @@ TableRepresentants.setModel(model1);
        int nbdeligne = 0 ;
        
         try {
-            LectureFichierCSV fichierrepresentant = new LectureFichierCSV ("Data/Representants.txt");
+            LectureDuFichierComplet fichierrepresentant = new LectureDuFichierComplet ("Data/Representants.txt");
             nbdeligne = fichierrepresentant.getNbdelignes() ;
         } catch (FileNotFoundException ex) {
             Logger.getLogger(AddRep.class.getName()).log(Level.SEVERE, null, ex);
