@@ -1,6 +1,7 @@
 
-package Formulaires;
+package FormulairesSQL;
 
+import FormulairesTXT.*;
 import static GestionFichier.EcritureDansFichier.* ;
 import GestionFichier.LectureDuFichierComplet;
 import java.awt.Frame;
@@ -487,6 +488,7 @@ TableRepresentants.setModel(model1);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(AddRep.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */

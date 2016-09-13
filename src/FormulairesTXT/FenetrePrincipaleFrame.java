@@ -1,5 +1,5 @@
 
-package Formulaires;
+package FormulairesTXT;
 import GestionFichier.LectureDesActifsDuFichier;
 import GestionFichier.LectureDuFichierComplet;
 import java.awt.Desktop;
@@ -277,9 +277,6 @@ public FenetrePrincipaleFrame()  {
             Logger.getLogger(FenetrePrincipaleFrame.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("erreur fichier");
         }
-            
-       
-     
     }//GEN-LAST:event_javadocMouseClicked
 
     /**

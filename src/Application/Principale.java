@@ -6,7 +6,7 @@
 package Application;
 
 
-import Formulaires.FenetrePrincipaleFrame;
+import FormulairesTXT.FenetrePrincipaleFrame;
 import GestionFichier.* ;
 import static GestionFichier.EcritureDansFichier.EcritureFichier;
 import javax.swing.ImageIcon;
@@ -38,27 +38,6 @@ public class Principale {
         
         FenetrePrincipaleFrame fp = new FenetrePrincipaleFrame (new javax.swing.JFrame(), true);
         fp.setVisible(true);
-                                          // EcritureFichier ("toto") ;                 
-                                            // LectureFichierCSV fichierrepresentant = new LectureFichierCSV ("E:\\Afpa\\Mes exercices\\A_Projet_ToutBois\\data\\test.txt") ;
-
-        // Lit tout le fichier       
-        //System.out.println("Depuis principale :") ;
-        //System.out.println(fichierrepresentant) ;
-        //System.out.println("--------------------------------------") ;
-        //System.out.println("lecture d'une donnée") ;
-        //int colonne = 2 ;
-        //int ligne = 2 ;        
-        //System.out.println(fichierrepresentant.getUnedonnee(ligne,colonne));
-        //System.out.println("--------------------------------------") ;
-        //System.out.println("lecture du Vector") ;
-        //System.out.println(fichierrepresentant.getContenudufichier() );
-        //System.out.println("--------------------------------------") ;
-        //System.out.println("lecture d'une ligne") ;
-        //int lignealire = 2 ;
-        //int nbcolonne = fichierrepresentant.getNbdecolonnes() - 1 ;
-        //for (int i=0; i<nbcolonne; i++) {
-        //System.out.println(fichierrepresentant.getUnedonnee(lignealire,i));    
-        //}
-        //System.out.println("--------------------------------------") ;
+                                          
      }
 }

@@ -1,5 +1,5 @@
 
-package Formulaires;
+package FormulairesTXT;
 
 import static GestionFichier.EcritureDansFichier.EcritureFichier;
 import static GestionFichier.EcritureDansFichier.ModificationLigne;
@@ -11,20 +11,20 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
- * Ouvre la fenêtre de gestion des clients. Ajout, Modification, Suppression et consultation de la liste des clients existants.
+ * Ouvre la fenêtre de gestion des prospects. Ajout, Modification, Suppression et consultation de la liste des prospects existants.
  * @author Sandrine Ociepka
  * @author Stephane Coulon
  * @version 1.0
  */
-public class AddClient extends javax.swing.JDialog {
+public class AddProspect extends javax.swing.JDialog {
 
-    /**
-     * Création de la fenêtre de gestion des clients, chargement des données dans le tableau
+   /**
+    * Création de la fenêtre de gestion des prospectss, chargement des données dans le tableau
      *@param parent : fenetrePrincipaleFrame
      * @param modal true ou false
      * @throws java.io.IOException erreur si le fichier parent n'existe pas
      */
-    public AddClient(java.awt.Frame parent, boolean modal) throws IOException {
+    public AddProspect(java.awt.Frame parent, boolean modal) throws IOException {
         super(parent, modal);
         
          /**
@@ -90,14 +90,12 @@ public class AddClient extends javax.swing.JDialog {
         lbEmail = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         DataFileTableModel model;
-        String nomFichier="Data/Clients.txt";
-        TableClients = new javax.swing.JTable();
-        lbCommandes = new javax.swing.JLabel();
+        String nomFichier="Data/Prospects.txt";
+        TableProspects = new javax.swing.JTable();
         bSupprimer = new javax.swing.JButton();
         bModifier = new javax.swing.JButton();
         bAjouter = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        lbCommandes1 = new javax.swing.JLabel();
         lbidentifiant = new javax.swing.JLabel();
         lbid = new javax.swing.JLabel();
         imagefond = new javax.swing.JLabel();
@@ -106,15 +104,15 @@ public class AddClient extends javax.swing.JDialog {
         mAide = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("ToutBois - Gestion Clients");
+        setTitle("ToutBois - Gestion Prospects");
 
         jPanel1.setBackground(new java.awt.Color(187, 235, 219));
         jPanel1.setLayout(null);
 
         Titre.setFont(new java.awt.Font("Stencil", 1, 24)); // NOI18N
-        Titre.setText("Gestion des clients");
+        Titre.setText("Gestion des prospects");
         jPanel1.add(Titre);
-        Titre.setBounds(20, 10, 270, 30);
+        Titre.setBounds(20, 10, 320, 30);
 
         titreContact.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         titreContact.setText("Contact de l'enseigne");
@@ -125,13 +123,13 @@ public class AddClient extends javax.swing.JDialog {
         lbNomenseigne.setText("Nom de l'enseigne *");
         lbNomenseigne.setFocusable(false);
         jPanel1.add(lbNomenseigne);
-        lbNomenseigne.setBounds(320, 20, 122, 20);
+        lbNomenseigne.setBounds(340, 20, 122, 20);
 
         chpNomenseigne.setColumns(10);
         chpNomenseigne.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         chpNomenseigne.setNextFocusableComponent(chpSiret);
         jPanel1.add(chpNomenseigne);
-        chpNomenseigne.setBounds(460, 20, 160, 23);
+        chpNomenseigne.setBounds(480, 20, 170, 23);
 
         bEffacer.setText("Effacer");
         bEffacer.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -295,11 +293,6 @@ public class AddClient extends javax.swing.JDialog {
 
         chpEmail.setColumns(10);
         chpEmail.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        chpEmail.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                chpEmailFocusLost(evt);
-            }
-        });
 
         lbEmail.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbEmail.setText("Email *");
@@ -357,32 +350,27 @@ public class AddClient extends javax.swing.JDialog {
         fondcouleur2.setBounds(50, 200, 600, 70);
 
         model = new DataFileTableModel(nomFichier);
-        TableClients.setModel(model);
-        TableClients.createDefaultColumnsFromModel();
+        TableProspects.setModel(model);
+        TableProspects.createDefaultColumnsFromModel();
 
         // Retirer les colonnes qu'on ne veut pas afficher dans le tableau
         // Le numéro des colonnes se décale à chaque retrait, d'où les nombreux retraits de la colonne 7
-        TableClients.removeColumn(TableClients.getColumnModel().getColumn(3));
-        TableClients.removeColumn(TableClients.getColumnModel().getColumn(5));
-        TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
-        TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
-        TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
-        TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
-        TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
-        TableClients.addMouseListener(new java.awt.event.MouseAdapter() {
+        TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(3));
+        TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(5));
+        TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
+        TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
+        TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
+        TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
+        TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
+        TableProspects.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TableClientsMouseClicked(evt);
+                TableProspectsMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(TableClients);
+        jScrollPane2.setViewportView(TableProspects);
 
         jPanel1.add(jScrollPane2);
         jScrollPane2.setBounds(10, 280, 770, 120);
-
-        lbCommandes.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbCommandes.setText("Nombre de commandes");
-        jPanel1.add(lbCommandes);
-        lbCommandes.setBounds(640, 0, 150, 20);
 
         bSupprimer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/iconemoins.jpg"))); // NOI18N
         bSupprimer.setText("Supprimer");
@@ -421,14 +409,12 @@ public class AddClient extends javax.swing.JDialog {
         jLabel1.setText("* champs obligatoires");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(250, 170, 250, 20);
-        jPanel1.add(lbCommandes1);
-        lbCommandes1.setBounds(720, 20, 50, 20);
 
         lbidentifiant.setText("Identifiant");
         jPanel1.add(lbidentifiant);
-        lbidentifiant.setBounds(700, 60, 60, 14);
+        lbidentifiant.setBounds(710, 10, 60, 14);
         jPanel1.add(lbid);
-        lbid.setBounds(710, 80, 40, 20);
+        lbid.setBounds(720, 30, 40, 20);
 
         imagefond.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         imagefond.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/meubles4.jpg"))); // NOI18N
@@ -491,51 +477,49 @@ public class AddClient extends javax.swing.JDialog {
         chpEmail.setText ("") ;
         chpTelfixe.setText ("") ;
         chpTelportable.setText ("") ;
-       lbCommandes1.setText ("") ;
        lbid.setText ("") ;
   
-        TableClients.getSelectionModel().clearSelection();
+        TableProspects.getSelectionModel().clearSelection();
 
     }//GEN-LAST:event_bEffacerMouseClicked
 
-    private void TableClientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableClientsMouseClicked
+    private void TableProspectsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableProspectsMouseClicked
         // Je récupére l'identifiant, colonne 1.
-        lbid.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),1));     
+        lbid.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),1));          
         // Je récupére le nom de l'enseigne, colonne 2.
-        chpNomenseigne.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),2));
+        chpNomenseigne.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),2));
         // Je récupére le numéro de Siret, colonne 3.
-        chpSiret.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),3));
+        chpSiret.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),3));
        // Je récupére la date de la dernière visite, colonne 4.
-         chpDatevisite.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),4));
+         chpDatevisite.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),4));
          // Je récupére l'adresse, colonne 5.
-        chpAdresse1.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),5));
+        chpAdresse1.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),5));
         // Je récupére le complément d'adresse, colonne 6.
-        chpAdresse2.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),6));
+        chpAdresse2.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),6));
         // Je récupére le code postal, colonne 7.
-        chpCodepostal.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),7));
+        chpCodepostal.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),7));
         // Je récupére la ville, colonne 8.
-        chpVille.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),8));
+        chpVille.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),8));
         // Je récupére le pays, colonne 9.
        // comboPays.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),9));
         // Je récupére le nom de contact, colonne 10.
-        chpNom.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),10));
+        chpNom.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),10));
         // Je récupére le prénom, colonne 11.
-        chpPrenom.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),11));
+        chpPrenom.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),11));
          // Je récupére le téléphone fixe, colonne 12.
-        chpTelfixe.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),12));
+        chpTelfixe.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),12));
         // Je récupére le téléphone portable, colonne 13.
-        chpTelportable.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),13));
+        chpTelportable.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),13));
         // Je récupére l'email, colonne 14.
-        chpEmail.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),14));
-         // Je récupére le nombre des commandes, colonne 15.
+        chpEmail.setText ((String) TableProspects.getModel().getValueAt(TableProspects.getSelectedRow(),14));
+      
        
-       // Le nombre de commandes est consultatif et non modifiable, donc on l'affiche par jLabel plutôt qu'un champ 
-       lbCommandes1.setText ((String) TableClients.getModel().getValueAt(TableClients.getSelectedRow(),15));
-    }//GEN-LAST:event_TableClientsMouseClicked
+       
+    }//GEN-LAST:event_TableProspectsMouseClicked
 
     private void bAjouterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bAjouterMouseClicked
        // Je recupere le nombre de ligne (soit le nombre de clients.
-        int nbdeligne = TableClients.getRowCount() ;
+        int nbdeligne = TableProspects.getRowCount() ;
         //Je récupére les caractéristique du nouveau client.
         
         String clnomenseigne = chpNomenseigne.getText() ;
@@ -551,34 +535,33 @@ public class AddClient extends javax.swing.JDialog {
         String cltelfixe = chpTelfixe.getText() ;
         String cltelportable = chpTelportable.getText() ;
         String clemail = chpEmail.getText() ;
-         String clcommandes = "0" ;
         
         String clActif = "Oui" ;
         String chaine = (clActif + ";" + (nbdeligne+1) + ";" + clnomenseigne + ";" + clsiret + ";" + clvisite + ";" + cladresse1  + ";" + cladresse2
                 + ";" + clcodepostal  + ";" + clville  + ";" + clpays  + ";" + clnom  + ";" + clprenom  + ";" + cltelfixe
-                + ";" + cltelportable  + ";" + clemail  +   ";" + clcommandes + "\n");
+                + ";" + cltelportable  + ";" + clemail  + "\n");
         System.out.println(chaine);
         try {
-            EcritureFichier ("Data/Clients.txt", chaine) ;
+            EcritureFichier ("Data/Propspects.txt", chaine) ;
             
             // pop up de confirmation d'ajout
-            JOptionPane.showMessageDialog(null, "Le client a bien été ajouté", "Ajout de client", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Le prospect a bien été ajouté", "Ajout de prospect", JOptionPane.INFORMATION_MESSAGE);
             
             // Actualisation de la table après ajout du nouveau client
             DataFileTableModel model1;
-            String nomFichier1="Data/Clients.txt";
+            String nomFichier1="Data/Prospects.txt";
             model1 = new DataFileTableModel(nomFichier1);
             model1.fireTableDataChanged();
-            TableClients.setModel(model1);
-            TableClients.removeColumn(TableClients.getColumnModel().getColumn(3));
-TableClients.removeColumn(TableClients.getColumnModel().getColumn(5));
-TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
-TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
-TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
-TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
-TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
+            TableProspects.setModel(model1);
+            TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(3));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(5));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
             
-             // Effacer les données du formulaire
+            // Effacer les données du formulaire
         chpNomenseigne.setText ("") ;
         chpSiret.setText ("") ;
         chpDatevisite.setText ("") ;
@@ -592,26 +575,15 @@ TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
         chpEmail.setText ("") ;
         chpTelfixe.setText ("") ;
         chpTelportable.setText ("") ;
-       lbCommandes1.setText ("") ;
        lbid.setText ("") ;
             } catch (IOException ex) {
             Logger.getLogger(AddRep.class.getName()).log(Level.SEVERE, null, ex);
-            
-           
             }
     }//GEN-LAST:event_bAjouterMouseClicked
 
-    private void chpEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_chpEmailFocusLost
-      
-        // vérification que l'email contient un @
-        
-        String email = chpEmail.getText ();
-       if(email.indexOf('@') <0) JOptionPane.showMessageDialog(this, "Votre adresse e-mail n est pas correcte");
-    }//GEN-LAST:event_chpEmailFocusLost
-
     private void bModifierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bModifierMouseClicked
-         // Je recupere la ligne à modifier
-       //int ligneactuelle = TableClients.getSelectedRow() + 1 ;
+        // Je recupere la ligne à modifier
+         //int ligneactuelle = TableClients.getSelectedRow() + 1 ;
         String clActif = "Oui" ;
         String clid = lbid.getText() ;
         int clid1 = Integer.parseInt(clid);
@@ -628,32 +600,31 @@ TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
         String cltelfixe = chpTelfixe.getText() ;
         String cltelportable = chpTelportable.getText() ;
         String clemail = chpEmail.getText() ;
-        String clcommandes = lbCommandes1.getText() ;
         
         String chaine = (clActif + ";" + clid + ";" + clnomenseigne + ";" + clsiret + ";" + clvisite + ";" + cladresse1  + ";" + cladresse2
                 + ";" + clcodepostal  + ";" + clville  + ";" + clpays  + ";" + clnom  + ";" + clprenom  + ";" + cltelfixe
-                + ";" + cltelportable  + ";" + clemail  +   ";" + clcommandes + "\n");
+                + ";" + cltelportable  + ";" + clemail  + "\n");
         
-        // Ecraser la ligne du client avec la position active.
+        // Ecraser la ligne du prospect avec la position active.
                 System.out.println(chaine);
         try {
-            ModificationLigne ("Data/Clients.txt", chaine, clid1) ;
+            ModificationLigne ("Data/Prospects.txt", chaine, clid1) ;
             // pop up de confirmation de modification
-            JOptionPane.showMessageDialog(null, "Le client a bien été modifié", "Modification de client", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Le prospect a été modifié", "Modification de prospect", JOptionPane.INFORMATION_MESSAGE);
             
             // Actualisation de la table
             DataFileTableModel model1;
-String nomFichier1="Data/Clients.txt";
+String nomFichier1="Data/Propspects.txt";
 model1 = new DataFileTableModel(nomFichier1);
 model1.fireTableDataChanged();
-TableClients.setModel(model1);
-TableClients.removeColumn(TableClients.getColumnModel().getColumn(3));
-TableClients.removeColumn(TableClients.getColumnModel().getColumn(5));
-TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
-TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
-TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
-TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
-TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
+TableProspects.setModel(model1);
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(3));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(5));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
 
 // Effacer les données du formulaire
         chpNomenseigne.setText ("") ;
@@ -669,7 +640,6 @@ TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
         chpEmail.setText ("") ;
         chpTelfixe.setText ("") ;
         chpTelportable.setText ("") ;
-       lbCommandes1.setText ("") ;
        lbid.setText ("") ;
            
             } catch (IOException ex) {
@@ -678,9 +648,9 @@ TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
     }//GEN-LAST:event_bModifierMouseClicked
 
     private void bSupprimerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bSupprimerMouseClicked
-          // Je recupere la ligne à rendre inactive
-        //int ligneactuelle = TableRepresentants.getSelectedRow() + 1 ;
-         String clActif = "Non" ;
+            // Je recupere la ligne à supprimer
+       //int ligneactuelle = TableClients.getSelectedRow() + 1 ;
+        String clActif = "Non" ;
         String clid = lbid.getText() ;
         int clid1 = Integer.parseInt(clid);
         String clnomenseigne = chpNomenseigne.getText() ;
@@ -696,32 +666,31 @@ TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
         String cltelfixe = chpTelfixe.getText() ;
         String cltelportable = chpTelportable.getText() ;
         String clemail = chpEmail.getText() ;
-        String clcommandes = lbCommandes1.getText() ;
         
         String chaine = (clActif + ";" + clid + ";" + clnomenseigne + ";" + clsiret + ";" + clvisite + ";" + cladresse1  + ";" + cladresse2
                 + ";" + clcodepostal  + ";" + clville  + ";" + clpays  + ";" + clnom  + ";" + clprenom  + ";" + cltelfixe
-                + ";" + cltelportable  + ";" + clemail  +   ";" + clcommandes + "\n");
+                + ";" + cltelportable  + ";" + clemail  + "\n");
         
-        // Ecraser la ligne du client avec la position inactive.
+        // Ecraser la ligne du prospect avec la position inactive.
                 System.out.println(chaine);
         try {
-            ModificationLigne ("Data/Clients.txt", chaine, clid1) ;
+            ModificationLigne ("Data/Prospects.txt", chaine, clid1) ;
             // pop up de confirmation de modification
-            JOptionPane.showMessageDialog(null, "Le client a bien été supprimé de la liste", "Suppression de client", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Le prospect a été spprimé de la liste", "Suppression de prospect", JOptionPane.INFORMATION_MESSAGE);
             
             // Actualisation de la table
             DataFileTableModel model1;
-String nomFichier1="Data/Clients.txt";
+String nomFichier1="Data/Propspects.txt";
 model1 = new DataFileTableModel(nomFichier1);
 model1.fireTableDataChanged();
-TableClients.setModel(model1);
-TableClients.removeColumn(TableClients.getColumnModel().getColumn(3));
-TableClients.removeColumn(TableClients.getColumnModel().getColumn(5));
-TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
-TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
-TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
-TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
-TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
+TableProspects.setModel(model1);
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(3));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(5));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
+TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
            
 // Effacer les données du formulaire
         chpNomenseigne.setText ("") ;
@@ -737,16 +706,14 @@ TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
         chpEmail.setText ("") ;
         chpTelfixe.setText ("") ;
         chpTelportable.setText ("") ;
-       lbCommandes1.setText ("") ;
        lbid.setText ("") ;
-       
             } catch (IOException ex) {
             Logger.getLogger(AddRep.class.getName()).log(Level.SEVERE, null, ex);
             }
     }//GEN-LAST:event_bSupprimerMouseClicked
 
     /**
-     * Mise en page de la fenêtre de gestion de clients
+     * Mise en page de la fenêtre de gestion de prospects
      * @param args arguments utilisés pour créer la fenêtre
      */
     public static void main(String args[]) {
@@ -763,24 +730,25 @@ TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AddClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddProspect.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AddClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddProspect.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AddClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddProspect.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AddClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddProspect.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                AddClient dialog = null;
+                AddProspect dialog = null;
                 try {
-                    dialog = new AddClient(new javax.swing.JFrame(), true);
+                    dialog = new AddProspect(new javax.swing.JFrame(), true);
                 } catch (IOException ex) {
-                    Logger.getLogger(AddClient.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(AddProspect.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
@@ -794,7 +762,7 @@ TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable TableClients;
+    private javax.swing.JTable TableProspects;
     private javax.swing.JLabel Titre;
     private javax.swing.JButton bAjouter;
     private javax.swing.JButton bEffacer;
@@ -822,8 +790,6 @@ TableClients.removeColumn(TableClients.getColumnModel().getColumn(8));
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lbAddresse1;
     private javax.swing.JLabel lbCodepostal;
-    private javax.swing.JLabel lbCommandes;
-    private javax.swing.JLabel lbCommandes1;
     private javax.swing.JLabel lbDatevisite;
     private javax.swing.JLabel lbEmail;
     private javax.swing.JLabel lbNom;

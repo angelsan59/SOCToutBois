@@ -1,6 +1,7 @@
 
-package Formulaires;
+package FormulairesSQL;
 
+import FormulairesTXT.*;
 import static GestionFichier.EcritureDansFichier.EcritureFichier;
 import static GestionFichier.EcritureDansFichier.ModificationLigne;
 import Tables.DataFileTableModel;
@@ -738,6 +739,8 @@ TableProspects.removeColumn(TableProspects.getColumnModel().getColumn(8));
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(AddProspect.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
