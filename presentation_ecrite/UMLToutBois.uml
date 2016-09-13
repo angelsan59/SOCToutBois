@@ -10,7 +10,7 @@
 <XPD:BODY>
 <XPD:OBJ name="DocumentElement" type="UMLProject" guid="NULPu2WYuEibtxeGZxE1XAAA">
 <XPD:ATTR name="Title" type="string">Untitled</XPD:ATTR>
-<XPD:ATTR name="#OwnedElements" type="integer">5</XPD:ATTR>
+<XPD:ATTR name="#OwnedElements" type="integer">6</XPD:ATTR>
 <XPD:OBJ name="OwnedElements[0]" type="UMLModel" guid="JMMnGwgZc0Oada4MU2rAygAA">
 <XPD:ATTR name="Name" type="string">Use Case Model</XPD:ATTR>
 <XPD:ATTR name="StereotypeProfile" type="string">UMLStandard</XPD:ATTR>
@@ -3832,6 +3832,43 @@
 <XPD:REF name="DiagramOwner">PhWRCgGb1EiCK0Uepk9CuAAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLDeploymentDiagramView" guid="VEDAgxY0NkukO7Of6KMA1AAA">
 <XPD:REF name="Diagram">FmivhxJ49ECTzldbf3R9ygAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[5]" type="UMLModel" guid="vu3RKPoihU+XDSA54u8HIAAA">
+<XPD:ATTR name="Name" type="string">Etat transistion</XPD:ATTR>
+<XPD:REF name="Namespace">NULPu2WYuEibtxeGZxE1XAAA</XPD:REF>
+<XPD:ATTR name="#Behaviors" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Behaviors[0]" type="UMLStateMachine" guid="Fbltga5ZdUaA1Pq9awooPwAA">
+<XPD:ATTR name="Name" type="string">StateMachine1</XPD:ATTR>
+<XPD:REF name="Context">vu3RKPoihU+XDSA54u8HIAAA</XPD:REF>
+<XPD:OBJ name="Top" type="UMLCompositeState" guid="MKDmCp2SL0eKlSpbCiFrTAAA">
+<XPD:ATTR name="Name" type="string">TOP</XPD:ATTR>
+<XPD:REF name="StateMachine">Fbltga5ZdUaA1Pq9awooPwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedDiagrams[0]" type="UMLStatechartDiagram" guid="JYS3peQBhk2K5sTKjwP0kwAA">
+<XPD:ATTR name="Name" type="string">StatechartDiagram1</XPD:ATTR>
+<XPD:REF name="DiagramOwner">Fbltga5ZdUaA1Pq9awooPwAA</XPD:REF>
+<XPD:OBJ name="DiagramView" type="UMLStatechartDiagramView" guid="VC589Yc2l0Km6CpAFV5lOwAA">
+<XPD:REF name="Diagram">JYS3peQBhk2K5sTKjwP0kwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Behaviors[1]" type="UMLActivityGraph" guid="/8G32nJ1gE2FrHlEl+o6bwAA">
+<XPD:ATTR name="Name" type="string">ActivityGraph1</XPD:ATTR>
+<XPD:REF name="Context">vu3RKPoihU+XDSA54u8HIAAA</XPD:REF>
+<XPD:OBJ name="Top" type="UMLCompositeState" guid="gRP0n7+ACEq0qaHHXAORkwAA">
+<XPD:ATTR name="Name" type="string">TOP</XPD:ATTR>
+<XPD:REF name="StateMachine">/8G32nJ1gE2FrHlEl+o6bwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedDiagrams[0]" type="UMLActivityDiagram" guid="f9UAoh1u0UySdaxeqenWfQAA">
+<XPD:ATTR name="Name" type="string">ActivityDiagram1</XPD:ATTR>
+<XPD:REF name="DiagramOwner">/8G32nJ1gE2FrHlEl+o6bwAA</XPD:REF>
+<XPD:OBJ name="DiagramView" type="UMLActivityDiagramView" guid="zD6fr4S/102Dg1qShrMf4AAA">
+<XPD:REF name="Diagram">f9UAoh1u0UySdaxeqenWfQAA</XPD:REF>
+</XPD:OBJ>
 </XPD:OBJ>
 </XPD:OBJ>
 </XPD:OBJ>
